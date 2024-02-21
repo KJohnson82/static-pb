@@ -1,0 +1,44 @@
+---
+import { Icon } from 'astro-icon/components';
+import UserCard from "./UserCard.astro"; // Importing UserCard component for displaying employee details
+
+// Properties of each employee
+type Props = {
+  employees: {
+    id: number;
+    firstName: string;
+    lastName: string;
+    jobTitle: string;
+    isManager: number;
+    phoneNumber: string;
+    cellNumber?: string;
+    extension?: string;
+    email: string;
+    location: number;
+    department: number;
+  }[];
+};
+
+// Extract the employees data from props
+const { employees } = Astro.props;
+---
+
+<!-- Render the list of employees -->
+<ul class="rounded-sm ms-1">
+  {employees.map((employee) => (
+    <!-- List item for each employee -->
+    <li class="rounded-lg hover:bg-primary hover:bg-opacity-5 hover:rounded-md hover:border-transparent hover:text-white transition ease-in duration-200 transform focus:scale-110 hover:-translate-y-0.5 hover:scale-105 active:translate-y-0 first:border-t-0 last:border-b-0">
+      <!-- Clickable area, potentially linking to a detailed employee page or modal -->
+      <a href={`/employee/${employee.id}`} class="flex items-center justify-between p-4">
+        <!-- Employee name and job title -->
+        <span>
+          <!-- Places a star beside employees who are managers -->
+          {employee.isManager === 1 ? <Icon name="star" class="fill-white h-6 w-6 mr-2 inline"/> : ""}
+          {employee.firstName} {employee.lastName} - {employee.jobTitle}
+        </span>
+        <!-- Optionally, display an icon to indicate clickable -->
+        <Icon name="arrow_forward" class="fill-current h-4 w-4" />
+      </a>
+    </li>
+  ))}
+</ul>
