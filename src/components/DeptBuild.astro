@@ -1,4 +1,7 @@
 ---
+import type { GetStaticPaths } from "astro";
+import User from "./UserBuild.astro";
+
 
 
 // Define the type for the component's props
@@ -20,22 +23,24 @@ export type Props = {
       location: number;
       department: number;
     }[];
-  }[];
+  };
 };
+
 
 // Extract the DeptEmps data from props
 const { DeptEmps } = Astro.props;
+
 ---
 
+
+
 <!-- Render a list of departments -->
-<ul class="space-y-2">
-  {DeptEmps.map((department) => (
-    <!-- Iterate over each department in DeptEmps array -->
-    <li class="rounded-md shadow-lg overflow-hidden">
-      <!-- Department name as clickable item -->
-      <a href={`/departments/${department.id}`} class="block p-4 hover:bg-blue-500 hover:text-white transition-colors">
-        <h3 class="text-xl font-semibold">{department.deptName}</h3>
-      </a>
-    </li>
-  ))}
-</ul>
+<!-- Render the details for a single department and list its employees -->
+<div class="department-details">
+  <h2 class="text-xl font-bold mb-4">{DeptEmps.deptName}</h2>
+  <ul class="employee-list space-y-2">
+    {DeptEmps.employees.map((employee) => (
+      <h3><User employees={DeptEmps.employees}  /></h3>
+    ))}
+  </ul>
+</div>

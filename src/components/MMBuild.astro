@@ -1,0 +1,42 @@
+---
+
+// Properties of each mega mart store
+export type Props = {
+  megamarts: {
+    id: number;
+    locName: string;
+    locNum: number;
+    address: string;
+    city: string;
+    state: string;
+    zipcode?: number;
+    phoneNumber: string;
+    faxNumber: string;
+    email: string;
+    hours: string;
+  }[];
+};
+
+const { megamarts } = Astro.props;
+---
+
+<!-- Render a list of Mega Mart stores -->
+<ul class="space-y-4">
+  {megamarts.map((megamart) => (
+    <!-- List item for each Mega Mart store -->
+    <li class="bg-white shadow overflow-hidden rounded-lg">
+      <!-- Direct link to the Mega Mart store page -->
+      <a href={`/megamart/${megamart.id}`} class="block p-4 hover:bg-gray-50">
+        <div class="flex items-center justify-between">
+          <div class="text-lg font-medium text-gray-700">
+            {megamart.locName}
+          </div>
+          <!-- Optionally display more information or an icon -->
+          <span class="text-sm font-semibold text-gray-500">
+            More Info →
+          </span>
+        </div>
+      </a>
+    </li>
+  ))}
+</ul>

@@ -1,0 +1,36 @@
+---
+import type { GetStaticPaths } from "astro";
+import Data from '../../../data/Data.json';
+
+// Access departments directly based on your JSON structure
+const departments = Data.loctype.corporate.locations[0].departments;
+
+export async function getStaticPaths(departments) {
+    const emps = departments.flatMap(dept => dept.employees);
+    return emps.map(emp => ({
+        params: {
+            departmentID: department.id.toString(),
+            employeeID: emp.id.toString()
+        }
+    }));
+};
+
+const { departmentID, employeeID } = Astro.params;
+const department = departments.find(dept => dept.id.toString() === departmentID);
+const employee = department?.employees.find(emp => emp.id.toString() === employeeID);
+
+if (!employee) {
+    return Astro.redirect('/404');
+}
+
+---
+
+<html>
+  <body>
+    <h1>{employee.firstName} {employee.lastName}</h1>
+    <p>Job Title: {employee.jobTitle}</p>
+    <p>Email: {employee.email}</p>
+    <p>Phone Number: {employee.phoneNumber}</p>
+    <!-- Add more details as needed -->
+  </body>
+</html>

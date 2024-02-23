@@ -1,0 +1,41 @@
+---
+
+// Properties of each service center
+export type Props = {
+  servicecenters: {
+    id: number;
+    locName: string;
+    locNum: number;
+    address: string;
+    city: string;
+    state: string;
+    zipcode?: number;
+    phoneNumber: string;
+    faxNumber: string;
+    email: string;
+    hours: string;
+  }[];
+};
+
+const { servicecenters } = Astro.props;
+---
+
+<!-- Render a list of service centers -->
+<ul class="space-y-4">
+  {servicecenters.map((serviceCenter) => (
+    <!-- List item for each service center -->
+    <li class="bg-white shadow overflow-hidden rounded-lg">
+      <!-- Direct link to the service center page -->
+      <a href={`/servicecenters/${serviceCenter.id}`} class="block p-4 hover:bg-gray-50">
+        <div class="flex items-center justify-between">
+          <div class="text-lg font-medium text-gray-700">
+            {serviceCenter.locName}
+          </div>
+          <span class="text-sm font-semibold text-gray-500">
+            More Info →
+          </span>
+        </div>
+      </a>
+    </li>
+  ))}
+</ul>

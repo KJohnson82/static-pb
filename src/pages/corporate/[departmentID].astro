@@ -1,0 +1,52 @@
+---
+import { Icon } from 'astro-icon/components';
+import Data from '../../data/Data.json';
+
+// Access departments directly based on your JSON structure
+const departments = Data.loctype.corporate.locations[0].departments;
+
+export async function getStaticPaths() {
+  // Generate paths for each department
+  return departments.map((department) => ({
+    params: { departmentID: department.id },
+    props: { employees: department.employees },
+  }));
+}
+
+const {departmentID} = Astro.params;
+const { employees } = Astro.props;
+const department = departments.find(dept => dept.id.toString() === Astro.params.departmentID.toString());
+
+if (!department) {
+  return Astro.redirect('/404');
+}
+---
+
+<html>
+  <body>
+    <h1>{department.deptName}</h1>
+    <ul>
+      {department.employees.map(employee => (
+        <li>
+          <a href={`/corporate/${departmentID}/${employee.id}`}>
+            <!-- Places a star beside employees who are managers -->
+            {employee.isManager === 1 ? <Icon name="star" class="fill-white h-6 w-6 inline"/> : ""}
+            {employee.firstName + " " + employee.lastName + " - " + employee.jobTitle + " "} 
+          </a>
+        </li>
+      ))}
+    </ul>
+  </body>
+</html>
+
+<style>
+    input[type="radio"]:checked + .collapse-title {
+      background-color: #1c4e80;
+      border-bottom: 2px solid white;
+      font-weight: bold;
+    }
+  </style>
+
+<script>
+
+</script>
