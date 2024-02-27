@@ -1,23 +1,41 @@
 ---
-import type { GetStaticPaths } from "astro";
+import { Icon } from 'astro-icon/components'
 import Data from '../../../data/Data.json';
+import Main from '../../../layouts/Main.astro';
 
 // Access departments directly based on your JSON structure
 const departments = Data.loctype.corporate.locations[0].departments;
+console.log(departments);
 
-export async function getStaticPaths(departments) {
-    const emps = departments.flatMap(dept => dept.employees);
-    return emps.map(emp => ({
-        params: {
-            departmentID: department.id.toString(),
-            employeeID: emp.id.toString()
-        }
-    }));
-};
+// export async function getStaticPaths(departments) {
+//     const emps = departments.map(dept => dept.employees);
+//     return emps.map(emp => ({
+//         params: {
+//             departmentID: department.id.toString(),
+//             employeeID: emp.id.toString()
+//         }
+//     }));
+// };
+
+export async function getStaticPaths() {
+    // Access departments from the imported Data
+    const departments = Data.loctype.corporate.locations[0].departments;
+    const paths = departments.flatMap(department =>
+        department.employees.map(employee => ({
+            params: {
+                departmentID: department.id.toString(),
+                employeeID: employee.id.toString(),
+            },
+        }))
+    );
+
+    return paths;
+}
 
 const { departmentID, employeeID } = Astro.params;
 const department = departments.find(dept => dept.id.toString() === departmentID);
 const employee = department?.employees.find(emp => emp.id.toString() === employeeID);
+console.log(employee);
 
 if (!employee) {
     return Astro.redirect('/404');
@@ -25,7 +43,7 @@ if (!employee) {
 
 ---
 
-<html>
+<Main title={employeeID}>
   <body>
     <h1>{employee.firstName} {employee.lastName}</h1>
     <p>Job Title: {employee.jobTitle}</p>
@@ -33,4 +51,4 @@ if (!employee) {
     <p>Phone Number: {employee.phoneNumber}</p>
     <!-- Add more details as needed -->
   </body>
-</html>
+</Main>

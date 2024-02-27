@@ -1,34 +1,44 @@
 ---
+import Departments from './DeptBuild.astro';
+import CorpData from '../pages/corporate.astro';
 
-export type Props = {
-  DeptEmps: {
-    id: number;
-    deptName: string;
-    location: number;
-    employees: []; // Assuming you might just pass the count or similar minimal data needed for listing
-  }[];
-};
+// export type Props = {
+//   Department: {
+//     id: number;
+//     deptName: string;
+//     location: number;
+//     employees: []; // Assuming you might just pass the count or similar minimal data needed for listing
+//   }[];
+// };
 
-const { DeptEmps } = Astro.props;
+
+
+const { Department } = Astro.props;
 ---
 
 <!-- Rendering a list of corporate departments -->
-<ul class="space-y-4">
-  {DeptEmps.map((department) => (
-    <li class="bg-white shadow overflow-hidden rounded-md">
-      <!-- Direct link to the department page -->
-      <a href={`/corporate/${department.id}`} class="block px-4 py-4 hover:bg-gray-50">
-        <div class="flex items-center justify-between">
-          <div class="text-sm font-medium text-gray-700">
-            {department.deptName}
+<ul class="mt-4 ms-0.5 rounded-sm">
+    {Department.map((department) => (
+      <li class="relative rounded-md shadow-md border-2 my-2 py-0 mx-0 focus-within:border-0 focus-within:ms-2 focus-within:border-s-8 transition ease-in duration-200 transform  hover:-translate-y-1 hover:scale-100 active:translate-y-0 active:scale-95">
+        <!-- Direct link to the department page -->
+        <a href={`/corporate/${department.id}`} class="block px-4 py-4 text-white focus-within:shadow-md focus-within:bg-info focus-within:rounded-s-none rounded-lg hover:bg-primary hover:bg-blend-darken hover:rounded-md hover:border-transparent hover:text-white transition">
+          <div class="flex items-center justify-between">
+            <div class="text-lg uppercase font-semibold tracking-wide text-white">
+              {department.deptName}
+            </div>
+            
           </div>
-          <div class="ml-2 flex-shrink-0 flex">
-            <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-              {department.employees} Employees
-            </p>
-          </div>
-        </div>
-      </a>
-    </li>
-  ))}
+        </a>
+      </li>
+    ))}
+
+  
 </ul>
+
+<style>
+  input[type="radio"]:checked + .collapse-title {
+    background-color: #1c4e80;
+    border-bottom: 2px solid white;
+    font-weight: bold;
+  }
+</style>

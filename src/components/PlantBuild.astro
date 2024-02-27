@@ -1,25 +1,68 @@
 ---
 
-// Properties for plant locations, departments, and employees
-export type Props = {
-  PlantLocs: {
+// // Properties for plant locations, departments, and employees
+// export type Props = {
+//   PlantLocs: {
+//     id: number;
+//     locName: string;
+//     locNum: number;
+//     address: string;
+//     city: string;
+//     state: string;
+//     zipcode: number;
+//     phoneNumber: string;
+//     faxNumber: string;
+//     email: string;
+//     hours: string;
+//     departments: {
+//       id: number;
+//       deptName: string;
+//       location: number;
+//       employees: number; // Assuming you might simplify this to just the count for listing
+//     }[];
+//   }[];
+// };
+
+// Define types for plant data
+type Locations = {
+  PlantLocations: {
     id: number;
     locName: string;
-    locNum: number;
+    locNumber: number;
     address: string;
     city: string;
     state: string;
     zipcode: number;
     phoneNumber: string;
-    faxNumber: string;
+    faxNumber?: string;
     email: string;
     hours: string;
-    departments: {
-      id: number;
-      deptName: string;
-      location: number;
-      employees: number; // Assuming you might simplify this to just the count for listing
-    }[];
+    departments: Depts["PlantDepts"];
+  }[];
+};
+
+type Depts = {
+  PlantDepts: {
+    id: number;
+    deptName: string;
+    location: number;
+    employees: Users["PlantUsers"];
+  }[];
+};
+
+type Users = {
+  PlantUsers: {
+    id: number;
+    firstName: string;
+    lastName: string;
+    jobTitle: string;
+    phoneNumber: string;
+    cellNumber?: string;
+    extension?: string;
+    email: string;
+    location: number;
+    department: number;
+    isManger: number;
   }[];
 };
 

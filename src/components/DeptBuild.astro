@@ -1,12 +1,15 @@
 ---
 import type { GetStaticPaths } from "astro";
 import User from "./UserBuild.astro";
+import CorpData from '../pages/corporate.astro';
+import PlantData from '../pages/plant.astro';
+import CorpBuild from "./CorpBuild.astro";
 
 
 
 // Define the type for the component's props
 export type Props = {
-  DeptEmps: {
+  Deptartments: {
     id: number;
     deptName: string;
     location: number;
@@ -28,7 +31,7 @@ export type Props = {
 
 
 // Extract the DeptEmps data from props
-const { DeptEmps } = Astro.props;
+const { Deptartments } = Astro.props;
 
 ---
 
@@ -37,10 +40,10 @@ const { DeptEmps } = Astro.props;
 <!-- Render a list of departments -->
 <!-- Render the details for a single department and list its employees -->
 <div class="department-details">
-  <h2 class="text-xl font-bold mb-4">{DeptEmps.deptName}</h2>
+  <h2 class="text-xl font-bold mb-4">{Deptartments.deptName}</h2>
   <ul class="employee-list space-y-2">
-    {DeptEmps.employees.map((employee) => (
-      <h3><User employees={DeptEmps.employees}  /></h3>
+    {Deptartments.employees.map((employee) => (
+      <h3><User employees={Deptartments.employees}  /></h3>
     ))}
   </ul>
 </div>

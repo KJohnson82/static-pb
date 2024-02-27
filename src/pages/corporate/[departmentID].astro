@@ -1,43 +1,110 @@
 ---
 import { Icon } from 'astro-icon/components';
+import CorpData from '../corporate.astro';
 import Data from '../../data/Data.json';
+import Main from '../../layouts/Main.astro';
+import CorpHeadCard from '../../components/CorpHeadCard.astro';
+import Footer from '../../components/Footer.astro';
+import SearchBar from '../../components/SearchBar.astro';
 
 // Access departments directly based on your JSON structure
-const departments = Data.loctype.corporate.locations[0].departments;
+// const departments = CorpData.loctype.corporate.locations[0].departments;
+
 
 export async function getStaticPaths() {
-  // Generate paths for each department
-  return departments.map((department) => ({
-    params: { departmentID: department.id },
-    props: { employees: department.employees },
-  }));
-}
+    const departments = Data.loctype.corporate.locations[0].departments;
+    const paths = departments.map(department => ({
+        params: {
+            departmentID: department.id.toString(),
+        }
+    }));
 
-const {departmentID} = Astro.params;
-const { employees } = Astro.props;
-const department = departments.find(dept => dept.id.toString() === Astro.params.departmentID.toString());
+    return paths;
+}
+const departmentID = Astro.params.departmentID;
+const departments = Data.loctype.corporate.locations[0].departments;
+const department = departments.find(dept => dept.id.toString() === departmentID.toString());
+
+
+// const {departmentID} = Astro.params.departmentID;
+// const { employees } = Astro.props;
+// const department = departments.find(dept => dept.id.toString() === Astro.params.departmentID.toString());
 
 if (!department) {
   return Astro.redirect('/404');
 }
 ---
 
-<html>
-  <body>
-    <h1>{department.deptName}</h1>
-    <ul>
+<Main title={departmentID}>
+  <div class="w-full h-full card card-compact">
+    <section class="h-2/6 shadow-sm">
+      <!-- {/* Render the corporate header card with relevant information */} -->
+      <CorpHeadCard 
+        headCard={[
+          {
+            title: `${department.deptName}`, // Title of the card
+            subtitle1: "Corp. Phone",
+            address: "555 Generic Road,", // Address line
+            city: "Central City", // City
+            state: "WS", // State
+            zip: "77777", // ZIP code
+            subtitle2: "Corp. Email",
+            phone: "(888) 555-5555", // Phone number
+            email: "info@info.com", // Email address
+            subtitle3: "IT Help Desk", // Third subtitle
+            phone2: "(866) 555-5555", // Second phone number
+          },
+        ]}
+      />
+    </section>
+    <div class="divider shadow-sm -mt-2 -mb-2"></div>
+
+    <section
+        class="h-5/6 flex-auto pb-5 pt-5 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
+        
+      >
+      <div class="ps-1 py-0.5 pe-2">
+        <SearchBar />
+      </div>
+      <!-- <h1>{department.deptName}</h1> -->
+    <ul class="space-y-4">
       {department.employees.map(employee => (
-        <li>
-          <a href={`/corporate/${departmentID}/${employee.id}`}>
-            <!-- Places a star beside employees who are managers -->
-            {employee.isManager === 1 ? <Icon name="star" class="fill-white h-6 w-6 inline"/> : ""}
+        <li class="rounded-lg hover:bg-primary hover:bg-opacity-5 hover:rounded-md hover:border-transparent hover:text-white transition ease-in duration-200 transform focus:scale-110 hover:-translate-y-0.5 hover:scale-105 active:translate-y-0 first:border-t-0 last:border-b-0">
+          <a href={`/corporate/${departmentID}/${employee.id}`} class="block px-4 py-4 hover:bg-gray-50">
+            <div class="mb-0.5 -px-4 p-0 focus-within:bg-primary focus-within:border-e-8 focus-within:rounded-md focus-within:text-white focus-within:-translate-y-0.5 focus-within:scale-105 focus-within:m-0.5 focus-within:me-1 ">
+              <h4 class="items-center place-items-center  mb-0.5 -px-4 p-0">
+                <!-- Places a star beside employees who are managers -->
+            {employee.isManager === 1 ? <Icon name="star2" class="fill-white h-6 w-6 inline"/> : ""} 
             {employee.firstName + " " + employee.lastName + " - " + employee.jobTitle + " "} 
+                </h4>
+              </div>
           </a>
         </li>
       ))}
     </ul>
-  </body>
-</html>
+
+    </section>
+
+    <div class="divider shadow-sm -mt-1 -mb-1"></div>
+
+    <section class="box-border h-1/5 mt-2">
+      <!-- {/* Render the footer with navigation links */} -->
+      <Footer
+        bottomNav={[
+          { icon: "home", label: "Home", to: "/" },
+          // { icon: "corporate", label: "Corporate", to: "/corporate" },
+          { icon: "store_1", label: "Mega Mart", to: "/megamart" },
+          {
+            icon: "service_center_1",
+            label: "Service Center",
+            to: "/servicecenter",
+          },
+          { icon: "plant", label: "Plant", to: "/plant" },
+        ]}
+      />
+    </section>
+  </div>
+</Main>
 
 <style>
     input[type="radio"]:checked + .collapse-title {
@@ -45,6 +112,10 @@ if (!department) {
       border-bottom: 2px solid white;
       font-weight: bold;
     }
+    .card {
+    margin: 0 auto;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  }
   </style>
 
 <script>

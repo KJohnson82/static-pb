@@ -9,5 +9,5 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
   },
-  integrations: [tailwind(), icon()]
+  integrations: [tailwind(), icon({iconDir: "src/icons",})]
 });
