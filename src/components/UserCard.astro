@@ -1,7 +1,8 @@
 ---
 // Define the type for the component's props
 type UserProps = {
-  userName: string;
+  firstName: string;
+  lastName: string;
   phoneNumber: string;
   email: string;
   jobTitle: string;
@@ -10,18 +11,33 @@ type UserProps = {
 };
 
 // Extract the props and cast them to the UserProps type
-const { userName, phoneNumber, email, jobTitle, extension, cellNumber } =
-  Astro.props as UserProps;
+const {
+  firstName,
+  lastName,
+  phoneNumber,
+  email,
+  jobTitle,
+  extension,
+  cellNumber,
+} = Astro.props as UserProps;
+
+const userName = `${firstName} ${lastName}`;
 ---
 
 <!-- // Render the user card -->
 <div class="user-card card card-compact bg-inherit p-2">
   <!-- {/* Conditionally render user name and job title */} -->
-  <!-- {userName !== "" ? (
-    <p class="text-md text-gray-600 ps-1">
-      {userName} {jobTitle !== "" ? `- ${jobTitle}` : null}
-    </p>
-  ) : null} -->
+  {
+    userName !== "" ? (
+      <p class="text-lg text-base-content font-semibold ps-1">{userName}</p>
+    ) : null
+  }
+
+{
+  jobTitle !== "" ? (
+    <p class="text-md text-base-content font-semibold ps-1">{jobTitle}</p>
+  ) : null
+}
 
   <!-- {/* Conditionally render phone number and extension */} -->
   {

@@ -1,11 +1,11 @@
 ---
-import { Icon } from 'astro-icon/components';
-import CorpData from '../corporate.astro';
 import Data from '../../data/Data.json';
 import Main from '../../layouts/Main.astro';
 import CorpHeadCard from '../../components/CorpHeadCard.astro';
 import Footer from '../../components/Footer.astro';
 import SearchBar from '../../components/SearchBar.astro';
+import { Icon } from 'astro-icon/components';
+
 
 // Access departments directly based on your JSON structure
 // const departments = CorpData.loctype.corporate.locations[0].departments;
@@ -25,10 +25,6 @@ const departmentID = Astro.params.departmentID;
 const departments = Data.loctype.corporate.locations[0].departments;
 const department = departments.find(dept => dept.id.toString() === departmentID.toString());
 
-
-// const {departmentID} = Astro.params.departmentID;
-// const { employees } = Astro.props;
-// const department = departments.find(dept => dept.id.toString() === Astro.params.departmentID.toString());
 
 if (!department) {
   return Astro.redirect('/404');
@@ -60,28 +56,30 @@ if (!department) {
     <div class="divider shadow-sm -mt-2 -mb-2"></div>
 
     <section
-        class="h-5/6 flex-auto pb-5 pt-5 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
-        
+        class="h-5/6 flex-auto pb-5 pt-5 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
       >
       <div class="ps-1 py-0.5 pe-2">
         <SearchBar />
       </div>
+
       <!-- <h1>{department.deptName}</h1> -->
-    <ul class="space-y-4">
-      {department.employees.map(employee => (
-        <li class="rounded-lg hover:bg-primary hover:bg-opacity-5 hover:rounded-md hover:border-transparent hover:text-white transition ease-in duration-200 transform focus:scale-110 hover:-translate-y-0.5 hover:scale-105 active:translate-y-0 first:border-t-0 last:border-b-0">
-          <a href={`/corporate/${departmentID}/${employee.id}`} class="block px-4 py-4 hover:bg-gray-50">
-            <div class="mb-0.5 -px-4 p-0 focus-within:bg-primary focus-within:border-e-8 focus-within:rounded-md focus-within:text-white focus-within:-translate-y-0.5 focus-within:scale-105 focus-within:m-0.5 focus-within:me-1 ">
-              <h4 class="items-center place-items-center  mb-0.5 -px-4 p-0">
-                <!-- Places a star beside employees who are managers -->
-            {employee.isManager === 1 ? <Icon name="star2" class="fill-white h-6 w-6 inline"/> : ""} 
-            {employee.firstName + " " + employee.lastName + " - " + employee.jobTitle + " "} 
-                </h4>
-              </div>
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div class="h-full ps-2 py-1 pe-2 border-4 border-transparent overflow-y-auto no-scrollbar">
+      <ul class="mt-4 ms-0.5">
+        {department.employees.map(employee => (
+          <li class="relative rounded-md shadow-md border-2 my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 " >
+            <a href={`/corporate/${departmentID}/${employee.id}`} class="block px-4 py-4 text-white rounded-lg hover:bg-primary hover:rounded-md hover:border-transparent hover:text-white transition-colors" >
+              <div class=" justify-around items-center place-items-center text-lg tracking-wider text-white mb-0.5 -px-4 p-0 capitalize truncate align-middle" >
+                  <!-- Places a star beside employees who are managers -->
+              {employee.isManager === 1 ? <Icon name="star" class="inline-block pe-2 h-6 w-auto"/> : ""} 
+              {employee.firstName + " " + employee.lastName + " - " + employee.jobTitle + " "} 
+                
+                </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>  
+    
 
     </section>
 
@@ -93,9 +91,9 @@ if (!department) {
         bottomNav={[
           { icon: "home", label: "Home", to: "/" },
           // { icon: "corporate", label: "Corporate", to: "/corporate" },
-          { icon: "store_1", label: "Mega Mart", to: "/megamart" },
+          { icon: "store", label: "Mega Mart", to: "/megamart" },
           {
-            icon: "service_center_1",
+            icon: "service_center",
             label: "Service Center",
             to: "/servicecenter",
           },
@@ -107,14 +105,19 @@ if (!department) {
 </Main>
 
 <style>
-    input[type="radio"]:checked + .collapse-title {
+    /* input[type="radio"]:checked + .collapse-title {
       background-color: #1c4e80;
       border-bottom: 2px solid white;
       font-weight: bold;
-    }
+    } */
     .card {
     margin: 0 auto;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  }
+  li {
+    font-family: 'Rubik', sans-serif;
+    font-weight: normal;
+    
   }
   </style>
 

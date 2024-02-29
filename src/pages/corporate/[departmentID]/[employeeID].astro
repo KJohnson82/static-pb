@@ -2,20 +2,15 @@
 import { Icon } from 'astro-icon/components'
 import Data from '../../../data/Data.json';
 import Main from '../../../layouts/Main.astro';
+import CorpHeadCard from '../../../components/CorpHeadCard.astro';
+import EmployeeHeadCard from '../../../components/EmployeeHeadCard.astro';
+import Footer from '../../../components/Footer.astro';
+import SearchBar from '../../../components/SearchBar.astro';
+import UserCard from '../../../components/UserCard.astro';
 
 // Access departments directly based on your JSON structure
 const departments = Data.loctype.corporate.locations[0].departments;
 console.log(departments);
-
-// export async function getStaticPaths(departments) {
-//     const emps = departments.map(dept => dept.employees);
-//     return emps.map(emp => ({
-//         params: {
-//             departmentID: department.id.toString(),
-//             employeeID: emp.id.toString()
-//         }
-//     }));
-// };
 
 export async function getStaticPaths() {
     // Access departments from the imported Data
@@ -44,11 +39,90 @@ if (!employee) {
 ---
 
 <Main title={employeeID}>
-  <body>
-    <h1>{employee.firstName} {employee.lastName}</h1>
-    <p>Job Title: {employee.jobTitle}</p>
-    <p>Email: {employee.email}</p>
-    <p>Phone Number: {employee.phoneNumber}</p>
-    <!-- Add more details as needed -->
-  </body>
+  <div class="w-full h-full card card-compact">
+    <section class="h-2/6 shadow-sm">
+        <!-- {/* Render the corporate header card with relevant information */} -->
+
+        <EmployeeHeadCard
+            headCard={[
+            {
+                title: `${department.deptName}`, // Title of the card
+                subtitle1: "",
+                address: "", // Address line
+                city: "", // City
+                state: "", // State
+                zip: "", // ZIP code
+                subtitle2: "",
+                phone: "", // Phone number
+                email: ``, // Email address
+                subtitle3: "", // Third subtitle
+                phone2: ``, // Second phone number
+            },
+            ]}
+        
+        />
+
+        </EmployeeHeadCard>
+      </section>
+      <div class="divider shadow-sm -mt-2 -mb-2"></div>
+
+      <section class="h-5/6 flex-auto pb-5 pt-5 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
+      >
+        <div class="ps-1 py-0.5 pe-2">
+            <SearchBar />
+          </div>
+        
+          <div class="user-card">
+
+            <UserCard 
+            firstName={employee.firstName}
+            lastName={employee.lastName}
+            jobTitle={employee.jobTitle}
+            email={employee.email}
+            phoneNumber={employee.phoneNumber}
+            extension={employee.extension}
+            cellNumber={employee.cellNumber}
+            />
+           
+          </div>
+
+
+
+      </section>
+
+    
+
+    <div class="divider shadow-sm -mt-1 -mb-1"></div>
+    <section class="box-border h-1/5 mt-2">
+        <!-- {/* Render the footer with navigation links */} -->
+        <Footer
+          bottomNav={[
+            { icon: "home", label: "Home", to: "/" },
+            // { icon: "corporate", label: "Corporate", to: "/corporate" },
+            { icon: "store", label: "Mega Mart", to: "/megamart" },
+            {
+              icon: "service_center",
+              label: "Service Center",
+              to: "/servicecenter",
+            },
+            { icon: "plant", label: "Plant", to: "/plant" },
+          ]}
+        />
+      </section>
+  </div>
 </Main>
+
+
+<!-- <script>
+    window.onload = function () {
+        const p_elements = document.querySelectorAll("p");
+
+        p_elements.forEach((element) => {
+            if (element.textContent = "") {
+                element.style.display = "none";
+            }
+        })
+
+
+    }
+</script> -->

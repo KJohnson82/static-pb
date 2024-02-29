@@ -19,7 +19,7 @@ const { Department } = Astro.props;
 <!-- Rendering a list of corporate departments -->
 <ul class="mt-4 ms-0.5 rounded-sm">
     {Department.map((department) => (
-      <li class="relative rounded-md shadow-md border-2 my-2 py-0 mx-0 focus-within:border-0 focus-within:ms-2 focus-within:border-s-8 transition ease-in duration-200 transform  hover:-translate-y-1 hover:scale-100 active:translate-y-0 active:scale-95">
+      <li class="relative rounded-md shadow-md border-2 my-2 py-0 mx-0 transition ease-in duration-200 transform  hover:-translate-y-1 hover:scale-100 ">
         <!-- Direct link to the department page -->
         <a href={`/corporate/${department.id}`} class="block px-4 py-4 text-white focus-within:shadow-md focus-within:bg-info focus-within:rounded-s-none rounded-lg hover:bg-primary hover:bg-blend-darken hover:rounded-md hover:border-transparent hover:text-white transition">
           <div class="flex items-center justify-between">
@@ -36,9 +36,9 @@ const { Department } = Astro.props;
 </ul>
 
 <style>
-  input[type="radio"]:checked + .collapse-title {
+  /* input[type="radio"]:checked + .collapse-title {
     background-color: #1c4e80;
     border-bottom: 2px solid white;
     font-weight: bold;
-  }
+  } */
 </style>
