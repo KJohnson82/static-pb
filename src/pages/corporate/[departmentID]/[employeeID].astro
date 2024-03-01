@@ -10,7 +10,7 @@ import UserCard from '../../../components/UserCard.astro';
 
 // Access departments directly based on your JSON structure
 const departments = Data.loctype.corporate.locations[0].departments;
-console.log(departments);
+// console.log(departments);
 
 export async function getStaticPaths() {
     // Access departments from the imported Data
@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 const { departmentID, employeeID } = Astro.params;
 const department = departments.find(dept => dept.id.toString() === departmentID);
 const employee = department?.employees.find(emp => emp.id.toString() === employeeID);
-console.log(employee);
+// console.log(employee);
 
 if (!employee) {
     return Astro.redirect('/404');
@@ -38,7 +38,7 @@ if (!employee) {
 
 ---
 
-<Main title={employeeID}>
+<Main title={employee.firstName + employee.lastName}>
   <div class="w-full h-full card card-compact">
     <section class="h-2/6 shadow-sm">
         <!-- {/* Render the corporate header card with relevant information */} -->

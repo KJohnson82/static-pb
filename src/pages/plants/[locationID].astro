@@ -1,0 +1,108 @@
+---
+import Data from '../../data/Data.json';
+import Main from '../../layouts/Main.astro';
+import CorpHeadCard from '../../components/CorpHeadCard.astro';
+import Footer from '../../components/Footer.astro';
+import SearchBar from '../../components/SearchBar.astro';
+import { Icon } from 'astro-icon/components';
+
+export async function getStaticPaths() {
+    const location = Data.loctype.plant.locations;
+    // const location = Data.loctype.plant[locations.id].map(plant => location.departments).flat();
+    const paths = location.map(location => ({
+        params: {
+            locationID: location.id.toString(),
+        }
+    }));
+
+    return paths;
+}
+const locationID = Astro.params.locationID;
+const locations = Data.loctype.plant.locations;
+const location = locations.find(loc => loc.id.toString() === locationID.toString());
+const departments = location.departments;
+
+
+if (!location) {
+  return Astro.redirect('/404');
+}
+
+
+
+
+---
+
+<Main title={location.locName}>
+    <div class="w-full h-full card card-compact">
+        <section class="h-2/6 shadow-sm">
+            <CorpHeadCard headCard={[
+                {
+            title: `${location.locName}`, // Title of the card
+            subtitle1: "Plant. Phone",
+            address: "555 Generic Road,", // Address line
+            city: "Central City", // City
+            state: "WS", // State
+            zip: "77777", // ZIP code
+            subtitle2: "Main Email",
+            phone: "(888) 555-5555", // Phone number
+            email: "info@info.com", // Email address
+            subtitle3: "IT Help Desk", // Third subtitle
+            phone2: "(866) 555-5555", // Second phone number
+          },
+            ]} />
+            
+            
+        </section >
+        <div class="divider shadow-sm -mt-2 -mb-2"></div>
+
+        <section class="h-5/6 flex-auto pb-5 pt-5 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
+        >
+        <div class="ps-1 py-0.5 pe-2">
+            <SearchBar />
+          </div>
+
+          <div class="h-full ps-2 py-1 pe-2 border-4 border-transparent overflow-y-auto no-scrollbar">
+            <ul class="mt-4 ms-0.5">
+              {location.departments.map(department => (
+                <li class="relative rounded-md shadow-md border-2 my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 " >
+                  <a href={`/plant/${locationID}/${department.id}`} class="block px-4 py-4 text-white rounded-lg hover:bg-primary hover:rounded-md hover:border-transparent hover:text-white transition-colors" >
+                    <div class=" justify-around items-center place-items-center text-lg tracking-wider text-white mb-0.5 -px-4 p-0 capitalize truncate align-middle" > 
+                    {department.deptName} 
+                      </div>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div> 
+        </section>
+        
+
+        <div class="divider shadow-sm -mt-1 -mb-1"></div>
+
+    <section class="box-border h-1/5 mt-2">
+      <!-- {/* Render the footer with navigation links */} -->
+      <Footer
+        bottomNav={[
+          { icon: "home", label: "Home", to: "/" },
+          // { icon: "corporate", label: "Corporate", to: "/corporate" },
+          { icon: "store", label: "Mega Mart", to: "/megamart" },
+          {
+            icon: "service_center",
+            label: "Service Center",
+            to: "/servicecenter",
+          },
+          { icon: "plant", label: "Plant", to: "/plant" },
+        ]}
+      />
+    </section>
+
+
+    </div>
+
+
+
+</Main>
+
+<style>
+
+</style>

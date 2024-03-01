@@ -1,88 +1,60 @@
 ---
 
-// // Properties for plant locations, departments, and employees
-// export type Props = {
-//   PlantLocs: {
+// Define types for plant data
+// type Locations = {
+//   PlantLocations: {
 //     id: number;
 //     locName: string;
-//     locNum: number;
+//     locNumber: number;
 //     address: string;
 //     city: string;
 //     state: string;
 //     zipcode: number;
 //     phoneNumber: string;
-//     faxNumber: string;
+//     faxNumber?: string;
 //     email: string;
 //     hours: string;
-//     departments: {
-//       id: number;
-//       deptName: string;
-//       location: number;
-//       employees: number; // Assuming you might simplify this to just the count for listing
-//     }[];
+//     departments: Depts["PlantDepts"];
 //   }[];
 // };
 
-// Define types for plant data
-type Locations = {
-  PlantLocations: {
-    id: number;
-    locName: string;
-    locNumber: number;
-    address: string;
-    city: string;
-    state: string;
-    zipcode: number;
-    phoneNumber: string;
-    faxNumber?: string;
-    email: string;
-    hours: string;
-    departments: Depts["PlantDepts"];
-  }[];
-};
+// type Depts = {
+//   PlantDepts: {
+//     id: number;
+//     deptName: string;
+//     location: number;
+//     employees: Users["PlantUsers"];
+//   }[];
+// };
 
-type Depts = {
-  PlantDepts: {
-    id: number;
-    deptName: string;
-    location: number;
-    employees: Users["PlantUsers"];
-  }[];
-};
-
-type Users = {
-  PlantUsers: {
-    id: number;
-    firstName: string;
-    lastName: string;
-    jobTitle: string;
-    phoneNumber: string;
-    cellNumber?: string;
-    extension?: string;
-    email: string;
-    location: number;
-    department: number;
-    isManger: number;
-  }[];
-};
+// type Users = {
+//   PlantUsers: {
+//     id: number;
+//     firstName: string;
+//     lastName: string;
+//     jobTitle: string;
+//     phoneNumber: string;
+//     cellNumber?: string;
+//     extension?: string;
+//     email: string;
+//     location: number;
+//     department: number;
+//     isManger: number;
+//   }[];
+// };
 
 const { PlantLocs } = Astro.props;
 ---
 
 <!-- Render a list of plant locations -->
-<ul class="space-y-4">
+<ul class="mt-4 ms-0.5 rounded-sm">
   {PlantLocs.map((location) => (
-    <li class="bg-white shadow overflow-hidden rounded-lg">
+      <li class="relative rounded-md shadow-md border-2 my-2 py-0 mx-0 transition ease-in duration-200 transform  hover:-translate-y-1 hover:scale-100 ">
       <!-- Direct link to the plant location page -->
-      <a href={`/plants/${location.id}`} class="block p-4 hover:bg-gray-50">
+      <a href={`/plants/${location.id}`} class="block px-4 py-4 text-white focus-within:shadow-md focus-within:bg-info focus-within:rounded-s-none rounded-lg hover:bg-primary hover:bg-blend-darken hover:rounded-md hover:border-transparent hover:text-white transition">
         <div class="flex items-center justify-between">
-          <div class="text-lg font-medium text-gray-700">
-            {location.locName} - {location.city}, {location.state}
-          </div>
-          <div class="ml-2 flex-shrink-0 flex">
-            <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-              {location.departments.length} Departments
-            </p>
+          <div class="text-lg uppercase font-semibold tracking-wide text-white">
+            {location.locNum} - {location.locName}
           </div>
         </div>
       </a>
