@@ -24,51 +24,62 @@ const {
 const userName = `${firstName} ${lastName}`;
 ---
 
-<!-- // Render the user card -->
-<div class="user-card card card-compact bg-inherit p-2">
-  <!-- {/* Conditionally render user name and job title */} -->
+<section class="mx-4 my-2 flex-auto resize-none no-scrollbar overflow-y-scroll overscroll-contain scroll-auto ">
+  <div class="h-full rounded-2xl bg-purple-600 ps-4 py-6 pe-4 border-4 border-secondary no-scrollbar flex-auto scroll-auto overscroll-contain overflow-y-auto "
+  >
+    <!-- {/* Conditionally render user name and job title */} -->
+    {
+      userName !== "" ? (
+        <h1 class=" w-auto font-semibold uppercase text-center ">{userName}</h1>
+      ) : null
+    }
+  
   {
-    userName !== "" ? (
-      <p class="text-lg text-base-content font-semibold ps-1">{userName}</p>
+    jobTitle !== "" ? (
+      <p class="text-2xl text-base-content font-semibold ps-1">{jobTitle}</p>
     ) : null
   }
+  
+    <!-- {/* Conditionally render phone number and extension */} -->
+    {
+      phoneNumber !== "" ? (
+        <p class="text-md text-base-content font-semibold ps-1">
+          <strong>Phone:</strong> {phoneNumber}{" "}
+          {extension !== "" ? `| Ext: ${extension}` : null}
+        </p>
+      ) : null
+    }
+  
+    <!-- {/* Conditionally render cell number */} -->
+    {
+      cellNumber !== "" ? (
+        <p class="text-md text-base-content font-semibold ps-1">
+          <strong>Cell Number:</strong> {cellNumber}
+        </p>
+      ) : null
+    }
+  
+    <!-- {/* Conditionally render email */} -->
+    {
+      email !== "" ? (
+        <p class="text-md text-base-content font-semibold ps-1">
+          <strong>Email:</strong> {email}
+        </p>
+      ) : null
+    }
+  </div>
 
-{
-  jobTitle !== "" ? (
-    <p class="text-md text-base-content font-semibold ps-1">{jobTitle}</p>
-  ) : null
+
+</section>
+<!-- // Render the user card -->
+
+
+<style>
+h1 {
+  
 }
 
-  <!-- {/* Conditionally render phone number and extension */} -->
-  {
-    phoneNumber !== "" ? (
-      <p class="text-md text-base-content font-semibold ps-1">
-        <strong>Phone:</strong> {phoneNumber}{" "}
-        {extension !== "" ? `| Ext: ${extension}` : null}
-      </p>
-    ) : null
-  }
-
-  <!-- {/* Conditionally render cell number */} -->
-  {
-    cellNumber !== "" ? (
-      <p class="text-md text-base-content font-semibold ps-1">
-        <strong>Cell Number:</strong> {cellNumber}
-      </p>
-    ) : null
-  }
-
-  <!-- {/* Conditionally render email */} -->
-  {
-    email !== "" ? (
-      <p class="text-md text-base-content font-semibold ps-1">
-        <strong>Email:</strong> {email}
-      </p>
-    ) : null
-  }
-</div>
-
-<style></style>
+</style>
 
 <script>
   // JavaScript function to bold the "Ext:" text in phone numbers
