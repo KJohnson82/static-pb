@@ -24,75 +24,130 @@ const {
 const userName = `${firstName} ${lastName}`;
 ---
 
-<section class="mx-4 my-2 flex-auto resize-none no-scrollbar overflow-y-scroll overscroll-contain scroll-auto ">
-  <div class="h-full rounded-2xl bg-purple-600 ps-4 py-6 pe-4 border-4 border-secondary no-scrollbar flex-auto scroll-auto overscroll-contain overflow-y-auto "
+<section
+  class="mx-4 my-2 flex-auto resize-none no-scrollbar overflow-y-scroll overscroll-contain scroll-auto"
+>
+  <div
+    class="h-full rounded-2xl bg-purple-600 py-6 border-4 border-secondary no-scrollbar flex-auto scroll-auto overscroll-contain overflow-y-auto"
   >
     <!-- {/* Conditionally render user name and job title */} -->
-    {
-      userName !== "" ? (
-        <h1 class=" w-auto font-semibold uppercase text-center ">{userName}</h1>
-      ) : null
-    }
-  
-  {
-    jobTitle !== "" ? (
-      <p class="text-2xl text-base-content font-semibold ps-1">{jobTitle}</p>
-    ) : null
-  }
-  
-    <!-- {/* Conditionally render phone number and extension */} -->
-    {
-      phoneNumber !== "" ? (
-        <p class="text-md text-base-content font-semibold ps-1">
-          <strong>Phone:</strong> {phoneNumber}{" "}
-          {extension !== "" ? `| Ext: ${extension}` : null}
-        </p>
-      ) : null
-    }
-  
-    <!-- {/* Conditionally render cell number */} -->
-    {
-      cellNumber !== "" ? (
-        <p class="text-md text-base-content font-semibold ps-1">
-          <strong>Cell Number:</strong> {cellNumber}
-        </p>
-      ) : null
-    }
-  
-    <!-- {/* Conditionally render email */} -->
-    {
-      email !== "" ? (
-        <p class="text-md text-base-content font-semibold ps-1">
-          <strong>Email:</strong> {email}
-        </p>
-      ) : null
-    }
+    <div id="name-title" class=" ps-2 pe-2">
+      {
+        userName !== "" ? (
+          <h1
+            id="user-name"
+            class=" font-semibold tracking-wide text-center uppercase"
+          >
+            {userName}
+          </h1>
+        ) : null
+      }
+    </div>
+
+    <div class="mx-4">
+      {
+        jobTitle !== "" ? (
+          <h2 class="-mt-0.5 tracking-widest text-center uppercase font-semibold ps-1">
+            {jobTitle}
+          </h2>
+        ) : null
+      }
+    </div>
+
+    <div class="divider divider-info m-0"></div>
+
+    <section class="mt-4">
+      <div class="ms-5">
+        {
+          phoneNumber !== "" ? (
+            <>
+              <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
+                Phone Number
+              </p>
+              <div class="divider divider-info m-0" />
+              <p class="text-md uppercase tracking-wide text-base-content font-semibold ps-0 pb-4 -mt-0.5">
+                {phoneNumber} {extension !== "" ? `| Ext: ${extension}` : null}
+              </p>
+            </>
+          ) : null
+        }
+      </div>
+
+      <div class="ms-5">
+        <!-- {/* Conditionally render cell number */} -->
+        {
+          cellNumber !== "" ? (
+            <>
+              <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
+                Cell Number
+              </p>
+              <div class="divider divider-info m-0" />
+              <p class="text-md text-base-content tracking-wide uppercase font-semibold pb-4 -mt-0.5">
+                {cellNumber}
+              </p>
+            </>
+          ) : null
+        }
+      </div>
+
+      <div class="ms-5">
+        <!-- {/* Conditionally render email */} -->
+        {
+          email !== "" ? (
+            <>
+              <p class="cat-name uppercase tracking-wide font-semibold -mb-2">Email</p>
+              <div class="divider divider-info m-0" />
+              <p class="text-md text-base-content tracking-wide text-lg font-semibold pb-4 -mt-1 ">
+                {email}
+              </p>
+            </>
+          ) : null
+        }
+      </div>
+    </section>
   </div>
-
-
 </section>
 <!-- // Render the user card -->
 
-
 <style>
-h1 {
-  
-}
+  #user-name {
+    font-size: clamp(18px, 24px, 26px);
+    overflow: visible;
+    white-space: nowrap;
+  }
 
+  h2 {
+    font-size: clamp(16px, 20px, 22px);
+    overflow: visible;
+    white-space: nowrap;
+  }
+
+  /* #cat-name {
+    font-size: clamp(12px, 15px, 18px);
+    overflow: visible;
+    white-space: nowrap;
+  } */
 </style>
 
 <script>
-  // JavaScript function to bold the "Ext:" text in phone numbers
-  window.onload = function () {
-    const elements = document.querySelectorAll("p");
+  // window.onload = function () {
+  //   const userNameElement = document.getElementById("user-name");
+  // const userNameWidth = userNameElement.offsetWidth;
 
-    elements.forEach((element) => {
-      if (element.textContent && element.textContent.includes("Ext:")) {
-        element.innerHTML = element.innerHTML.replace(
-          "Ext:",
-          "<strong>Ext:</strong>"
-        );
-      }
-    });
-  };
+  // userNameElement.parentElement.style.width = `${userNameWidth}px`;
+  // }
+
+  // JavaScript function to bold the "Ext:" text in phone numbers
+  // window.onload = function () {
+  //   const elements = document.querySelectorAll("p");
+
+  //   elements.forEach((element) => {
+  //     if (element.textContent && element.textContent.includes("Ext:")) {
+  //       element.innerHTML = element.innerHTML.replace(
+  //         "Ext:",
+  //         "<strong>Ext:</strong>"
+  //       );
+  //     }
+  //   });
+  // };
 </script>

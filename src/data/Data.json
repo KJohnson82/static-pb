@@ -23,8 +23,8 @@
               "employees": [
                 {
                   "id": 2,
-                  "firstName": "Ted",
-                  "lastName": "Mosby",
+                  "firstName": "Theodore",
+                  "lastName": "Jackowitz-Stein",
                   "jobTitle": "Receptionist",
                   "isManager": 1,
                   "phoneNumber": "555-555-5555",
@@ -50,7 +50,7 @@
                   "phoneNumber": "555-555-5555",
                   "cellNumber": "",
                   "extension": "5555",
-                  "email": "apennyworth@info.com",
+                  "email": "apennyworth@mcelroymetal.com",
                   "location": 1,
                   "department": 2
                 },

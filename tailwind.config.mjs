@@ -6,8 +6,7 @@ export default {
 			
 		},
 		fontFamily: {
-			sans: ['Oxygen', 'sans-serif'],
-			serif: ['DMSerifDisplay','serif'],
+			sans: ['Rubik', 'sans-serif'],
 		},
 	},
 	plugins: [require('@tailwindcss/typography'), require("daisyui")],
