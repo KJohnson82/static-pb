@@ -1,0 +1,61 @@
+---
+// Import necessary components and data
+import Main from '../../layouts/Main.astro';
+import StoreCard from '../../components/StoreCard.astro';
+import Footer from '../../components/Footer.astro';
+import Data from '../../data/Data.json';
+
+export async function getStaticPaths() {
+    // Access departments from the imported Data
+    const stores = Data.loctype['mega mart'].locations;
+    const paths = stores.flatMap(location =>
+        location.employees.map(employee => ({
+            params: {
+                storeID: location.id.toString(),
+                // employeeID: employee.id.toString(),
+            },
+        }))
+    );
+
+    return paths;
+}
+
+// Fetching the store ID from the URL parameters
+const { storeID } = Astro.params;
+
+// Assuming your stores data is located similarly to your employees
+const store = Data.loctype['mega mart'].locations.find(store => store.id.toString() === storeID);
+
+if (!store) {
+    // Redirect to a 404 page if the store is not found
+    return Astro.redirect('/404');
+}
+---
+
+<Main title={`${store.locName} | Metal Marts`}>
+  <div class="w-full h-full card card-compact">
+    <section class="h-2/6 shadow-sm">
+        <!-- Render the store card with relevant information -->
+        <StoreCard 
+            storeName={store.locName}
+            location={store.locNum}
+            phoneNumber={store.phoneNumber}
+            email={store.email}
+            // Add more props as needed based on your StoreCard component
+        />
+    </section>
+
+    <div class="divider shadow-sm -mt-2 -mb-2"></div>
+
+    <!-- Additional content sections can be added here -->
+
+    <!-- Render the footer with navigation links -->
+    <Footer
+      bottomNav={[
+        { icon: "home", label: "Home", to: "/" },
+        { icon: "store", label: "Find a Metal Mart", to: "/stores" },
+        // Add more navigation items as needed
+      ]}
+    />
+  </div>
+</Main>

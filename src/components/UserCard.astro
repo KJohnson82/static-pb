@@ -25,13 +25,13 @@ const userName = `${firstName} ${lastName}`;
 ---
 
 <section
-  class="mx-4 my-2 flex-auto resize-none no-scrollbar overflow-y-scroll overscroll-contain scroll-auto"
+  class="mx-4 my-4 flex-auto resize-none no-scrollbar overflow-y-scroll overscroll-contain scroll-auto"
 >
   <div
-    class="h-full rounded-2xl bg-purple-600 py-6 border-4 border-secondary no-scrollbar flex-auto scroll-auto overscroll-contain overflow-y-auto"
+    class="min-h-[26rem] max-h-[28rem] pb-5 pt-5 py-1 rounded-2xl bg-neutral border-4 border-secondary shadow-sm"
   >
     <!-- {/* Conditionally render user name and job title */} -->
-    <div id="name-title" class=" ps-2 pe-2">
+    <div id="name-title" class="sm:text-xl md:text-2xl lg:text-3xl line-clamp-2 ps-2 pe-2 ">
       {
         userName !== "" ? (
           <h1
@@ -44,7 +44,7 @@ const userName = `${firstName} ${lastName}`;
       }
     </div>
 
-    <div class="mx-4">
+    <div class="mx-4 sm:text-lg md:text-xl lg:text-2xl py-1 line-clamp-1 ">
       {
         jobTitle !== "" ? (
           <h2 class="-mt-0.5 tracking-widest text-center uppercase font-semibold ps-1">
@@ -111,15 +111,15 @@ const userName = `${firstName} ${lastName}`;
 
 <style>
   #user-name {
-    font-size: clamp(18px, 24px, 26px);
+    /* font-size: clamp(20px, 26px, 28px); */
     overflow: visible;
-    white-space: nowrap;
+    word-break: keep-all;
   }
 
   h2 {
-    font-size: clamp(16px, 20px, 22px);
+    /* font-size: clamp(18px, 22px, 24px); */
     overflow: visible;
-    white-space: nowrap;
+    
   }
 
   /* #cat-name {

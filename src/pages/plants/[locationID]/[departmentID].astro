@@ -13,39 +13,63 @@ import EmployeeID from './[departmentID]/[employeeID].astro';
 // Access departments directly based on your JSON structure
 // const departments = CorpData.loctype.corporate.locations[0].departments;
 
-const locations = Data.loctype.corporate.locations;
-const departments = locations.flatMap(location => location.departments);
-
-export async function getStaticPaths() {
-    const locations = Data.loctype.corporate.locations;
-    const paths = locations.flatMap(location => 
-    location.departments.map(department => ({
-        params: {
-            locationID: location.id.toString(),
-            departmentID: department.id.toString(),
-        },
-    }))
-    );
-    return paths;
-}
+// const locations = Data.loctype.corporate.locations;
+// const departments = locations.flatMap(location => location.departments);
 
 // export async function getStaticPaths() {
-//     const locations = Data.loctype.plant.locations;
-//     const departments = Data.loctype.plant.locations.map(location => location.departments).flat();
-    
-//     const paths = departments.map(department => ({
+//     const locations = Data.loctype.corporate.locations;
+//     const paths = locations.flatMap(location => 
+//     location.departments.map(department => ({
 //         params: {
 //             locationID: location.id.toString(),
 //             departmentID: department.id.toString(),
-//         }
-//     }));
-
+//         },
+//     }))
+//     );
 //     return paths;
 // }
-const departmentID = Astro.params.departmentID;
-const locationID = Astro.params.locationID;
-// const departments = Data.loctype.corporate.locations[0].departments;
-const department = departments.find(dept => dept.id.toString() === departmentID.toString());
+
+export async function getStaticPaths() {
+  let paths = [];
+  Data.loctype.plant.locations.forEach(location => {
+    location.departments.forEach(department => {
+      // Generate paths that include locationID and departmentID
+      paths.push({
+        params: {
+          locationID: location.id.toString(),
+          departmentID: department.id.toString(),
+        },
+      });
+    });
+  });
+  console.log(paths);
+  return paths;
+}
+
+
+// export async function getStaticPaths() {
+//     let paths = [];
+//     Data.loctype.plant.locations.forEach(location => {
+//         location.departments.forEach(department => {
+//             department.employees.forEach(employee => {
+//                 paths.push({ // Corrected to push an object instead of creating a function
+//                     params: {
+//                         locationID: location.id.toString(), // Add location ID parameter
+//                         departmentID: department.id.toString(),
+//                         employeeID: employee.id.toString(),
+//                     },
+//                 });
+//             });
+//         });
+//     });
+//     // console.log(paths); // This should now log the correct paths
+//     return paths;
+// }
+
+const { locationID, departmentID, employeeID } = Astro.params;
+const location = Data.loctype.plant.locations.find(loc => loc.id.toString() === locationID);
+const department = location?.departments.find(dept => dept.id.toString() === departmentID);
+const employee = department?.employees.find(emp => emp.id.toString() === employeeID);
 
 
 if (!department) {
@@ -53,7 +77,7 @@ if (!department) {
 }
 ---
 
-<Main title={departmentID}>
+<Main title={department.deptName}>
   <div class="w-full h-full card card-compact">
     <section class="h-2/6 shadow-sm">
       <!-- {/* Render the corporate header card with relevant information */} -->
@@ -90,6 +114,7 @@ if (!department) {
         {department.employees.map(employee => (
           <li class="relative rounded-md shadow-md border-2 my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 " >
             <a href={`/plant/${locationID}/${departmentID}/${employee.id}`} class="block px-4 py-4 text-white rounded-lg hover:bg-primary hover:rounded-md hover:border-transparent hover:text-white transition-colors" >
+              {console.log(`${locationID}/${departmentID}/${employee.id}`)}
               <div class=" justify-around items-center place-items-center text-lg tracking-wider text-white mb-0.5 -px-4 p-0 capitalize truncate align-middle" >
                   <!-- Places a star beside employees who are managers -->
               {employee.isManager === 1 ? <Icon name="star" class="inline-block pe-2 h-6 w-auto"/> : ""} 

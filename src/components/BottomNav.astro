@@ -28,9 +28,9 @@ const {bottomNav} = Astro.props as Props;
             <!-- Button for each navigation item -->
             <button class="grid-cols-1 resize-none items-center rounded-xl flex my-1 border-4 relative bg-transparent hover:shadow-lg hover:border-transparent transition ease-in duration-200 transform hover:-translate-y-1 hover:scale-105 active:translate-y-0 active:scale-95">
                 <!-- Icon for the nav item -->
-                <Icon name={icon} class="fill-white h-7 hover:fill-accent  resize-none flex-1" />
+                <Icon name={icon} class="fill-white hover:fill-accent w-6 flex-1 text-white opacity-90" />
                 <!-- Label for the nav item -->
-                <span class="btm-nav-label font-bold text-clip ">{label}</span>
+                <span class="btm-nav-label font-bold text-xs text-clip ">{label}</span>
             </button>
         </a>
     ))}
@@ -39,7 +39,7 @@ const {bottomNav} = Astro.props as Props;
 
 <style>
     .btm-nav-label {
-        font-size: x-small;
+        /* font-size: small; */
     }
     a button {
         display: flex;

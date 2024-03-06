@@ -9,12 +9,14 @@ import SearchBar from '../../../../components/SearchBar.astro';
 import UserCard from '../../../../components/UserCard.astro';
 
 // Access departments directly based on your JSON structure
-const departments = Data.loctype.corporate.locations[0].departments;
-console.log(departments);
+
+//const departments = Data.loctype.plant.locations.forEach(location => location.departments);
+//console.log(departments);
+
 
 // export async function getStaticPaths() {
 //     // Access departments from the imported Data
-//     const departments = Data.loctype.plant.locations.departments;
+//     const departments = Data.loctype.plant.locations.forEach(location => location.departments);
 //     const paths = departments.flatMap(department =>
 //         department.employees.map(employee => ({
 //             params: {
@@ -27,13 +29,32 @@ console.log(departments);
 //     return paths;
 // }
 
+// export async function getStaticPaths() {
+//     let paths = [];
+//     // Assuming 'Data' is the imported JSON data
+//     Data.loctype.plant.locations.forEach(location => {
+//         location.departments.forEach(department => {
+//             department.employees.forEach(employee => ({
+//               params: {
+//                         locationID: location.id.toString(), // Add location ID parameter
+//                         departmentID: department.id.toString(),
+//                         employeeID: employee.id.toString(),
+//                     },
+//             }),
+//             )});
+//         });
+
+//     return paths;
+// }
+
 export async function getStaticPaths() {
     let paths = [];
     Data.loctype.plant.locations.forEach(location => {
         location.departments.forEach(department => {
             department.employees.forEach(employee => {
-                paths.push({
+                paths.push({ // Corrected to push an object instead of creating a function
                     params: {
+                        locationID: location.id.toString(), // Add location ID parameter
                         departmentID: department.id.toString(),
                         employeeID: employee.id.toString(),
                     },
@@ -41,15 +62,19 @@ export async function getStaticPaths() {
             });
         });
     });
-
+    // console.log(paths); 
     return paths;
 }
 
 
-const { departmentID, employeeID } = Astro.params;
-const department = departments.find(dept => dept.id.toString() === departmentID);
+
+const { departmentID, employeeID, locationID } = Astro.params;
+const location = Data.loctype.plant.locations.find(loc => loc.id.toString() === locationID);
+// console.log(location);
+const department = location?.departments.find(dept => dept.id.toString() === departmentID);
+// console.log(department);
 const employee = department?.employees.find(emp => emp.id.toString() === employeeID);
-console.log(employee);
+// console.log(employee);
 
 if (!employee) {
     return Astro.redirect('/404');
@@ -85,13 +110,13 @@ if (!employee) {
       </section>
       <div class="divider shadow-sm -mt-2 -mb-2"></div>
 
-      <section class="h-5/6 flex-auto pb-5 pt-5 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
+      <section class="no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
       >
-        <div class="ps-1 py-0.5 pe-2">
+        <!-- <div class="ps-1 py-0.5 pe-2">
             <SearchBar />
-          </div>
+          </div> -->
         
-          <div class="user-card">
+          <div class="user-card ps-2 pe-2 overflow-y-auto no-scrollbar shadow-lg">
 
             <UserCard 
             firstName={employee.firstName}
@@ -104,13 +129,9 @@ if (!employee) {
             />
            
           </div>
-
-
-
       </section>
 
     
-
     <div class="divider shadow-sm -mt-1 -mb-1"></div>
     <section class="box-border h-1/5 mt-2">
         <!-- {/* Render the footer with navigation links */} -->
