@@ -1,48 +1,5 @@
 ---
 
-// Define types for plant data
-// type Locations = {
-//   PlantLocations: {
-//     id: number;
-//     locName: string;
-//     locNumber: number;
-//     address: string;
-//     city: string;
-//     state: string;
-//     zipcode: number;
-//     phoneNumber: string;
-//     faxNumber?: string;
-//     email: string;
-//     hours: string;
-//     departments: Depts["PlantDepts"];
-//   }[];
-// };
-
-// type Depts = {
-//   PlantDepts: {
-//     id: number;
-//     deptName: string;
-//     location: number;
-//     employees: Users["PlantUsers"];
-//   }[];
-// };
-
-// type Users = {
-//   PlantUsers: {
-//     id: number;
-//     firstName: string;
-//     lastName: string;
-//     jobTitle: string;
-//     phoneNumber: string;
-//     cellNumber?: string;
-//     extension?: string;
-//     email: string;
-//     location: number;
-//     department: number;
-//     isManger: number;
-//   }[];
-// };
-
 const { PlantLocs } = Astro.props;
 ---
 
@@ -51,7 +8,7 @@ const { PlantLocs } = Astro.props;
   {PlantLocs.map((location) => (
       <li class="relative rounded-md shadow-md border-2 my-2 py-0 mx-0 transition ease-in duration-200 transform  hover:-translate-y-1 hover:scale-100 ">
       <!-- Direct link to the plant location page -->
-      <a href={`/plants/${location.id}`} class="block px-4 py-4 text-white focus-within:shadow-md focus-within:bg-info focus-within:rounded-s-none rounded-lg hover:bg-primary hover:bg-blend-darken hover:rounded-md hover:border-transparent hover:text-white transition">
+      <a href={`/plant/${location.id}`} class="block px-4 py-4 text-white focus-within:shadow-md focus-within:bg-info focus-within:rounded-s-none rounded-lg hover:bg-primary hover:bg-blend-darken hover:rounded-md hover:border-transparent hover:text-white transition">
         <div class="flex items-center justify-between">
           <div class="text-lg uppercase font-semibold tracking-wide text-white">
             {location.locNum} - {location.locName}

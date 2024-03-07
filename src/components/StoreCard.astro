@@ -28,74 +28,90 @@ const {
 } = Astro.props as StoreProps;
 ---
 
-<!-- // Render the store card -->
-<div class="store-card card card-compact bg-accent p-2 rounded-md">
+<section class="mx-4 my-4 flex-auto resize-none no-scrollbar overflow-y-scroll overscroll-contain scroll-auto">
+  <!-- // Render the store card -->
+  <div class="store-card min-h-[26rem] max-h-[28rem] pb-5 pt-5 py-1 rounded-2xl bg-neutral border-4 border-secondary shadow-sm">
   <!-- {/* Conditionally render store information only if the corresponding values are not empty */} -->
-  {
-    locName !== "" ? (
-      <p class="text-md text-inherit font-semibold ps-1">
-        <strong>{locName}</strong>
-      </p>
-    ) : null
-  }
-  {
-    locNum !== null ? (
-      <p class="text-md text-inherit font-semibold ps-1">
-        <strong>{locNum}</strong>
-      </p>
-    ) : null
-  }
-  {
-    address !== "" ? (
-      <p class="text-md text-inherit font-semibold ps-1">
-        <strong>Address:</strong> {address}
-      </p>
-    ) : null
-  }
-  {
-    city !== "" ? (
-      <p class="text-md text-inherit font-semibold ps-1">{city}</p>
-    ) : null
-  }
-  {
-    state !== "" ? (
-      <p class="text-md text-inherit font-semibold ps-1">{state}</p>
-    ) : null
-  }
-  {
-    zipcode !== "" ? (
-      <p class="text-md text-inherit font-semibold ps-1">{zipcode}</p>
-    ) : null
-  }
-  {
-    phoneNumber !== "" ? (
-      <p class="text-md text-inherit font-semibold ps-1">
-        <strong>Phone:</strong> {phoneNumber}
-      </p>
-    ) : null
-  }
-  {
-    faxNumber !== "" ? (
-      <p class="text-md text-inherit font-semibold ps-1">
-        <strong>Fax:</strong> {faxNumber}
-      </p>
-    ) : null
-  }
-  {
-    email !== "" ? (
-      <p class="text-md text-inherit font-semibold ps-1">
-        <strong>Email:</strong> {email}
-      </p>
-    ) : null
-  }
-  {
-    hours !== "" ? (
-      <p class="text-md text-inherit font-semibold ps-1">
-        <strong>Hours:</strong> {hours}
-      </p>
-    ) : null
-  }
-</div>
+  <section class="sm:text-xl md:text-2xl lg:text-3xl line-clamp-2 ps-2 pe-2 ">
+    {
+      locName !== "" ? (
+        <p class="text-md text-inherit font-semibold ps-1">
+          <strong>{locName}</strong>
+        </p>
+      ) : null
+    }
+    {
+      locNum !== null ? (
+        <p class="text-md text-inherit font-semibold ps-1">
+          <strong>{locNum}</strong>
+        </p>
+      ) : null
+    }
+
+  </section>
+  
+  <section>
+
+    {
+      address !== "" ? (
+        <p class="text-md text-inherit font-semibold ps-1">
+          <strong>Address:</strong> {address}
+        </p>
+      ) : null
+    }
+    {
+      city !== "" ? (
+        <p class="text-md text-inherit font-semibold ps-1">{city}</p>
+      ) : null
+    }
+    {
+      state !== "" ? (
+        <p class="text-md text-inherit font-semibold ps-1">{state}</p>
+      ) : null
+    }
+    {
+      zipcode !== "" ? (
+        <p class="text-md text-inherit font-semibold ps-1">{zipcode}</p>
+      ) : null
+    }
+    {
+      hours !== "" ? (
+        <p class="text-md text-inherit font-semibold ps-1">
+          <strong>Hours:</strong> {hours}
+        </p>
+      ) : null
+    }
+
+  </section>
+  <section>
+    {
+      phoneNumber !== "" ? (
+        <p class="text-md text-inherit font-semibold ps-1">
+          <strong>Phone:</strong> {phoneNumber}
+        </p>
+      ) : null
+    }
+    {
+      faxNumber !== "" ? (
+        <p class="text-md text-inherit font-semibold ps-1">
+          <strong>Fax:</strong> {faxNumber}
+        </p>
+      ) : null
+    }
+    {
+      email !== "" ? (
+        <p class="text-md text-inherit font-semibold ps-1">
+          <strong>Email:</strong> {email}
+        </p>
+      ) : null
+    }
+
+  </section>
+  
+  
+  
+
+</section>
 
 <style>
   /* No styles defined */

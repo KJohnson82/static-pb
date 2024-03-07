@@ -8,60 +8,34 @@ import Footer from '../../../../components/Footer.astro';
 import SearchBar from '../../../../components/SearchBar.astro';
 import UserCard from '../../../../components/UserCard.astro';
 
-// Access departments directly based on your JSON structure
 
-//const departments = Data.loctype.plant.locations.forEach(location => location.departments);
-//console.log(departments);
-
-
-// export async function getStaticPaths() {
-//     // Access departments from the imported Data
-//     const departments = Data.loctype.plant.locations.forEach(location => location.departments);
-//     const paths = departments.flatMap(department =>
-//         department.employees.map(employee => ({
-//             params: {
-//                 departmentID: department.id.toString(),
-//                 employeeID: employee.id.toString(),
-//             },
-//         }))
-//     );
-
-//     return paths;
-// }
-
-// export async function getStaticPaths() {
-//     let paths = [];
-//     // Assuming 'Data' is the imported JSON data
-//     Data.loctype.plant.locations.forEach(location => {
-//         location.departments.forEach(department => {
-//             department.employees.forEach(employee => ({
-//               params: {
-//                         locationID: location.id.toString(), // Add location ID parameter
-//                         departmentID: department.id.toString(),
-//                         employeeID: employee.id.toString(),
-//                     },
-//             }),
-//             )});
-//         });
-
-//     return paths;
-// }
+const locations = Data.loctype.plant.locations;
+const departments = locations.flatMap(location => location.departments);
+const employees = departments.flatMap(department => department.employees);
 
 export async function getStaticPaths() {
-    let paths = [];
-    Data.loctype.plant.locations.forEach(location => {
-        location.departments.forEach(department => {
-            department.employees.forEach(employee => {
-                paths.push({ // Corrected to push an object instead of creating a function
-                    params: {
-                        locationID: location.id.toString(), // Add location ID parameter
-                        departmentID: department.id.toString(),
-                        employeeID: employee.id.toString(),
-                    },
-                });
-            });
-        });
-    });
+  const locations = Data.loctype.plant.locations;
+  const departments = locations.flatMap(location => location.departments);
+  const employees = departments.flatMap(department => department.employees);
+  
+  const paths = locations.flatMap(location =>
+        location.departments.flatMap(department => 
+          department.employees.map(employee => ({
+            params: {
+                locationID: location.id.toString(),
+                departmentID: department.id.toString(),
+                employeeID: employee.id.toString(),
+            },
+            props: {
+                location: location,
+                department: department,
+                employee: employee,
+            },
+            
+        }))
+        
+    ));
+    console.log(employees);
     // console.log(paths); 
     return paths;
 }
@@ -90,7 +64,7 @@ if (!employee) {
         <EmployeeHeadCard
             headCard={[
             {
-                title: `${department.deptName}`, // Title of the card
+                title: `${department?.deptName}`, // Title of the card
                 subtitle1: "",
                 address: "", // Address line
                 city: "", // City
@@ -103,20 +77,20 @@ if (!employee) {
                 phone2: ``, // Second phone number
             },
             ]}
-        
+            
+         
         />
-
         </EmployeeHeadCard>
       </section>
       <div class="divider shadow-sm -mt-2 -mb-2"></div>
 
-      <section class="no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
+      <section class=" h-5/6 flex-auto pb-5 pt-5 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
       >
         <!-- <div class="ps-1 py-0.5 pe-2">
             <SearchBar />
           </div> -->
         
-          <div class="user-card ps-2 pe-2 overflow-y-auto no-scrollbar shadow-lg">
+          <div class="user-card ps-2 pe-2 overflow-y-auto no-scrollbar ">
 
             <UserCard 
             firstName={employee.firstName}
@@ -139,7 +113,7 @@ if (!employee) {
           bottomNav={[
             { icon: "home", label: "Home", to: "/" },
             // { icon: "corporate", label: "Corporate", to: "/corporate" },
-            { icon: "store", label: "Mega Mart", to: "/megamart" },
+            { icon: "store", label: "Metal Mart", to: "/metalmart" },
             {
               icon: "service_center",
               label: "Service Center",
@@ -151,6 +125,13 @@ if (!employee) {
       </section>
   </div>
 </Main>
+
+<script>
+  function speak() {
+    console.log('employee file clicked!');
+  }
+  
+</script>
 
 
 <!-- <script>

@@ -12,15 +12,23 @@ export async function getStaticPaths() {
     const paths = location.map(location => ({
         params: {
             locationID: location.id.toString(),
+        },
+        props: { 
+            departments: location.departments,
+            
         }
     }));
 
     return paths;
 }
-const locationID = Astro.params.locationID;
+
+const { locationID } = Astro.params;
+const { departments } = Astro.props;
+// const locationID = Astro.params.locationID;
 const locations = Data.loctype.plant.locations;
 const location = locations.find(loc => loc.id.toString() === locationID.toString());
-const departments = location.departments;
+// const departments = location.departments;
+
 
 
 if (!location) {
@@ -85,7 +93,7 @@ if (!location) {
         bottomNav={[
           { icon: "home", label: "Home", to: "/" },
           // { icon: "corporate", label: "Corporate", to: "/corporate" },
-          { icon: "store", label: "Mega Mart", to: "/megamart" },
+          { icon: "store", label: "Metal Mart", to: "/metalmart" },
           {
             icon: "service_center",
             label: "Service Center",
@@ -106,3 +114,10 @@ if (!location) {
 <style>
 
 </style>
+
+<script>
+  function speak() {
+    console.log('location file clicked!');
+  }
+  
+</script>

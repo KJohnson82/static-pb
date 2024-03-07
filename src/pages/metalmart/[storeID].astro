@@ -1,48 +1,67 @@
 ---
 // Import necessary components and data
-import Main from '../../layouts/Main.astro';
-import StoreCard from '../../components/StoreCard.astro';
-import Footer from '../../components/Footer.astro';
-import Data from '../../data/Data.json';
+import Main from "../../layouts/Main.astro";
+import StoreCard from "../../components/StoreCard.astro";
+import Footer from "../../components/Footer.astro";
+import Data from "../../data/Data.json";
+import StoreHeadCard from "../../components/StoreHeadCard.astro";
 
 export async function getStaticPaths() {
-    // Access departments from the imported Data
-    const stores = Data.loctype['mega mart'].locations;
-    const paths = stores.flatMap(location =>
-        location.employees.map(employee => ({
-            params: {
-                storeID: location.id.toString(),
-                // employeeID: employee.id.toString(),
-            },
-        }))
-    );
-
-    return paths;
+  // Access departments from the imported Data
+  const stores = Data.loctype["metal mart"].locations;
+  const paths = stores.map((store) => ({
+    params: { storeID: store.id.toString() },
+  }));
+  return paths;
 }
 
 // Fetching the store ID from the URL parameters
 const { storeID } = Astro.params;
 
 // Assuming your stores data is located similarly to your employees
-const store = Data.loctype['mega mart'].locations.find(store => store.id.toString() === storeID);
+const store = Data.loctype["metal mart"].locations.find(
+  (store) => store.id.toString() === storeID
+);
 
 if (!store) {
-    // Redirect to a 404 page if the store is not found
-    return Astro.redirect('/404');
+  // Redirect to a 404 page if the store is not found
+  return Astro.redirect("/404");
 }
 ---
 
 <Main title={`${store.locName} | Metal Marts`}>
   <div class="w-full h-full card card-compact">
     <section class="h-2/6 shadow-sm">
-        <!-- Render the store card with relevant information -->
-        <StoreCard 
-            storeName={store.locName}
-            location={store.locNum}
-            phoneNumber={store.phoneNumber}
-            email={store.email}
-            // Add more props as needed based on your StoreCard component
-        />
+      <StoreHeadCard
+        storeHeadCard={[
+          {
+            title: store.locName,
+            subtitle1: "",
+            subtitle2: "",
+            subtitle3: "",
+            address: store.address,
+            city: store.city,
+            state: store.state,
+            zip: store.zipcode.toString(),
+            phone: store.phoneNumber,
+            email: store.email,
+            phone2: "",
+            phone3: "",
+          },
+        ]}
+      />
+    </section>
+    <div class="divider shadow-sm -mt-2 -mb-2"></div>
+    <section
+      class="h-5/6 flex-auto pb-5 pt-5 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
+    >
+      <!-- Render the store card with relevant information -->
+      <StoreCard
+        storeName={store.locName}
+        location={store.locNum}
+        phoneNumber={store.phoneNumber}
+        email={store.email}
+      />
     </section>
 
     <div class="divider shadow-sm -mt-2 -mb-2"></div>
@@ -50,12 +69,21 @@ if (!store) {
     <!-- Additional content sections can be added here -->
 
     <!-- Render the footer with navigation links -->
-    <Footer
-      bottomNav={[
-        { icon: "home", label: "Home", to: "/" },
-        { icon: "store", label: "Find a Metal Mart", to: "/stores" },
-        // Add more navigation items as needed
-      ]}
-    />
+    <section class="box-border h-1/5 mt-2">
+      <!-- {/* Render the footer with navigation links */} -->
+      <Footer
+        bottomNav={[
+          { icon: "home", label: "Home", to: "/" },
+          // { icon: "corporate", label: "Corporate", to: "/corporate" },
+          { icon: "store", label: "Metal Mart", to: "/metalmart" },
+          {
+            icon: "service_center",
+            label: "Service Center",
+            to: "/servicecenter",
+          },
+          { icon: "plant", label: "Plant", to: "/plant" },
+        ]}
+      />
+    </section>
   </div>
 </Main>

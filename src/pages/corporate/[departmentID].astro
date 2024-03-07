@@ -25,7 +25,6 @@ const departmentID = Astro.params.departmentID;
 const departments = Data.loctype.corporate.locations[0].departments;
 const department = departments.find(dept => dept.id.toString() === departmentID.toString());
 
-
 if (!department) {
   return Astro.redirect('/404');
 }
@@ -91,7 +90,7 @@ if (!department) {
         bottomNav={[
           { icon: "home", label: "Home", to: "/" },
           // { icon: "corporate", label: "Corporate", to: "/corporate" },
-          { icon: "store", label: "Mega Mart", to: "/megamart" },
+          { icon: "store", label: "Metal Mart", to: "/metalmart" },
           {
             icon: "service_center",
             label: "Service Center",

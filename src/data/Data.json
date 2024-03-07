@@ -112,11 +112,11 @@
         }
       ]
     },
-    "mega mart": {
+    "metal mart": {
       "locations": [
         {
           "id": 3,
-          "locName": "Mega Mart #01",
+          "locName": "Metal Mart #01",
           "locNum": 201,
           "address": "sdgfshb",
           "city": "sdfgrgs",
@@ -131,7 +131,7 @@
         },
         {
           "id": 4,
-          "locName": "Mega Mart #10",
+          "locName": "Metal Mart #10",
           "locNum": 210,
           "address": "sdgsfgkj;",
           "city": "jkl;jkl;j",
@@ -184,7 +184,7 @@
       "locations": [
         {
           "id": 2,
-          "locName": "Mega Plant",
+          "locName": "Metal Plant",
           "locNum": 101,
           "address": "555 Generic Rd",
           "city": "Central City",

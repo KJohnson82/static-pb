@@ -1,8 +1,8 @@
 ---
 
-// Properties of each mega mart store
+// Properties of each Metal mart store
 export type Props = {
-  megamarts: {
+  metalmarts: {
     id: number;
     locName: string;
     locNum: number;
@@ -17,19 +17,19 @@ export type Props = {
   }[];
 };
 
-const { megamarts } = Astro.props;
+const { metalmarts } = Astro.props;
 ---
 
-<!-- Render a list of Mega Mart stores -->
-<ul class="space-y-4">
-  {megamarts.map((megamart) => (
-    <!-- List item for each Mega Mart store -->
-    <li class="bg-white shadow overflow-hidden rounded-lg">
-      <!-- Direct link to the Mega Mart store page -->
-      <a href={`/megamart/${megamart.id}`} class="block p-4 hover:bg-gray-50">
+<!-- Render a list of Metal Mart stores -->
+<ul class="mt-4 ms-0.5 rounded-sm">
+  {metalmarts.map((metalmart) => (
+    <!-- List item for each Metal Mart store -->
+    <li class="relative rounded-md shadow-md border-2 my-2 py-0 mx-0 transition ease-in duration-200 transform  hover:-translate-y-1 hover:scale-100 ">
+      <!-- Direct link to the Metal Mart store page -->
+      <a href={`/metalmart/${metalmart.id}`} class="block px-4 py-4 text-white focus-within:shadow-md focus-within:bg-info focus-within:rounded-s-none rounded-lg hover:bg-primary hover:bg-blend-darken hover:rounded-md hover:border-transparent hover:text-white transition">
         <div class="flex items-center justify-between">
-          <div class="text-lg font-medium text-gray-700">
-            {megamart.locName}
+          <div class="text-lg uppercase font-semibold tracking-wide text-white">
+            {metalmart.locName}
           </div>
           <!-- Optionally display more information or an icon -->
           <span class="text-sm font-semibold text-gray-500">
