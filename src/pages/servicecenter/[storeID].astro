@@ -9,7 +9,7 @@ import StoreHeadCard from "../../components/StoreHeadCard.astro";
 export async function getStaticPaths() {
   // Access departments from the imported Data
   const stores = Data.loctype["service center"].locations;
-  const paths = stores.map((store) => ({
+  const paths = stores.flatMap((store) => ({
     params: { storeID: store.id.toString() },
   }));
   return paths;
@@ -58,10 +58,16 @@ if (!store) {
     >
       <!-- Render the store card with relevant information -->
       <StoreCard
-        storeName={store.locName}
-        location={store.locNum}
+        locName={store.locName}
+        locNum={store.locNum}
         phoneNumber={store.phoneNumber}
+        faxNumber={store.faxNumber}
         email={store.email}
+        address={store.address}
+        city={store.city}
+        state={store.state}
+        zipcode={store.zipcode}
+        hours={store.hours}
       />
     </section>
 

@@ -6,7 +6,7 @@ type StoreProps = {
   address: string;
   city: string;
   state: string;
-  zipcode: string;
+  zipcode: number;
   phoneNumber: string;
   faxNumber: string;
   email: string;
@@ -26,40 +26,79 @@ const {
   email,
   hours,
 } = Astro.props as StoreProps;
+
+const zipCode = zipcode.toString();
+const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
 ---
 
-<section class="mx-4 my-4 flex-auto resize-none no-scrollbar overflow-y-scroll overscroll-contain scroll-auto">
+<section
+  class="mx-4 my-4 flex-auto resize-none no-scrollbar overflow-y-scroll overscroll-contain scroll-auto"
+>
   <!-- // Render the store card -->
-  <div class="store-card min-h-[26rem] max-h-[28rem] pb-5 pt-5 py-1 rounded-2xl bg-neutral border-4 border-secondary shadow-sm">
-  <!-- {/* Conditionally render store information only if the corresponding values are not empty */} -->
-  <section class="sm:text-xl md:text-2xl lg:text-3xl line-clamp-2 ps-2 pe-2 ">
-    {
-      locName !== "" ? (
-        <p class="text-md text-inherit font-semibold ps-1">
-          <strong>{locName}</strong>
-        </p>
-      ) : null
-    }
-    {
-      locNum !== null ? (
-        <p class="text-md text-inherit font-semibold ps-1">
-          <strong>{locNum}</strong>
-        </p>
-      ) : null
-    }
+  <div
+    class="store-card min-h-[26rem] max-h-[28rem] pb-5 pt-5 py-1 rounded-2xl bg-neutral border-4 border-secondary shadow-sm"
+  >
+    <!-- {/* Conditionally render store information only if the corresponding values are not empty */} -->
+    <section class="sm:text-xl md:text-2xl lg:text-3xl line-clamp-2 ps-2 pe-2 py-4">
+      {
+        locName !== "" ? (
+          <h1 id="store-name" class="font-semibold tracking-wide text-center uppercase">{locName}</h1>
+        ) : null
+      }
+    </section>
+    <div class="divider divider-info m-0"></div>
+    <section class=" mt-4 ms-0">
+      <span class="grid grid-rows-1 grid-cols-2 divide-x-2 divide-info ">
+        <div class=" col-start-1 pe-4">
+          {
+            locNum !== null ? (
+              <p class="divider divider-end divider-info uppercase tracking-wide font-semibold ">
+                Store
+                </p>
+    
+              <p class="text-xl text-inherit font-normal ps-1 text-end  -mt-2 ">
+                {locNum}
+              </p>
+            ) : null
+          }
 
-  </section>
-  
-  <section>
+        </div>
+      <div class=" col-start-2 ps-4">
+        {
+          hours !== "" ? (
+          <p class="divider divider-start divider-info uppercase tracking-wide font-semibold ">
+                Hours
+                </p>
+            <p class="text-xl text-inherit font-normal text-start pe-1 -mt-2">
+              {hours}
+            </p>
+          ) : null
+        }
 
-    {
-      address !== "" ? (
-        <p class="text-md text-inherit font-semibold ps-1">
-          <strong>Address:</strong> {address}
-        </p>
-      ) : null
-    }
-    {
+      </div>
+      
+      </span>
+    </section>
+
+    <section>
+      <!-- {
+        storeAddress !== "" ? (
+          <p class="text-md text-inherit font-semibold ps-1">
+            <strong>Address:</strong> {storeAddress}.
+          </p>
+        ) : null
+      } -->
+      {
+        address !== "" || city !== "" || state !== "" || zipcode !== null ? (
+          <div>
+            <p class="text-md text-inherit font-semibold ps-1">{address},</p>
+            <p class="text-md text-inherit font-semibold ps-1">
+              {city}, {state} {zipcode}
+            </p>
+          </div>
+        ) : null
+      }
+      <!-- {
       city !== "" ? (
         <p class="text-md text-inherit font-semibold ps-1">{city}</p>
       ) : null
@@ -68,53 +107,51 @@ const {
       state !== "" ? (
         <p class="text-md text-inherit font-semibold ps-1">{state}</p>
       ) : null
-    }
-    {
-      zipcode !== "" ? (
-        <p class="text-md text-inherit font-semibold ps-1">{zipcode}</p>
+    } -->
+      <!-- {
+      zipCode !== "" ? (
+        <p class="text-md text-inherit font-semibold ps-1">{zipCode}</p>
       ) : null
-    }
-    {
-      hours !== "" ? (
-        <p class="text-md text-inherit font-semibold ps-1">
-          <strong>Hours:</strong> {hours}
-        </p>
-      ) : null
-    }
-
-  </section>
-  <section>
-    {
-      phoneNumber !== "" ? (
-        <p class="text-md text-inherit font-semibold ps-1">
-          <strong>Phone:</strong> {phoneNumber}
-        </p>
-      ) : null
-    }
-    {
-      faxNumber !== "" ? (
-        <p class="text-md text-inherit font-semibold ps-1">
-          <strong>Fax:</strong> {faxNumber}
-        </p>
-      ) : null
-    }
-    {
-      email !== "" ? (
-        <p class="text-md text-inherit font-semibold ps-1">
-          <strong>Email:</strong> {email}
-        </p>
-      ) : null
-    }
-
-  </section>
-  
-  
-  
-
+    } -->
+    </section>
+    <section>
+      {
+        phoneNumber !== "" ? (
+          <p class="text-md text-inherit font-semibold ps-1">
+            <strong>Phone:</strong> {phoneNumber}
+          </p>
+        ) : null
+      }
+      {
+        faxNumber !== "" ? (
+          <p class="text-md text-inherit font-semibold ps-1">
+            <strong>Fax:</strong> {faxNumber}
+          </p>
+        ) : null
+      }
+      {
+        email !== "" ? (
+          <p class="text-md text-inherit font-semibold ps-1">
+            <strong>Email:</strong> {email}
+          </p>
+        ) : null
+      }
+    </section>
+  </div>
 </section>
 
 <style>
-  /* No styles defined */
+  #store-name {
+    /* font-size: clamp(20px, 26px, 28px); */
+    overflow: visible;
+    word-break: keep-all;
+  }
+
+  h2 {
+    /* font-size: clamp(18px, 22px, 24px); */
+    overflow: visible;
+    
+  }
 </style>
 
 <script>
