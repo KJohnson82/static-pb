@@ -9,6 +9,7 @@ import SearchBar from '../../../../components/SearchBar.astro';
 import UserCard from '../../../../components/UserCard.astro';
 
 
+
 const locations = Data.loctype.plant.locations;
 const departments = locations.flatMap(location => location.departments);
 const employees = departments.flatMap(department => department.employees);
@@ -58,7 +59,7 @@ if (!employee) {
 
 <Main title={employee.firstName + employee.lastName}>
   <div class="w-full h-full card card-compact">
-    <section class="h-2/6 shadow-sm">
+    <section class="h-2/6 shadow-sm ">
         <!-- {/* Render the corporate header card with relevant information */} -->
 
         <EmployeeHeadCard
@@ -81,11 +82,13 @@ if (!employee) {
          
         />
         </EmployeeHeadCard>
+        
       </section>
       <div class="divider shadow-sm -mt-2 -mb-2"></div>
 
       <section class=" h-5/6 flex-auto pb-5 pt-5 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
       >
+        
         <!-- <div class="ps-1 py-0.5 pe-2">
             <SearchBar />
           </div> -->

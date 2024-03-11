@@ -1,4 +1,6 @@
 ---
+import BackButton from '../components/BackButton.astro';
+
 // Define properties for each head card
 type Props = {
   headCard: {
@@ -26,8 +28,8 @@ const { headCard } = Astro.props;
 <div class=" rounded-md  ">
   {headCard.map((card) => (
     <!-- Iterate over each card in headCard array and create a div for each card -->
-    <div class="card-body grid grid-cols-1 border-x-[3px] border-y-[3px] border-transparent rounded-md pt-0 pb-1 mb-2 ">
-      <h2 class="card-title place-content-center divide-y-[1px] pt-2 tracking-wide">
+    <div class="card-body grid grid-cols-1 border-x-[3px] border-y-[3px] border-transparent rounded-md  mb-2 ">
+      <h2 class="card-title text-center font-normal uppercase text-3xl line-clamp-2 divide-y-[1px] pt-2 px-2 tracking-wide">
         {card.title} <!-- Display the card title -->
       </h2>
       <!-- Divider line -->
@@ -66,6 +68,7 @@ const { headCard } = Astro.props;
       </div>
         </section>
     </div>
+    <BackButton />
   ))}
 </div>
 
@@ -83,14 +86,6 @@ const { headCard } = Astro.props;
 
   /* Styles for card title */
   .card-title {
-    font-weight: normal;
-    font-size: xx-large;
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 0%;
-    padding-left: 5%;
-    padding-right: 5%;
-    white-space: nowrap;
     text-shadow: 3px 3px 34px #443f3f ;
   }
 

@@ -36,18 +36,18 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
 >
   <!-- // Render the store card -->
   <div
-    class="store-card min-h-[26rem] max-h-[28rem] pb-5 pt-5 py-1 rounded-2xl bg-neutral border-4 border-secondary shadow-sm"
+    class="store-card card card-normal min-h-[31rem] max-h-[31rem] rounded-2xl bg-neutral border-4 border-secondary shadow-sm"
   >
     <!-- {/* Conditionally render store information only if the corresponding values are not empty */} -->
-    <section class="sm:text-xl md:text-2xl lg:text-3xl line-clamp-2 ps-2 pe-2 py-4">
+    <section class="sm:text-xl md:text-2xl lg:text-3xl line-clamp-2 px-1 sm:py-4 md:py-5 lg:py-6 ">
       {
         locName !== "" ? (
-          <h1 id="store-name" class="font-semibold tracking-wide text-center uppercase">{locName}</h1>
+          <h1 id="store-name" class="font-medium tracking-wide text-center uppercase">{locName}</h1>
         ) : null
       }
     </section>
-    <div class="divider divider-info m-0"></div>
-    <section class=" mt-4 ms-0">
+    <div class="divider divider-info m-0 mt-0"></div>
+    <section class="py-2 ">
       <span class="grid grid-rows-1 grid-cols-2 divide-x-2 divide-info ">
         <div class=" col-start-1 pe-4">
           {
@@ -56,7 +56,7 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
                 Store
                 </p>
     
-              <p class="text-xl text-inherit font-normal ps-1 text-end  -mt-2 ">
+              <p class="text-xl text-inherit font-normal tracking-wider ps-1 text-end -mt-2 ">
                 {locNum}
               </p>
             ) : null
@@ -90,9 +90,13 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
       } -->
       {
         address !== "" || city !== "" || state !== "" || zipcode !== null ? (
-          <div>
-            <p class="text-md text-inherit font-semibold ps-1">{address},</p>
-            <p class="text-md text-inherit font-semibold ps-1">
+          <div class="ms-5 mt-2">
+            <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
+              Address
+              </p>
+              <div class="divider divider-info m-0" />
+              <p class="text-lg uppercase tracking-wide text-base-content font-normal -mt-0.5">{address}, </p>
+            <p class="text-lg uppercase tracking-wide text-base-content font-normal -mt-0.5">
               {city}, {state} {zipcode}
             </p>
           </div>
@@ -114,29 +118,89 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
       ) : null
     } -->
     </section>
-    <section>
-      {
+    <section class="py-2 ">
+      
+        {
+          faxNumber !== "" ? (
+          <span class="grid grid-rows-1 grid-cols-2 divide-x-2 divide-info ">
+          <div class=" col-start-1 pe-4">
+          
+          {
+            locNum !== null ? (
+              <p class="divider divider-end divider-info uppercase tracking-wide font-semibold ">
+                Phone
+                </p>
+    
+              <p class="text-xl text-inherit font-normal tracking-wider ps-1 text-end -mt-2 ">
+                {phoneNumber}
+              </p>
+            ) : null
+          }
+
+        </div>
+      <div class=" col-start-2 ps-4">
+        {
+          hours !== "" ? (
+          <p class="divider divider-start divider-info uppercase tracking-wide font-semibold ">
+                Fax
+                </p>
+            <p class="text-xl text-inherit font-normal text-start pe-1 -mt-2">
+              {faxNumber}
+            </p>
+          ) : null
+        }
+
+      </div>
+    </span>
+          ) : <div class="mt-3 ms-5">
+          <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
+            Phone
+            </p>
+            <div class="divider divider-info m-0" />
+          <p class="text-lg uppercase tracking-wide text-base-content font-normal ps-0 pb-2 -mt-0.5">
+            {phoneNumber}
+          </p>
+          </div>
+        }
+      
+      
+    </section>
+    <section class="mt-3 ms-5 ">
+      <!-- {
         phoneNumber !== "" ? (
-          <p class="text-md text-inherit font-semibold ps-1">
-            <strong>Phone:</strong> {phoneNumber}
+          <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
+            Phone
+            </p>
+            <div class="divider divider-info m-0" />
+          <p class="text-lg uppercase tracking-wide text-base-content font-normal ps-0 pb-2 -mt-0.5">
+            {phoneNumber}
           </p>
         ) : null
       }
       {
         faxNumber !== "" ? (
-          <p class="text-md text-inherit font-semibold ps-1">
-            <strong>Fax:</strong> {faxNumber}
+        <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
+            Fax
+            </p>
+            <div class="divider divider-info m-0" />
+          <p class="text-lg uppercase tracking-wide text-base-content font-normal ps-0 pb-2 -mt-0.5">
+            {faxNumber}
           </p>
         ) : null
-      }
+      } -->
       {
         email !== "" ? (
-          <p class="text-md text-inherit font-semibold ps-1">
-            <strong>Email:</strong> {email}
+        <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
+            Email
+            </p>
+            <div class="divider divider-info m-0" />
+          <p class="text-lg uppercase tracking-wide text-base-content font-normal ps-0 pb-2 -mt-0.5 ">
+            {email}
           </p>
         ) : null
       }
     </section>
+    <div class=""></div>
   </div>
 </section>
 
