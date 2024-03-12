@@ -5,6 +5,8 @@ import StoreCard from "../../components/StoreCard.astro";
 import Footer from "../../components/Footer.astro";
 import Data from "../../data/Data.json";
 import StoreHeadCard from "../../components/StoreHeadCard.astro";
+import NavBar from '../../components/NavBar.astro';
+
 
 export async function getStaticPaths() {
   // Access departments from the imported Data
@@ -31,7 +33,7 @@ if (!store) {
 
 <Main title={`${store.locName} | Service Center`}>
   <div class="w-full h-full card card-compact">
-    <section class="h-2/6 shadow-sm">
+    <section class="h-1/5 shadow-sm">
       <StoreHeadCard
         storeHeadCard={[
           {
@@ -51,10 +53,13 @@ if (!store) {
         ]}
       />
     </section>
-    <div class="divider shadow-sm -mt-2 -mb-2"></div>
+    <div class="divider shadow-sm -mt-1 -mb-0"></div>
+    <section class="h-auto">
+      <NavBar />
+    </section>
 
     <section
-      class="h-5/6 flex-auto pb-5 pt-5 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
+      class="h-5/6 flex-auto pb-2 pt-2 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
     >
       <!-- Render the store card with relevant information -->
       <StoreCard

@@ -5,6 +5,7 @@ import SearchBar from "../components/SearchBar.astro";
 import Main from "../layouts/Main.astro";
 import Data from '../data/Data.json';// Importing data from a JSON file
 import PlantBuild from "../components/PlantBuild.astro";
+import NavBar from '../components/NavBar.astro';
 
 
 
@@ -21,12 +22,12 @@ import PlantBuild from "../components/PlantBuild.astro";
           headCard={[
             {
               title: "Plants",
-              subtitle1: "",
+              subtitle1: "PHONE",
               address: "555 Generic Road,",
               city: "Central City",
               state: "WS",
               zip: "77777",
-              subtitle2: "",
+              subtitle2: "EMAIL",
               phone: "(888) 555-5555",
               email: "info@info.com",
               subtitle3: "IT Help Desk",
@@ -37,15 +38,18 @@ import PlantBuild from "../components/PlantBuild.astro";
       </section>
   
       <!-- Visual divider between sections -->
-      <div class="divider -mt-2 -mb-2"></div>
+      <div class="divider -mt-1 -mb-0"></div>
+      <section class="h-auto">
+        <NavBar />
+      </section>
   
       <!-- Section for displaying plant data -->
       <section
         class="h-5/6 flex-auto no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
       >
-      <div class="ps-1 py-1 pe-2">
+      <!-- <div class="ps-1 py-1 pe-2">
         <SearchBar />
-      </div>
+      </div> -->
         <!-- Render the PlantExPanel component with plant location data -->
         <div
           class="h-full ps-2 pe-2 py-1 border-4 border-transparent overflow-y-auto no-scrollbar"

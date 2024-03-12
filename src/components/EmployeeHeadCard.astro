@@ -1,5 +1,6 @@
 ---
 import BackButton from '../components/BackButton.astro';
+import NavBar from '../components/NavBar.astro';
 
 // Define properties for each head card
 type Props = {
@@ -21,6 +22,39 @@ type Props = {
 
 // Extract the headCard data from props
 const { headCard } = Astro.props;
+
+// <!-- Address section -->
+//          <!--  <section class="address-section pb-1">
+//           <!--<p>{card.subtitle1}</p> -->
+//           <div class="w-full text-center align-middle">
+//             <!--  <p class="text-base/7">{card.address} {card.city} {card.state} {card.zip}</p> -->
+//           </div>
+//         </section>
+//         <!-- Contact section -->
+//         <section class="contact-section ">
+          
+//         <!-- Column 1 -->
+//         <div class=" text-center align-middle pe-6 ">
+//           <p class="font-semibold border-b-2 border-slate-100 border-opacity-20 pb-0.5">{card.subtitle1}</p>
+//           <p class="pt-1">{card.phone}</p>
+//         </div>
+        
+//         <!-- Column 2 -->
+//         <div class=" text-center align-middle ps-6 ">
+//           <p class="font-semibold border-b-2 border-slate-100 border-opacity-20 pb-0.5 ">{card.subtitle2}</p>
+//           <p class="pt-1" >{card.email}</p>
+//         </div>
+//       </div>
+//         </section>
+//         <!-- Help desk section -->
+//         <section class="help-desk-section border-t-2 border-slate-100 border-opacity-20 ">
+//           <div class="grid grid-cols-1 gap-1 divide-x-2 border-slate-100 border-opacity-20 ">
+//             <div class=" text-base/3 text-center align-middle pt-6 pb-0 pe-2 mb-0"><p class="font-semibold ">{card.subtitle3} | {card.phone2}</p></div>
+            
+        
+        
+//       </div>
+//         </section>
 ---
 
 <!-- // Render the head cards -->
@@ -33,43 +67,13 @@ const { headCard } = Astro.props;
         {card.title} <!-- Display the card title -->
       </h2>
       <!-- Divider line -->
-      <div class="w-full p-0 m-0 border-b-2 border-slate-100 border-opacity-20 "></div>
+      
       <!-- Sections for address, contact, and help desk information -->
-      <!-- Address section -->
-          <section class="address-section pb-1">
-          <!--<p>{card.subtitle1}</p> -->
-          <div class="w-full text-center align-middle">
-            <p class="text-base/7">{card.address} {card.city} {card.state} {card.zip}</p>
-          </div>
-        </section>
-        <!-- Contact section -->
-        <section class="contact-section ">
-          <div class="grid grid-cols-2 gap-1 divide-x-2 divide-slate-100 divide-opacity-20 pb-2 ">
-        <!-- Column 1 -->
-        <div class=" text-center align-middle pe-6 ">
-          <p class="font-semibold border-b-2 border-slate-100 border-opacity-20 pb-0.5">{card.subtitle1}</p>
-          <p class="pt-1">{card.phone}</p>
-        </div>
-        
-        <!-- Column 2 -->
-        <div class=" text-center align-middle ps-6 ">
-          <p class="font-semibold border-b-2 border-slate-100 border-opacity-20 pb-0.5 ">{card.subtitle2}</p>
-          <p class="pt-1" >{card.email}</p>
-        </div>
-      </div>
-        </section>
-        <!-- Help desk section -->
-        <section class="help-desk-section border-t-2 border-slate-100 border-opacity-20 ">
-          <div class="grid grid-cols-1 gap-1 divide-x-2 border-slate-100 border-opacity-20 ">
-            <div class=" text-base/3 text-center align-middle pt-6 pb-0 pe-2 mb-0"><p class="font-semibold ">{card.subtitle3} | {card.phone2}</p></div>
-            
-        
-        
-      </div>
-        </section>
+     
     </div>
-    <BackButton />
+    
   ))}
+  <!-- <NavBar /> -->
 </div>
 
 

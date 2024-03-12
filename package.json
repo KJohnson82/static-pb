@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "postbuild": "pagefind --source dist/",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -13,12 +14,12 @@
     "@astrojs/check": "^0.5.5",
     "@astrojs/tailwind": "^5.1.0",
     "astro-icon": "^1.1.0",
-    "pagefind": "^1.0.4",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
-    "daisyui": "^4.7.2"
+    "daisyui": "^4.7.2",
+    "pagefind": "^1.0.4"
   }
 }

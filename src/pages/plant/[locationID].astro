@@ -5,6 +5,7 @@ import CorpHeadCard from '../../components/CorpHeadCard.astro';
 import Footer from '../../components/Footer.astro';
 import SearchBar from '../../components/SearchBar.astro';
 import { Icon } from 'astro-icon/components';
+import NavBar from '../../components/NavBar.astro';
 
 export async function getStaticPaths() {
     const location = Data.loctype.plant.locations;
@@ -61,13 +62,16 @@ if (!location) {
             
             
         </section >
-        <div class="divider shadow-sm -mt-2 -mb-2"></div>
+        <div class="divider shadow-sm -mt-1 -mb-0"></div>
+        <section class="h-auto">
+          <NavBar />
+        </section>
 
-        <section class="h-5/6 flex-auto pb-5 pt-5 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
+        <section class="h-5/6 flex-auto pb-2 pt-3 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
         >
-        <div class="ps-1 py-0.5 pe-2">
+        <!-- <div class="ps-1 py-0.5 pe-2">
             <SearchBar />
-          </div>
+          </div> -->
 
           <div class="h-full ps-2 py-1 pe-2 border-4 border-transparent overflow-y-auto no-scrollbar">
             <ul class="mt-4 ms-0.5">

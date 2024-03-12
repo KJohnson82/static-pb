@@ -5,15 +5,16 @@
 
 <!-- Container for the search bar -->
 <div
-  class="h-full ps-0 py-1 pe-4 pt-2 border-4 border-transparent no-scrollbar flex-auto scroll-auto overscroll-contain overflow-y-auto"
+  class=" pe-4 border-1 border-transparent no-scrollbar flex-auto scroll-auto overscroll-contain overflow-y-auto"
 >
   <div
-    class="box-border w-full mx-3 grid grid-cols-1 mt-1 pt-1 pb-1 relative text-gray-600"
+    class="box-border w-full ms-2 relative text-gray-600"
   >
-    <div id="search">
+    <div >
       <!-- Input field for search -->
       <input
-        class="border-2 w-full border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+      id="search"
+        class="border-2 border-inherit w-full border-gray-300 bg-white h-12 px-3 pr-1 rounded-lg text-sm focus:outline-none"
         type="search"
         name="search"
         placeholder="Search"
@@ -40,8 +41,32 @@
         </svg>
       </button>
     </div>
+    
   </div>
 </div>
 
 <style></style>
 
+<script>
+	window.addEventListener('DOMContentLoaded', (event) => {
+	  new PagefindUI({ element: '#search', resetStyles: false});
+	});
+
+    window.addEventListener('keydown', (event) => {
+        if (event.key === '/' || event.key === '.') {
+            console.log('you pressed the slash');
+            event.preventDefault();
+            document.querySelector('div#search input').focus();
+        }
+    });
+</script>
+
+<style is:global>
+	.dark {
+		--pagefind-ui-primary: #eeeeee;
+		--pagefind-ui-text: #eeeeee;
+		--pagefind-ui-background: #152028;
+		--pagefind-ui-border: #152028;
+		--pagefind-ui-tag: #152028;
+	}
+</style>

@@ -5,6 +5,7 @@ import SearchBar from "../components/SearchBar.astro";
 import Main from "../layouts/Main.astro";
 import CorpBuild from "../components/CorpBuild.astro";
 import Data from '../data/Data.json';
+import NavBar from '../components/NavBar.astro';
 
 import { Icon } from 'astro-icon/components';
 
@@ -39,16 +40,19 @@ const departments = Data.loctype.corporate.locations[0].departments;
       </section>
   
       <!-- Visual divider between sections -->
-      <div class="divider shadow-sm -mt-2 -mb-2"></div>
+      <div class="divider shadow-sm -mt-1 -mb-0"></div>
+      <section class="h-auto">
+        <NavBar />
+      </section>
   
       <!-- Section for displaying corporate departments and employees -->
       <section
-        class="h-5/6 flex-auto pb-5 pt-5 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
+        class="h-5/6 flex-auto pb-2 pt-2 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
         
       >
-      <div class="ps-1 py-0.5 pe-2">
+      <!-- <div class="ps-1 py-0.5 pe-2">
         <SearchBar />
-      </div>
+      </div> -->
         <div
           class="h-full ps-2 py-1 pe-2 border-4 border-transparent overflow-y-auto no-scrollbar"
         >

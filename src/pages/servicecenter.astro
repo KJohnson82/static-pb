@@ -5,6 +5,7 @@ import StoreHeadCard from "../components/StoreHeadCard.astro";
 import Main from "../layouts/Main.astro";
 import SCBuild from "../components/SCBuild.astro";
 import Data from '../data/Data.json';// Importing data from a JSON file
+import NavBar from '../components/NavBar.astro';
 
 
 ---
@@ -38,15 +39,18 @@ import Data from '../data/Data.json';// Importing data from a JSON file
       </section>
   
       <!-- Visual divider between sections -->
-      <div class="divider -mt-2 -mb-2"></div>
+      <div class="divider -mt-1 -mb-0"></div>
+      <section class="h-auto">
+        <NavBar />
+      </section>
   
       <!-- Section for displaying Service Center data -->
       <section
         class="h-5/6 flex-auto no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px"
       >
-      <div class="ps-1 py-1 pe-2">
+      <!-- <div class="ps-1 py-1 pe-2">
         <SearchBar />
-      </div>
+      </div> -->
         <!-- Render the SCExPanel component with Service Center data -->
         <div
           class="h-full ps-2 py-1 pe-4 border-4 border-transparent focus-within:text-white no-scrollbar flex-auto scroll-auto overscroll-contain overflow-y-auto scroll-mx-px"
