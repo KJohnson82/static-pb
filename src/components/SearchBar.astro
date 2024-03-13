@@ -1,24 +1,28 @@
 ---
+import Search from "astro-pagefind/components/Search";
+
 
 
 ---
 
 <!-- Container for the search bar -->
 <div
-  class=" pe-4 border-1 border-transparent no-scrollbar flex-auto scroll-auto overscroll-contain overflow-y-auto"
+  class=" pe-4 pt-1 pb-1 border-1 border-transparent no-scrollbar flex-auto scroll-auto overscroll-contain overflow-y-auto"
 >
   <div
     class="box-border w-full ms-2 relative text-gray-600"
   >
-    <div >
+    <div class="search-continer isolation-auto" >
       <!-- Input field for search -->
-      <input
+      <!-- <input
       id="search"
-        class="border-2 border-inherit w-full border-gray-300 bg-white h-12 px-3 pr-1 rounded-lg text-sm focus:outline-none"
+        class=" pagefind-ui border-2 border-inherit w-full border-gray-300 bg-white h-12 px-3 pr-1 rounded-lg text-sm focus:outline-none"
+        uiOptions={{ showImages: false }}
         type="search"
         name="search"
         placeholder="Search"
-      />
+      /> -->
+      <Search id="search" className="pagefind-ui " uiOptions={{ showImages: false }} />
       <!-- Submit button for the search bar -->
       <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
         <svg
@@ -45,28 +49,60 @@
   </div>
 </div>
 
-<style></style>
-
-<script>
-	window.addEventListener('DOMContentLoaded', (event) => {
-	  new PagefindUI({ element: '#search', resetStyles: false});
-	});
-
-    window.addEventListener('keydown', (event) => {
-        if (event.key === '/' || event.key === '.') {
-            console.log('you pressed the slash');
-            event.preventDefault();
-            document.querySelector('div#search input').focus();
-        }
-    });
-</script>
-
 <style is:global>
-	.dark {
-		--pagefind-ui-primary: #eeeeee;
-		--pagefind-ui-text: #eeeeee;
-		--pagefind-ui-background: #152028;
-		--pagefind-ui-border: #152028;
-		--pagefind-ui-tag: #152028;
-	}
+  PagefindUI
+
+  .pagefind-ui {
+    /* --pagefind-ui-scale: 0.75; */
+    --pagefind-ui-primary: navy;
+    --pagefind-ui-text: black;
+    --pagefind-ui-border: slategrey;
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 0.25rem;
+    --pagefind-ui-background: white;
+
+    /* --pagefind-ui-font: sans-serif; */
+
+    width:90%;
+  }
+
+  /* .pagefind-ui.yellow {
+    --pagefind-ui-background: lightyellow;
+  }
+
+  .pagefind-ui.red {
+    --pagefind-ui-background: peachpuff;
+    width: 100%;
+  } */
+
+  .pagefind-ui .pagefind-ui__drawer:not(.pagefind-ui__hidden) {
+
+    margin-left: 3%;
+    margin-right: 3%;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 0px;
+    z-index: 1000;
+    padding: 0 1em 1em 1em;
+    overflow-y: auto;
+    box-shadow:
+      0 10px 10px -5px rgba(0, 0, 0, 0.2),
+      0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    border-bottom-right-radius: var(--pagefind-ui-border-radius);
+    border-bottom-left-radius: var(--pagefind-ui-border-radius);
+    background-color: var(--pagefind-ui-background);
+  }
+
+  /* .pagefind-ui .pagefind-ui__result-link {
+    color: var(--pagefind-ui-primary);
+  }
+
+  .pagefind-ui .pagefind-ui__result-excerpt {
+    color: var(--pagefind-ui-text);
+  } */
+
+
 </style>
+
+

@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
+import pagefind from "astro-pagefind";
 
 import icon from "astro-icon";
 
@@ -9,5 +10,8 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
   },
-  integrations: [tailwind(), icon({iconDir: "src/icons",})]
+  build: {
+    format: "file",
+  },
+  integrations: [tailwind(), icon({iconDir: "src/icons",}), pagefind()],
 });

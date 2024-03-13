@@ -76,7 +76,7 @@ if (!employee) {
             <SearchBar />
           </div> -->
         
-          <div class="user-card ">
+          <div class="user-card " >
 
             <UserCard 
             firstName={employee.firstName}
@@ -86,6 +86,7 @@ if (!employee) {
             phoneNumber={employee.phoneNumber}
             extension={employee.extension}
             cellNumber={employee.cellNumber}
+            data-pagefind-index="firstName, lastName, email, phoneNumber"
             />
            
           </div>
