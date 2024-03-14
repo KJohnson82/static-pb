@@ -1,19 +1,55 @@
 ---
-import BackButton from '../components/BackButton.astro';
-import SearchBar from '../components/SearchBar.astro';
-
+import Search from "astro-pagefind/components/Search";
+import BackButton from "../components/BackButton.astro";
+import SearchBar from "../components/SearchBar.astro";
 ---
-<div class="static border border-x-0 border-y-1 border-info  gap-2 box-decoration-clone ">
 
-    <div class=" absolute inset-y-0 left-auto pr-2 "><BackButton /></div>
-    <div class="absolute inset-y-0 right-0 z-auto"><SearchBar /></div>
-
-
+<div
+  class="dept-nav flex items-center border border-x-0 border-y-2 border-slate-100 border-opacity-20 gap-5  box-decoration-clone"
+>
+  <BackButton />
+  <Search
+    id="search2"
+    className="pagefind-ui "
+    uiOptions={{ showImages: false }}
+  />
 </div>
 
-<style>
+<style is:global>
+  .dept-nav {
+    padding: 0.5rem;
+    background-color: var(--color-bg-primary);
+   
+  }
+  .pagefind-ui {
+    /* --pagefind-ui-scale: 0.75; */
+    --pagefind-ui-primary: navy;
+    --pagefind-ui-text: black;
+    --pagefind-ui-border: slategrey;
+    /* --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 0.25rem; */
+    --pagefind-ui-background: white;
 
-.navbar {
-    position: relative;
-}
+    /* --pagefind-ui-font: sans-serif; */
+
+    width: 70%;
+  }
+
+  .pagefind-ui .pagefind-ui__drawer:not(.pagefind-ui__hidden) {
+    margin-left: 3%;
+    margin-right: 3%;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 0px;
+    z-index: 1000;
+    padding: 0 1em 1em 1em;
+    overflow-y: auto;
+    box-shadow:
+      0 10px 10px -5px rgba(0, 0, 0, 0.2),
+      0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    border-bottom-right-radius: var(--pagefind-ui-border-radius);
+    border-bottom-left-radius: var(--pagefind-ui-border-radius);
+    background-color: var(--pagefind-ui-background);
+  }
 </style>
