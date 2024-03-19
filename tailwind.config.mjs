@@ -11,7 +11,7 @@ export default {
 	},
 	plugins: [require('@tailwindcss/typography'), require("daisyui")],
 	daisyui: {
-		themes: ["business", "dracula", "fantasy"]
+		themes: ["business"]
 	},
 	modules: {
 		textSizes: ["responsive", "hover", "focus"],

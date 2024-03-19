@@ -1,17 +1,21 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import pagefind from "astro-pagefind";
-
 import icon from "astro-icon";
+
+import min from "astro-min";
 
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
   prefetch: {
-    prefetchAll: true,
+    prefetchAll: true
   },
   build: {
-    format: "file",
+    format: "file"
   },
-  integrations: [tailwind(), icon({iconDir: "src/icons",}), pagefind()],
+  integrations: [tailwind(), icon({
+    iconDir: "src/icons"
+  }), pagefind()],
+  
 });
