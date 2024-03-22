@@ -3,7 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import pagefind from "astro-pagefind";
 import icon from "astro-icon";
 
-import min from "astro-min";
+import compress from "astro-compress";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,6 +16,5 @@ export default defineConfig({
   },
   integrations: [tailwind(), icon({
     iconDir: "src/icons"
-  }), pagefind()],
-  
+  }), pagefind(), compress()]
 });

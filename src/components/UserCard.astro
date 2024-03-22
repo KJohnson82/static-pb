@@ -27,31 +27,31 @@ const userName = `${firstName} ${lastName}`;
 ---
 
 <section
-  class="mx-4 my-4 flex-auto resize-none no-scrollbar overflow-y-scroll overscroll-contain scroll-auto"
+  class="mx-4 my-2 prose flex-auto resize-none no-scrollbar overflow-y-scroll overscroll-contain scroll-auto"
 >
   <div data-pagefind-body
   class="user-card card card-normal min-h-[31rem] max-h-[31rem] rounded-2xl bg-neutral border-4 border-secondary shadow-sm"
   >
-  <section class="sm:text-xl md:text-2xl lg:text-3xl line-clamp-2 px-1 ">
+  <section class=" px-1 py-0 ">
     <div id="name-title" >
       {
         userName !== "" ? (
-          <h1
+          <h2
             id="user-name"
-            class=" font-medium tracking-wide text-center uppercase sm:pt-4 md:pt-5 lg:pt-6 "
+            class=" font-medium tracking-wide text-center uppercase  "
           >
             {userName}
-          </h1>
+          </h2>
         ) : null
       }
     </div>
 
-    <div class="mx-4 sm:text-lg md:text-xl lg:text-2xl py-1 line-clamp-1 ">
+    <div class="mx-4 ">
       {
         jobTitle !== "" ? (
-          <h2 class="-mt-0.5 tracking-widest text-center uppercase font-normal ps-1 sm:pb-4 md:pb-5 lg:pb-6 ">
+          <h4 class=" tracking-widest text-center uppercase font-normal ps-1 sm:pb-4 md:pb-5 lg:pb-6 ">
             {jobTitle}
-          </h2>
+          </h4>
         ) : null
       }
     </div>
@@ -127,11 +127,22 @@ const userName = `${firstName} ${lastName}`;
     word-break: keep-all;
   }
 
+
   h2 {
     /* font-size: clamp(18px, 22px, 24px); */
     overflow: visible;
+    padding-top: 0;
+    margin-top: 25px; 
+    margin-bottom: 0;
     
   }
+
+  h4 {
+    padding-top: 0;
+    margin-top: 10px;
+  }
+
+
 
   /* #cat-name {
     font-size: clamp(12px, 15px, 18px);

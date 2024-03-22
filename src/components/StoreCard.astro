@@ -32,17 +32,17 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
 ---
 
 <section
-  class="mx-4 my-4 flex-auto resize-none no-scrollbar overflow-y-scroll overscroll-contain scroll-auto"
+  class="mx-4 my-4 prose flex-auto resize-none no-scrollbar overflow-y-scroll overscroll-contain scroll-auto"
 >
   <!-- // Render the store card -->
   <div data-pagefind-body
     class="store-card card card-normal min-h-[31rem] max-h-[31rem] rounded-2xl bg-neutral border-4 border-secondary shadow-sm"
   >
     <!-- {/* Conditionally render store information only if the corresponding values are not empty */} -->
-    <section class="sm:text-xl md:text-2xl lg:text-3xl line-clamp-2 px-1 sm:py-4 md:py-5 lg:py-6 ">
+    <section class="px-1 sm:py-4 md:py-5 lg:py-6 ">
       {
         locName !== "" ? (
-          <h1 id="store-name" class="font-medium tracking-wide text-center uppercase">{locName}</h1>
+          <h2 id="store-name" class="font-medium tracking-wide text-center uppercase">{locName}</h2>
         ) : null
       }
     </section>
@@ -80,7 +80,7 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
       </span>
     </section>
 
-    <section>
+    <section class="not-prose">
       <!-- {
         storeAddress !== "" ? (
           <p class="text-md text-inherit font-semibold ps-1">
@@ -118,7 +118,7 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
       ) : null
     } -->
     </section>
-    <section class="py-2 ">
+    <section class="py-2 not-prose ">
       
         {
           faxNumber !== "" ? (
@@ -214,8 +214,17 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
   h2 {
     /* font-size: clamp(18px, 22px, 24px); */
     overflow: visible;
+    padding-top: 0;
+    margin-top: 25px; 
+    margin-bottom: 25px;
+    font-size: 1.75rem;
     
   }
+
+  p .prose {
+    margin: 0;
+  }
+  
 </style>
 
 <script>
