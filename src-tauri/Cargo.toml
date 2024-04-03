@@ -16,8 +16,9 @@ tauri-build = { version = "1.5.1", features = [] }
 
 [dependencies]
 serde_json = "1.0"
+tauri-plugin-positioner = { version = "1.0.5", features = ["system-tray"] }
 serde = { version = "1.0", features = ["derive"] }
-tauri = { version = "1.6.1", features = [ "window-set-skip-taskbar", "window-set-decorations", "window-set-title", "window-set-resizable", "window-show", "window-set-size", "window-set-position", "window-close", "window-hide", "window-set-closable"] }
+tauri = { version = "1.6.1", features = [ "system-tray", "window-show", "window-set-title", "window-set-position", "window-set-closable", "window-set-skip-taskbar", "window-close", "window-set-size", "window-hide", "window-set-decorations", "window-set-resizable"] }
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem and the built-in dev server is disabled.
