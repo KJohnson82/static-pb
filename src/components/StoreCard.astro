@@ -11,6 +11,8 @@ type StoreProps = {
   faxNumber: string;
   email: string;
   hours: string;
+  storeManager: string;
+  areaManager: string;
 };
 
 // Extract the store props from Astro.props and cast them to the StoreProps type
@@ -25,6 +27,8 @@ const {
   faxNumber,
   email,
   hours,
+  storeManager,
+  areaManager,
 } = Astro.props as StoreProps;
 
 const zipCode = zipcode.toString();
@@ -47,6 +51,10 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
       }
     </section>
     <div class="divider divider-info m-0 mt-0"></div>
+    <section>
+      <div>{storeManager}</div>
+      <div>{areaManager}</div>
+    </section>
     <section class="py-2 ">
       <span class="grid grid-rows-1 grid-cols-2 divide-x-2 divide-info ">
         <div class=" col-start-1 pe-4">

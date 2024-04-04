@@ -2,6 +2,7 @@
  // Importing global CSS styles
 import { ViewTransitions } from "astro:transitions"; // Importing ViewTransitions for page transition effects
 import "../styles/global.css"; // Importing global CSS styles
+import TitleBar from "../components/TitleBar.astro";
 
 
 
@@ -45,11 +46,16 @@ const { title } = Astro.props;
     <!-- Page transition component -->
   </head>
   <body>
+    
+    
     <div class="wrap">
       <!-- Main content area -->
       <main
         class=" my-0 py-0 px-0 mx-0 box-border w-screen h-screen box-decoration-clone bg-gradient-to-bl from-cyan-600 to-blue-600 text-primary-content rounded-md "
       >
+      <div class=" pb-6 box-decoration-clone ">
+        <TitleBar title={title} />
+      </div>
         <slot />
         <!-- Slot for inserting child content -->
         
@@ -101,3 +107,28 @@ const { title } = Astro.props;
   </style>
 </html>
 
+<script>
+  import { appWindow } from "@tauri-apps/api/window";
+
+  document.addEventListener('click', function(event) {
+  // Ensure the event target is an Element before proceeding
+  if (!(event.target instanceof Element)) return;
+
+  if (event.target.closest('#titlebar-minimize')) {
+    appWindow.minimize();
+  } else if (event.target.closest('#titlebar-close')) {
+    appWindow.close();
+  }
+  // Handle other buttons as needed
+});
+
+// document.querySelector('.titlebar').addEventListener('click', event => {
+// const target = event.target as Element;
+// if (target.closest('#titlebar-minimize')) {
+// appWindow.minimize();
+// } else if (target.closest('#titlebar-close')) {
+// appWindow.close();
+// }
+
+// });
+</script>

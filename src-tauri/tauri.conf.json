@@ -19,8 +19,8 @@
         "close": true,
         "create": false,
         "hide": true,
-        "maximize": false,
-        "minimize": false,
+        "maximize": true,
+        "minimize": true,
         "print": false,
         "requestUserAttention": false,
         "setAlwaysOnTop": false,
@@ -45,9 +45,9 @@
         "setSkipTaskbar": true,
         "setTitle": true,
         "show": true,
-        "startDragging": false,
-        "unmaximize": false,
-        "unminimize": false
+        "startDragging": true,
+        "unmaximize": true,
+        "unminimize": true
       }
     },
     "systemTray": {
@@ -101,7 +101,7 @@
         "fullscreen": false,
         "visible": false,
         "transparent": true,
-        "decorations": true,
+        "decorations": false,
         "height": 910,
         "resizable": false,
         "title": "McElroy Directory",
