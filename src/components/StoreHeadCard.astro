@@ -13,8 +13,11 @@ type Props = {
     subtitle3: string;
     phone2: string;
     phone3: string;
+    storeManager: string;
+    areaManager: string;
   }[];
 };
+
 
 // Extract storeHeadCard data from Astro's props
 const { storeHeadCard } = Astro.props;
@@ -33,24 +36,18 @@ const { storeHeadCard } = Astro.props;
           <!-- Divider line -->
           <div class=" w-full p-0 m-0 border-b-2 border-slate-100 border-opacity-20  "></div>
           <!-- Sections for displaying contact information -->
-          <div class="info-section ">
-            <div class="contact-section_1 pb-1">
-              <h3 class="pt-1.5 -pb-0 px-2">{card.subtitle1}</h3>
-              <div class="ps-2 py-0.5">
-                <p class="p-0 pt-0.5 m-0">{card.phone}</p>
-                </div>
+          <div class="info-section grid grid-rows-3 ">
+            <div class="contact-section_1 pt-2 flex-nowrap grid grid-cols-3 gap-2  ">
+            <div><h4 class=" grid col-span-1 uppercase  shrink grow text-right ">{card.subtitle1} </h4></div>  
+            <div><h4 class=" grid col-span-2 " >{card.storeManager}</h4></div>
             </div>
-            <div class="contact-section_2 ">
-              <h3 class="pt-1 -pb-1 px-2">{card.subtitle2}</h3>
-              <div class="ps-2 py-0.5">
-                <p class="p-0 m-0">{card.phone2}</p>
-                </div>
+            <div class="contact-section_2 grid grid-cols-3 pt-2 flex-col gap-2 flex-nowrap ">
+              <div><h4 class="grid col-span-1 uppercase shrink grow text-right">{card.subtitle2}</h4></div>
+              <div><h4 class=" grid col-span-2">{card.areaManager}</h4></div>
             </div>
-            <div class="contact-section_3">
-              <h3 class="pt-1 -pb-2 px-2">{card.subtitle3}</h3>
-              <div class="ps-2 py-0.5">
-                <p class="p-0 m-0">{card.phone3}</p>
-                </div>
+            <div class="contact-section_3 grid grid-cols-3 pt-2 gap-2 flex-nowrap ">
+              <div><h4 class=" grid col-span-1 uppercase shrink grow text-right ">{card.subtitle3}</h4></div>
+              <div><h4 class=" grid col-span-2 ">{card.phone3}</h4></div>
             </div>
           </div>
         </div>
@@ -85,9 +82,9 @@ const { storeHeadCard } = Astro.props;
     margin-top: 0;
     margin-bottom: 3%;
   }
-  h3 {
-    font-weight: bold;
-    font-size: large;
+  h4 {
+    font-weight: normal;
+    font-size: medium;
   }
   p {
     /* font-weight: 600; */

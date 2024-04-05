@@ -32,14 +32,14 @@ if (!store) {
 
 <Main title={`${store.locName} | Metal Marts`}>
   <div class="w-full h-full card card-compact">
-    <section class="h-1/5 shadow-sm">
+    <section class="">
       <StoreHeadCard
         storeHeadCard={[
           {
             title: store.locName,
-            subtitle1: "",
-            subtitle2: "",
-            subtitle3: "",
+            subtitle1: `Store Manager:`,
+            subtitle2: "Area Manager:",
+            subtitle3: "IT HELP DESK:",
             address: store.address,
             city: store.city,
             state: store.state,
@@ -48,6 +48,8 @@ if (!store) {
             email: store.email,
             phone2: "",
             phone3: "",
+            storeManager: store.storeManager,
+            areaManager: store.areaManager,
           },
         ]}
       ></StoreHeadCard>
@@ -70,7 +72,6 @@ if (!store) {
         city={store.city}
         state={store.state}
         zipcode={store.zipcode}
-        hours={store.hours}
         data-pagefind-index="locName, locNum, phoneNumber, email, city"
       />
     
@@ -99,3 +100,14 @@ if (!store) {
     </section>
   </div>
 </Main>
+
+<script>
+//   window.onload = function () {
+//   const sub3 = document.querySelector(".subtitle3");
+//   const phone3 = document.querySelector(".phone3");
+
+//   if (!phone3 || phone3.innerHTML.trim() === "") {
+//     sub3.innerHTML = sub3.innerHTML.replace("IT HELP DESK:", "");
+//   }
+// };
+</script>
