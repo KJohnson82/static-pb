@@ -33,7 +33,7 @@ if (!store) {
 
 <Main title={`${store.locName} | Service Center`}>
   <div class="w-full h-full card card-compact">
-    <section class="h-1/5 shadow-sm">
+    <section class="h-1/5 ">
       <StoreHeadCard
         storeHeadCard={[
           {
@@ -49,6 +49,8 @@ if (!store) {
             email: store.email,
             phone2: "",
             phone3: "",
+            storeManager: "",
+            areaManager: "",
           },
         ]}
       />

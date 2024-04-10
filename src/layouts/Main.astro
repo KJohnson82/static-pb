@@ -48,7 +48,7 @@ const { title } = Astro.props;
   <body>
     
     
-    <div class="wrap">
+    <div class="wrap" id="wrap">
       <!-- Main content area -->
       <main
         class=" my-0 py-0 px-0 mx-0 box-border w-screen h-screen box-decoration-clone bg-gradient-to-bl from-cyan-600 to-blue-600 text-primary-content rounded-md "
@@ -70,17 +70,10 @@ const { title } = Astro.props;
       /* width: 425px;
       height: 900px; */
     }
+    
     .window {
-      /* width: auto; */
-      /* max-width: 500px;
-    height: 1080px;
-    max-height: 1080px; */
-      /* height: auto; */
-      /* position: fixed;
-      top: auto;
-      left: auto;
-      margin: auto; */
-      /* background: bg-base-200; */
+      background-color: transparent;
+      border-radius: 6px;
     }
     .material-symbols-outlined {
       font-variation-settings:
@@ -90,19 +83,25 @@ const { title } = Astro.props;
         "opsz" 24;
     }
 
+    /* #wrap {
+      border-radius: 8px;
+      background-color: transparent;
+      overflow: hidden;
+    } */
+
     /* div.wrap {
       margin: 0 auto;
       background-size: cover;
       border-radius: 20px;
     } */
 
-    body {
+    body, html {
       overflow: hidden;
+      border-radius: 6px;
       margin: 0 auto;
+      background: none;
       background-color: transparent;
-      background-size: cover;
-      
-
+      box-shadow: none;
     }
   </style>
 </html>
