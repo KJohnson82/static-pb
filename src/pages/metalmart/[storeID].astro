@@ -31,7 +31,7 @@ if (!store) {
 ---
 
 <Main title={`${store.locName} | Metal Marts`}>
-  <div class="w-full h-full card card-compact">
+  <div class="flex flex-col h-screen">
     <section class="">
       <StoreHeadCard
         storeHeadCard={[
@@ -39,7 +39,7 @@ if (!store) {
             title: store.locName,
             subtitle1: `Store Manager:`,
             subtitle2: "Area Manager:",
-            subtitle3: "IT HELP DESK:",
+            subtitle3: "",
             address: store.address,
             city: store.city,
             state: store.state,
@@ -54,15 +54,17 @@ if (!store) {
         ]}
       ></StoreHeadCard>
     </section>
-    <div class="divider  -mt-1 -mb-0"></div>
-    <section class="h-auto">
+    <div class="divide divide-none divide-y-2 py-0"></div>
+    
+    <section
+    class="flex-grow pb-0 pt-1 no-scrollbar  overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
+    >
+    <section class="shadow-sm drop-shadow-sm">
       <NavBar />
     </section>
-    <section
-      class="h-5/6 flex-auto pb-2 pt-2 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
-    >
       <!-- Render the store card with relevant information -->
-      <StoreCard
+      <div class="">
+        <StoreCard
         locName={store.locName}
         locNum={store.locNum}
         phoneNumber={store.phoneNumber}
@@ -74,15 +76,18 @@ if (!store) {
         zipcode={store.zipcode}
         data-pagefind-index="locName, locNum, phoneNumber, email, city"
       />
+
+      </div>
+      
     
     </section>
 
-    <div class="divider -mt-1 -mb-1"></div>
+    <div class="divide divide-none divide-y-2 py-0"></div>
 
     <!-- Additional content sections can be added here -->
 
     <!-- Render the footer with navigation links -->
-    <section class="box-border h-1/5 mt-2">
+    <section class="box-border mt-0 pb-2">
       <!-- {/* Render the footer with navigation links */} -->
       <Footer
         bottomNav={[

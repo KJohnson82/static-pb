@@ -131,6 +131,13 @@
 
 body {
     font-family: 'Rubik', sans-serif;
+    border-radius: 8px;
+    background-color: transparent;
+    overflow: hidden;
+    margin: -1.5px;
+    box-shadow: none;
+    height: calc(100vh - 2px);
+    width: calc(100vw - 2px);
 }
 
 

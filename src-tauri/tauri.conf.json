@@ -14,7 +14,7 @@
     "allowlist": {
       "all": false,
       "window": {
-        "all": false,
+        "all": true,
         "center": false,
         "close": true,
         "create": false,
@@ -102,10 +102,8 @@
         "visible": false,
         "transparent": true,
         "decorations": false,
-        "height": 910,
         "resizable": false,
         "title": "McElroy Directory",
-        "width": 430,
         "closable": true,
         "hiddenTitle": true,
         "titleBarStyle": "Transparent",

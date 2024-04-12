@@ -5,7 +5,7 @@ import SearchBar from "../components/SearchBar.astro";
 ---
 
 <div
-  class="dept-nav flex items-center border border-x-0 border-y-2 border-slate-100 border-opacity-20 gap-5  box-decoration-clone"
+  class="dept-nav py-2 ps-3 flex items-center border border-x-0 border-y-2 gap-6 border-slate-100 border-opacity-20 box-decoration-clone"
 >
   <BackButton />
   <Search
@@ -16,11 +16,7 @@ import SearchBar from "../components/SearchBar.astro";
 </div>
 
 <style is:global>
-  .dept-nav {
-    padding: 0.5rem;
-    background-color: var(--color-bg-primary);
-   
-  }
+
   .pagefind-ui {
     /* --pagefind-ui-scale: 0.75; */
     --pagefind-ui-primary: navy;

@@ -23,20 +23,20 @@ const { headCard } = Astro.props;
 
 <!-- // Render the head cards -->
 <!-- Render head cards based on provided data -->
-<div class=" rounded-md ">
+<div class=" bg-red-500 w-dvw ">
   {headCard.map((card) => (
     <!-- Iterate over each card in headCard array and create a div for each card -->
-    <div class="card-body grid grid-cols-1 border-x-[3px] border-y-[3px] border-transparent rounded-md pt-0 pb-1 mb-2 ">
-      <h2 class="card-title text-center font-normal uppercase text-3xl line-clamp-2 divide-y-[1px] pt-2 px-2 tracking-wide">
+    <div class="grid grid-cols-1 border-x-[3px] border-y-[3px] border-transparent rounded-md pt-0 pb-0 mb-0 ">
+      <h2 class=" text-center font-normal uppercase text-3xl line-clamp-2 divide-y-[1px] pt-2 px-2 tracking-wide">
         {card.title} <!-- Display the card title -->
       </h2>
       <!-- Divider line -->
-      <div class="w-full p-0 m-0 border-b-2 border-slate-100 border-opacity-20 "></div>
+      <div class="w-lvw p-0 m-0 border-b-2 border-slate-100 border-opacity-20 "></div>
       <!-- Sections for address, contact, and help desk information -->
       <!-- Address section -->
           <section class="address-section pb-1">
           <!--<p>{card.subtitle1}</p> -->
-          <div class="w-full text-center align-middle">
+          <div class="w-svw text-center align-middle">
             <p class="text-base/5 ">{card.address} {card.city} {card.state} {card.zip}</p>
           </div>
         </section>
@@ -59,7 +59,7 @@ const { headCard } = Astro.props;
         <!-- Help desk section -->
         <section class="help-desk-section border-t-2 border-slate-100 border-opacity-20 ">
           <div class="grid grid-cols-1 gap-1 divide-x-2 border-slate-100 border-opacity-20 ">
-            <div class=" text-base/3 text-center align-middle pt-6 pb-0 pe-2 mb-0"><p class="font-semibold ">{card.subtitle3} | {card.phone2}</p></div>
+            <div class=" text-base/3 text-center align-middle py-4 pb-2 pe-2 mb-0"><p class="font-semibold ">{card.subtitle3} | {card.phone2}</p></div>
         
       </div>
         </section>
@@ -71,11 +71,11 @@ const { headCard } = Astro.props;
 <style>
   /* Styles for cards */
   .card {
-    margin: 0 auto;
+    /* margin: 0 auto;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 1%;
-    margin-bottom: 10px;
+    margin-bottom: 10px; */
     /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
   }
 
@@ -96,7 +96,7 @@ const { headCard } = Astro.props;
     font-size: large;
   } */
 
-  p {
+  /* p {
     font-weight: 600;
-  }
+  } */
 </style>

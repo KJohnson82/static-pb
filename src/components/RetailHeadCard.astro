@@ -34,20 +34,24 @@ const { storeHeadCard } = Astro.props;
         <div class=" grid grid-cols-1 border-x-[3px] border-y-[3px] border-transparent rounded-md pt-0 pb-0 mb-0">
           <h2 class=" text-center font-normal uppercase text-3xl line-clamp-2 divide-y-[1px] pt-2 px-2 tracking-wide">{card.title}</h2>
           <!-- Divider line -->
-          <div class=" w-lvw p-0 m-0 border-b-2 border-slate-100 border-opacity-20  "></div>
+          <div class="w-lvw p-0 m-0 border-b-2 border-slate-100 border-opacity-20 "></div>
           <!-- Sections for displaying contact information -->
           <div class="info-section py-2 px-4 ">
-            <div class="contact-section_1  ">
-            <div class="w-svw align-middle"><p class="  ">{card.subtitle1} </p></div>  
-            <div><p class=" text-base/5 " >{card.storeManager}</p></div>
+            <div class="contact-section_1 grid grid-cols-3 pt-1 flex-col gap-2 flex-nowrap text-nowrap ">
+            <div><p class="grid col-span-1 uppercase shrink grow text-right">{card.subtitle1} </p></div>  
+            <div><p class=" grid col-span-2 " >{card.phone}</p></div>
             </div>
-            <div class="contact-section_2 grid grid-cols-3 pt-2 flex-col gap-2 flex-nowrap ">
+            <div class="contact-section_2 grid grid-cols-3 pt-1 flex-col gap-2 flex-nowrap text-nowrap ">
               <div><p class="grid col-span-1 uppercase shrink grow text-right">{card.subtitle2}</p></div>
-              <div><p class=" grid col-span-2">{card.areaManager}</p></div>
+              <div><p class=" grid col-span-2">{card.phone2}</p></div>
             </div>
-            <div class="contact-section_3 grid grid-cols-3 pt-2 gap-2 flex-nowrap ">
+            <div class="contact-section_3 grid grid-cols-3 pt-1 gap-2 flex-nowrap text-nowrap">
               <div><p class=" grid col-span-1 uppercase shrink grow text-right ">{card.subtitle3}</p></div>
               <div><p class=" grid col-span-2 ">{card.phone3}</p></div>
+            </div>
+            <div class="contact-section_3 grid grid-cols-3 pt-1 gap-2 flex-nowrap text-nowrap">
+              <div><p class=" grid col-span-1 uppercase shrink grow text-right ">{card.email}</p></div>
+              <div><p class=" grid col-span-2 ">{card.address}</p></div>
             </div>
           </div>
         </div>
@@ -55,38 +59,3 @@ const { storeHeadCard } = Astro.props;
     ))
   }
 </div>
-<!-- <div class="divider divide-x-2 divide-y-2 divider-accent" /> -->
-<style>
-  .card {
-    /* margin: 0 auto;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 1%;
-    margin-bottom: 10px;
-     */
-    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
-  }
-  /* .card-title {
-    font-weight: normal;
-    font-size: xx-large;
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 0%;
-    padding-left: 5%;
-    padding-right: 5%;
-    white-space: nowrap;
-    text-shadow: 3px 3px 34px #443f3f ;
-  } */
-  
-  /* .divider {
-    margin-top: 0;
-    margin-bottom: 3%;
-  }
-  h4 {
-    font-weight: normal;
-    font-size: medium;
-  } */
-  p {
-    /* font-weight: 600; */
-  }
-</style>

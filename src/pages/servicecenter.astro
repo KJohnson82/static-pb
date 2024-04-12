@@ -6,6 +6,7 @@ import Main from "../layouts/Main.astro";
 import SCBuild from "../components/SCBuild.astro";
 import Data from '../data/Data.json';// Importing data from a JSON file
 import NavBar from '../components/NavBar.astro';
+import RetailHeadCard from "../components/RetailHeadCard.astro";
 
 
 ---
@@ -14,27 +15,27 @@ import NavBar from '../components/NavBar.astro';
 <!-- // Render the main layout, setting the title for the page -->
 <Main title="Service Center">
     <!-- // Outermost container for the content -->
-    <div class="w-full h-full card card-compact">
+    <div class="flex flex-col h-screen">
       <!-- Section for the Service Center header card -->
-      <section class="h-2/6">
+      <section class=" ">
         <!-- Render the StoreHeadCard component with provided properties -->
-        <StoreHeadCard
+        <RetailHeadCard
           storeHeadCard={[
             {
               title: "Service Centers",
-              subtitle1: "Maybe some info on area managers?",
-              subtitle2: "Maybe other needed contact info?",
-              phone: "(555) 555-5555",
-              subtitle3: "IT Help Desk",
-              phone2: "(555) 555-5555",
-              phone3: "(866) 555-5555",
-              email: "",
-              address: "",
+              subtitle1: "Subtitle",
+              subtitle2: "Subtitle",
+              phone: "Something Here",
+              subtitle3: "Subtitle",
+              phone2: "Something Here",
+              phone3: "Something Here",
+              email: "Subtitle",
+              address: "Something Here",
               city: "",
               state: "",
               zip: "",
-              storeManager: "Something here",
-              areaManager: "Something here",
+              storeManager: "",
+              areaManager: "",
             },
           ]}
         />
@@ -42,34 +43,30 @@ import NavBar from '../components/NavBar.astro';
   
 
       <!-- Visual divider between sections -->
-      <!-- <div class="divider -mt-1 -mb-0"></div> -->
+      <div class=" divide divide-none divide-y-2 py-0 "></div>
       
   
       <!-- Section for displaying Service Center data -->
       <section
-        class="h-5/6 flex-auto no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px"
-      >
-      <section class="h-auto shadow-sm drop-shadow-sm">
+      class="flex-grow pb-0 pt-1 no-scrollbar  overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
+      > 
+      <section class="shadow-sm drop-shadow-sm">
         <NavBar />
       </section>
-      <!-- <div class="ps-1 py-1 pe-2">
-        <SearchBar />
-      </div> -->
+
         <!-- Render the SCExPanel component with Service Center data -->
         <div
-          class="h-full ps-2 py-1 pe-4 border-4 border-transparent focus-within:text-white no-scrollbar flex-auto scroll-auto overscroll-contain overflow-y-auto scroll-mx-px"
+        class=" bg-pink-400 ps-2 py-1 pe-2 border-4 border-transparent overflow-y-auto no-scrollbar"
         >
-          <!-- <SCBuild
-            servicecenters={SCData.loctype["service center"].locations}
-          /> -->
+          
           <SCBuild servicecenters={Data.loctype["service center"].locations} />
         </div>
       </section>
   
-      <div class="divider -mt-2 -mb-2"></div>
+      <div class=" divide divide-none divide-y-2 py-0 "></div>
   
       <!-- Section for the page footer -->
-      <section class="box-border h-1/5 mt-2">
+      <section class="box-border pb-2 mt-0">
         <!-- Render the Footer component with navigation links -->
         <!-- <SearchBar /> -->
         <Footer
@@ -86,9 +83,5 @@ import NavBar from '../components/NavBar.astro';
   </Main>
   
   <style>
-    .card {
-      margin: 0 auto;
-      /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
-    }
   </style>
   

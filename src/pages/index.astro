@@ -15,13 +15,14 @@ import { moveWindow, Position } from "tauri-plugin-positioner-api";
 <!-- // Render the main layout, setting the title for the page -->
 <Main title="Employee Directory">
   <!-- // Outermost container for the content -->
-  <div class="w-full h-full card card-compact">
-    <section class="h-2/6 ">
+  <div class=" flex flex-col h-screen "> 
+    <!-- card card-compact -->
+    <section class=" ">
       <!-- {/* Render the corporate header card with relevant information */} -->
       <CorpHeadCard
         headCard={[
           {
-            title: " Employee Directory ",
+            title: "Employee Directory",
             subtitle1: "Corp. Phone",
             address: "555 Generic Road,",
             city: "Central City,",
@@ -38,19 +39,19 @@ import { moveWindow, Position } from "tauri-plugin-positioner-api";
     </section>
 
     <!-- Visual divider between sections -->
-    <!-- <div class="divider -mt-2 -mb-1 divide-slate-100"></div> -->
+    <div class=" divide divide-none divide-y-2 py-0 "></div>
 
     <!-- Section for the main page menu -->
     <section
-      class="h-5/6 flex-auto resize-none no-scrollbar overflow-scroll overscroll-contain scroll-auto"
+    class="flex-grow pb-0 pt-1 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
       
     >
-    <div class="ps-0 py-1 pe-0 shadow-sm drop-shadow-sm">
+    <div class="shadow-sm drop-shadow-sm">
       <SearchBar />
       <!-- <SearchWidget /> -->
     </div>
       <div
-        class="h-full ps-2 py-1 pe-4 pt-2 border-4 border-transparent no-scrollbar flex-auto scroll-auto overscroll-contain overflow-visible"
+        class=" ps-2 py-1 pe-4 pt-2 border-4 border-transparent no-scrollbar flex-auto scroll-auto overscroll-contain overflow-visible"
       >
         <!-- <div id="search" transition:persist></div> -->
         <!-- Render the MainPageMenu component with location options -->
@@ -60,25 +61,25 @@ import { moveWindow, Position } from "tauri-plugin-positioner-api";
             {
               location: "CORPORATE",
               to: "/corporate",
-              desc: "corp-btn btn btn-block box-decoration-clone border-none shadow-transparent text-white opacity-90",
+              desc: "corp-btn btn btn-block bg-transparent box-decoration-clone hover:bg-transparent  border-none shadow-transparent text-white opacity-90 ",
               icon: "corporate",
             },
             {
               location: "METAL MART",
               to: "/metalmart",
-              desc: "mm-btn btn btn-block box-decoration-clone border-none shadow-transparent text-white opacity-90",
+              desc: "mm-btn btn btn-block bg-transparent box-decoration-clone hover:bg-transparent border-none shadow-transparent text-white opacity-90",
               icon: "store",
             },
             {
               location: "SERVICE CENTER",
               to: "/servicecenter",
-              desc: "sc-btn btn btn-block box-decoration-clone border-none shadow-transparent text-white opacity-90",
+              desc: "sc-btn btn btn-block bg-transparent box-decoration-clone hover:bg-transparent border-none shadow-transparent text-white opacity-90",
               icon: "service_center",
             },
             {
               location: "PLANT",
               to: "/plant",
-              desc: "plant-btn btn btn-block box-decoration-clone border-none shadow-transparent text-white opacity-90",
+              desc: "plant-btn btn btn-block bg-transparent box-decoration-clone hover:bg-transparent border-none shadow-transparent text-white opacity-90",
               icon: "plant",
             },
           ]}
@@ -87,8 +88,8 @@ import { moveWindow, Position } from "tauri-plugin-positioner-api";
     </section>
 
     <!-- Section for the page footer -->
-    <div class="divider shadow-sm -mt-1 -mb-1"></div>
-    <section class="box-border h-1/5 mt-2">
+    <div class=" divide divide-none divide-y-2 py-0 "></div>
+    <section class="box-border  mt-0 pb-2">
       <!-- <SearchBar /> -->
       <!-- Render the Footer component with navigation links -->
       <Footer
@@ -126,7 +127,7 @@ import { moveWindow, Position } from "tauri-plugin-positioner-api";
 
 <style>
   .card {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
   }
 </style>

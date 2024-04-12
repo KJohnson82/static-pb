@@ -21,7 +21,7 @@ const {bottomNav} = Astro.props as Props;
 
 
 <!-- Bottom navigation bar container -->
-<div class="btm-nav static bg-transparent ">
+<div class="btm-nav static bg-inherit ">
     <!-- Mapping over each navigation item to create buttons -->
     {bottomNav.map(({icon, label, to}) => (
         <a href={to} id={label}>

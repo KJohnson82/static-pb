@@ -16,7 +16,7 @@ const { bottomNav } = Astro.props;
 ---
 
 <!-- Main container for the component -->
-<div class="box-content relative w-full">
+<div class="box-border bg-red-400 relative w-full mb-2 pb-2">
   <!-- Render the BottomNav component, passing bottomNav as prop -->
   <BottomNav bottomNav={bottomNav} />
   <!-- Include the SearchBar component -->
@@ -24,14 +24,14 @@ const { bottomNav } = Astro.props;
   <!-- Footer section -->
   <footer class="footer footer-center w-full h-fit pb-1">
     <!-- Copyright notice -->
-    <p>Copyright © 2024 - All right reserved by McElroy Metal Inc.</p>
+    <!-- <p class="text-xs mb-2 pb-2">Copyright © 2024 - All right reserved by McElroy Metal Inc.</p> -->
   </footer>
   <!-- Commented out alternative footer content -->
 </div>
 
 <style>
   /* Styles for paragraph text, typically used in the footer */
-  p {
+  /* p {
     font-family: "Roboto", sans-serif;
     font-size: 10px;
     font-weight: 500;
@@ -40,10 +40,10 @@ const { bottomNav } = Astro.props;
     text-align: center;
     margin: 2%;
     padding: 0;
-  }
+  } */
 
-  div {
+  /* div {
     border-radius: 8px;
     background-color: transparent;
-  }
+  } */
 </style>

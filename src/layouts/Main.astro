@@ -29,6 +29,7 @@ const { title } = Astro.props;
       rel="stylesheet"
     />
 
+    
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -48,12 +49,12 @@ const { title } = Astro.props;
   <body>
     
     
-    <div class="wrap" id="wrap">
+    <div class="wrap bg-transparent" id="wrap">
       <!-- Main content area -->
       <main
-        class=" my-0 py-0 px-0 mx-0 box-border w-screen h-screen box-decoration-clone bg-gradient-to-bl from-cyan-600 to-blue-600 text-primary-content rounded-md "
+        class=" my-0 py-0 px-0 mx-0 box-border= w-lvw h-lvh box-decoration-clone bg-gradient-to-bl from-cyan-600 to-blue-600 text-primary-content rounded-md "
       >
-      <div class=" pb-6 box-decoration-clone ">
+      <div class=" pb-6 bg-purple-300 ">
         <TitleBar title={title} />
       </div>
         <slot />
@@ -61,20 +62,9 @@ const { title } = Astro.props;
         
       </main>
     </div>
-  </body><style>
-    .artboard.phone-6 {
-      /* min-height: auto;
-      min-width: 425px;
-      max-height: 900px;
-      max-width: 430px; */
-      /* width: 425px;
-      height: 900px; */
-    }
+  </body>
+  <style>
     
-    .window {
-      background-color: transparent;
-      border-radius: 6px;
-    }
     .material-symbols-outlined {
       font-variation-settings:
         "FILL" 0,
@@ -82,32 +72,13 @@ const { title } = Astro.props;
         "GRAD" 0,
         "opsz" 24;
     }
-
-    /* #wrap {
-      border-radius: 8px;
-      background-color: transparent;
-      overflow: hidden;
-    } */
-
-    /* div.wrap {
-      margin: 0 auto;
-      background-size: cover;
-      border-radius: 20px;
-    } */
-
-    body, html {
-      overflow: hidden;
-      border-radius: 6px;
-      margin: 0 auto;
-      background: none;
-      background-color: transparent;
-      box-shadow: none;
-    }
   </style>
 </html>
 
 <script>
   import { appWindow } from "@tauri-apps/api/window";
+  import { currentMonitor } from '@tauri-apps/api/window';
+  import { primaryMonitor } from '@tauri-apps/api/window';
 
   document.addEventListener('click', function(event) {
   // Ensure the event target is an Element before proceeding
@@ -121,6 +92,27 @@ const { title } = Astro.props;
   // Handle other buttons as needed
 });
 
+async function adjustWindowSize() {
+  const monitor = await currentMonitor();
+  if (monitor && monitor.size) {
+    const monitorWidth = monitor.size.width;
+    const monitorHeight = monitor.size.height;
+
+    // Set the window size to 80% of the monitor size using LogicalSize
+    const windowWidth = monitorWidth * 0.2;
+    const windowHeight = monitorHeight * 0.75;
+
+    // Define the size object with 'type' as 'Logical'
+    const size = {
+      type: 'Logical', // Specify the size type here
+      width: windowWidth,
+      height: windowHeight
+    };
+
+    await appWindow.setSize(size);
+  }
+}
+adjustWindowSize(); 
 // document.querySelector('.titlebar').addEventListener('click', event => {
 // const target = event.target as Element;
 // if (target.closest('#titlebar-minimize')) {

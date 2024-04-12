@@ -59,11 +59,11 @@ const { headCard } = Astro.props;
 
 <!-- // Render the head cards -->
 <!-- Render head cards based on provided data -->
-<div class=" rounded-md  ">
+<div class=" bg-red-500 w-dvw ">
   {headCard.map((card) => (
     <!-- Iterate over each card in headCard array and create a div for each card -->
-    <div class="card-body grid grid-cols-1 border-x-[3px] border-y-[3px] border-transparent rounded-md  mb-2 ">
-      <h2 class="card-title text-center font-normal uppercase text-3xl line-clamp-2 divide-y-[1px] pt-2 px-2 tracking-wide">
+    <div class=" grid grid-cols-1 border-x-[3px] border-y-[3px] border-transparent rounded-md  mb-2 ">
+      <h2 class=" text-center font-normal uppercase text-3xl line-clamp-2 divide-y-[1px] pt-2 px-2 tracking-wide">
         {card.title} <!-- Display the card title -->
       </h2>
       <!-- Divider line -->
@@ -79,25 +79,25 @@ const { headCard } = Astro.props;
 
 <style>
   /* Styles for cards */
-  .card {
+  /* .card {
     margin: 0 auto;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 1%;
     margin-bottom: 10px;
-    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
-  }
+
+  } */
 
   /* Styles for card title */
-  .card-title {
+  /* .card-title {
     text-shadow: 3px 3px 34px #443f3f ;
-  }
+  } */
 
   /* Styles for dividers */
-  .divider {
+  /* .divider {
     margin-top: 0;
     margin-bottom: 3%;
-  }
+  } */
 
   /* Styles for headings and paragraphs */
   /* h3 {
@@ -105,7 +105,8 @@ const { headCard } = Astro.props;
     font-size: large;
   } */
 
-  p {
+  /* p {
     font-weight: 600;
-  }
+  } */
+
 </style>

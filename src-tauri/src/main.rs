@@ -4,20 +4,19 @@
 use tauri::Manager;
 use window_vibrancy::apply_blur;
 
+
 fn main() {
   tauri::Builder::default()
     .plugin(tauri_plugin_positioner::init())
     .setup(|app| {
-      let window = app.get_window("main").unwrap();
-
+      let window = app.get_window("main").unwrap();     
       #[cfg(target_os = "macos")]
       apply_vibrancy(&window, NSVisualEffectMaterial::HudWindow, None, Some(16.0))
         .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
 
       #[cfg(target_os = "windows")]
-      apply_blur(&window, Some((18, 18, 18, 125)))
+      apply_blur(&window, Some((10, 10, 10, 10)))
         .expect("Unsupported platform! 'apply_blur' is only supported on Windows");
-
       Ok(())
     })
     .on_system_tray_event(|app, event| {
