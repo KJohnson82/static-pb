@@ -5,7 +5,7 @@ import Search from "astro-pagefind/components/Search";
 
 <!-- Container for the search bar -->
 <div
-  class=" px-0 py-0 px-1 border-x-0 border-y-2 border-slate-100 border-opacity-20 no-scrollbar flex-auto scroll-auto overscroll-contain  box-decoration-clone"
+  class=" h-auto p-2 z-auto border-x-0 border-y-2 border-slate-100 border-opacity-20 no-scrollbar flex-auto scroll-auto overscroll-contain  box-decoration-clone"
 >
     <div class="search-container box-content w-auto ms-2 text-grey-600 rounded-lg  " >
       <!-- Input field for search -->
@@ -47,7 +47,7 @@ import Search from "astro-pagefind/components/Search";
 <style is:global>
 
   .search-container{
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     background-color: var(--color-bg-primary);
     
   }
@@ -60,7 +60,7 @@ import Search from "astro-pagefind/components/Search";
     /* --pagefind-ui-border-width: 1px;
     --pagefind-ui-border-radius: 0.25rem; */
     --pagefind-ui-background: white;
-
+    --pagefind-ui-z-index: 5000;
     /* --pagefind-ui-font: sans-serif; */
 
     width:100%;
@@ -83,7 +83,7 @@ import Search from "astro-pagefind/components/Search";
     left: 0;
     right: 0;
     margin-top: 0px;
-    z-index: 1000;
+    z-index: 5000;
     padding: 0 1em 1em 1em;
     overflow-y: auto;
     box-shadow:

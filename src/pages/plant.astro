@@ -14,7 +14,7 @@ import NavBar from '../components/NavBar.astro';
 <!-- // Render the main layout, setting the title for the page -->
 <Main title="Plant">
     <!-- // Outermost container for the content -->
-    <div class="w-full h-full card card-compact">
+    <div class="flex flex-col h-screen">
       <!-- Section for the plant-specific header card -->
       <section class="h-2/6">
         <!-- Render the CorpHeadCard component with plant-specific information -->
@@ -39,13 +39,14 @@ import NavBar from '../components/NavBar.astro';
   
       <!-- Visual divider between sections -->
       <!-- <div class="divider -mt-1 -mb-0"></div> -->
+      <div class=" divide divide-none divide-y-2 py-0 "></div>
       
   
       <!-- Section for displaying plant data -->
       <section
-        class="h-5/6 flex-auto no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
+      class="flex-grow pb-0 pt-1 no-scrollbar  overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
       >
-      <section class="h-auto shadow-sm drop-shadow-sm">
+      <section class="shadow-sm drop-shadow-sm">
         <NavBar />
       </section>
       <!-- <div class="ps-1 py-1 pe-2">
@@ -53,16 +54,16 @@ import NavBar from '../components/NavBar.astro';
       </div> -->
         <!-- Render the PlantExPanel component with plant location data -->
         <div
-          class="h-full ps-2 pe-2 py-1 border-4 border-transparent overflow-y-auto no-scrollbar"
+          class=" ps-2 py-1 pe-2 border-4 border-transparent overflow-y-auto no-scrollbar"
         >
           <PlantBuild  PlantLocs={Data.loctype["plant"].locations} />
         </div>
       </section>
   
-      <div class="divider -mt-2 -mb-2"></div>
+      <div class=" divide divide-none divide-y-2 py-0 "></div>
   
       <!-- Section for the page footer -->
-      <section class="box-border h-1/5 mt-2">
+      <section class="box-border pb-2 mt-0">
         <!-- Render the Footer component with navigation links -->
         <!-- <SearchBar /> -->
         <Footer
@@ -83,9 +84,5 @@ import NavBar from '../components/NavBar.astro';
   </Main>
   
   <style>
-    .card {
-      margin: 0 auto;
-      /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
-    }
   </style>
   
