@@ -32,14 +32,14 @@ if (!store) {
 ---
 
 <Main title={`${store.locName} | Service Center`}>
-  <div class="w-full h-full card card-compact">
-    <section class="h-1/5 ">
+  <div class="flex flex-col h-screen">
+    <section class=" ">
       <StoreHeadCard
         storeHeadCard={[
           {
             title: store.locName,
-            subtitle1: "",
-            subtitle2: "",
+            subtitle1: "Store Manager ",
+            subtitle2: "Area Manager ",
             subtitle3: "",
             address: store.address,
             city: store.city,
@@ -49,20 +49,21 @@ if (!store) {
             email: store.email,
             phone2: "",
             phone3: "",
-            storeManager: "",
-            areaManager: "",
+            storeManager: store.storeManager,
+            areaManager: store.areaManager,
           },
         ]}
       />
     </section>
-    <div class="divider shadow-sm -mt-1 -mb-0"></div>
-    <section class="h-auto">
-      <NavBar />
-    </section>
+    <div class="divide divide-none divide-y-2 py-0"></div>
+    
 
     <section
-      class="h-5/6 flex-auto pb-2 pt-2 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
+    class="flex-grow pb-0 pt-1 no-scrollbar  overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
     >
+    <section class="shadow-sm drop-shadow-sm">
+      <NavBar />
+    </section>
       <!-- Render the store card with relevant information -->
       <StoreCard
         locName={store.locName}
@@ -79,12 +80,12 @@ if (!store) {
       />
     </section>
 
-    <div class="divider shadow-sm -mt-2 -mb-2"></div>
+    <div class="divide divide-none divide-y-2 py-0"></div>
 
     <!-- Additional content sections can be added here -->
 
     <!-- Render the footer with navigation links -->
-    <section class="box-border h-1/5 mt-2">
+    <section class="box-border pb-3 mt-0">
       <!-- {/* Render the footer with navigation links */} -->
       <Footer
         bottomNav={[

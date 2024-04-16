@@ -27,7 +27,7 @@ const { headCard } = Astro.props;
   {headCard.map((card) => (
     <!-- Iterate over each card in headCard array and create a div for each card -->
     <div class="grid grid-cols-1 border-x-[3px] border-y-[3px] border-transparent rounded-md pt-0 pb-0 mb-0 ">
-      <h2 class=" text-center font-normal uppercase text-3xl line-clamp-2 divide-y-[1px] pt-2 px-2 tracking-wide">
+      <h2 class=" text-center text-nowrap font-normal uppercase text-3xl md:text-3xl lg:text-4xl line-clamp-2 divide-y-[1px] pt-2 px-2 tracking-wide">
         {card.title} <!-- Display the card title -->
       </h2>
       <!-- Divider line -->

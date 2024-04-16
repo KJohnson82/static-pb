@@ -59,8 +59,8 @@ if (!employee) {
 ---
 
 <Main title={employee.firstName + employee.lastName}>
-  <div class="w-full h-full card card-compact">
-    <section class="h-1/5 ">
+  <div class="flex flex-col h-screen">
+    <section class=" ">
         <!-- {/* Render the corporate header card with relevant information */} -->
 
         <EmployeeHeadCard
@@ -85,17 +85,16 @@ if (!employee) {
         </EmployeeHeadCard>
         
       </section>
-      <div class="divider shadow-sm -mt-1 -mb-0"></div>
-      <section class="h-auto">
+      <div class="divide divide-none divide-y-2 py-0"></div>
+
+      
+
+      <section class="flex-grow pb-0 pt-1 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
+      >
+
+      <section class="shadow-sm drop-shadow-sm">
         <NavBar />
       </section>
-
-      <section class=" h-5/6 flex-auto pb-2 pt-2 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
-      >
-        
-        <!-- <div class="ps-1 py-0.5 pe-2">
-            <SearchBar />
-          </div> -->
         
           <div class="user-card ">
 
@@ -114,8 +113,8 @@ if (!employee) {
       </section>
 
     
-    <div class="divider shadow-sm -mt-1 -mb-1"></div>
-    <section class="box-border h-1/5 mt-2">
+      <div class="divide divide-none divide-y-2 py-0"></div>
+    <section class="box-border mt-0 pb-3">
         <!-- {/* Render the footer with navigation links */} -->
         <Footer
           bottomNav={[
@@ -135,9 +134,6 @@ if (!employee) {
 </Main>
 
 <script>
-  function speak() {
-    console.log('employee file clicked!');
-  }
   
 </script>
 

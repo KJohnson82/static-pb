@@ -85,6 +85,7 @@
         "digestAlgorithm": "sha256",
         "timestampUrl": "",
         "webviewInstallMode": {
+          
           "silent": true,
           "type": "downloadBootstrapper"
         }
@@ -99,6 +100,12 @@
     "windows": [
       {
         "fullscreen": false,
+        "height": 900,
+        "width": 400,
+        "maxHeight": 900,
+        "maxWidth": 400,
+        "minHeight": 900,
+        "minWidth": 400,
         "visible": false,
         "transparent": true,
         "decorations": false,

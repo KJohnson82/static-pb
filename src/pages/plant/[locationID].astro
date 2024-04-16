@@ -42,8 +42,8 @@ if (!location) {
 ---
 
 <Main title={location.locName}>
-    <div class="w-full h-full card card-compact">
-        <section class="h-2/6 ">
+    <div class="flex flex-col h-screen">
+        <section class=" ">
             <CorpHeadCard headCard={[
                 {
             title: `${location.locName}`, // Title of the card
@@ -62,18 +62,16 @@ if (!location) {
             
             
         </section >
-        <div class="divider shadow-sm -mt-1 -mb-0"></div>
-        <section class="h-auto">
+        <div class="divide divide-none divide-y-2 py-0"></div>
+        
+
+        <section class="flex-grow pb-0 pt-1 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
+        >
+        <section class="shadow-sm drop-shadow-sm">
           <NavBar />
         </section>
 
-        <section class="h-5/6 flex-auto pb-2 pt-3 no-scrollbar resize-none overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
-        >
-        <!-- <div class="ps-1 py-0.5 pe-2">
-            <SearchBar />
-          </div> -->
-
-          <div class="h-full ps-2 py-1 pe-2 border-4 border-transparent overflow-y-auto no-scrollbar">
+          <div class=" ps-2 py-1 pe-2 border-4 border-transparent overflow-y-auto no-scrollbar">
             <ul class="mt-4 ms-0.5">
               {location.departments.map(department => (
                 <li class="relative rounded-md shadow-md border-2 my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 " >
@@ -89,9 +87,9 @@ if (!location) {
         </section>
         
 
-        <div class="divider shadow-sm -mt-1 -mb-1"></div>
+        <div class=" divide divide-none divide-y-2 py-0 "></div>
 
-    <section class="box-border h-1/5 mt-2">
+    <section class="box-border pb-3 mt-0">
       <!-- {/* Render the footer with navigation links */} -->
       <Footer
         bottomNav={[
@@ -120,8 +118,5 @@ if (!location) {
 </style>
 
 <script>
-  function speak() {
-    console.log('location file clicked!');
-  }
   
 </script>

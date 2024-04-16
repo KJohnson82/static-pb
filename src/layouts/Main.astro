@@ -92,27 +92,27 @@ const { title } = Astro.props;
   // Handle other buttons as needed
 });
 
-async function adjustWindowSize() {
-  const monitor = await currentMonitor();
-  if (monitor && monitor.size) {
-    const monitorWidth = monitor.size.width;
-    const monitorHeight = monitor.size.height;
+// async function adjustWindowSize() {
+//   const monitor = await currentMonitor();
+//   if (monitor && monitor.size) {
+//     const monitorWidth = monitor.size.width;
+//     const monitorHeight = monitor.size.height;
 
-    // Set the window size to 80% of the monitor size using LogicalSize
-    const windowWidth = monitorWidth * 0.2;
-    const windowHeight = monitorHeight * 0.75;
+//     // Set the window size to 80% of the monitor size using LogicalSize
+//     const windowWidth = monitorWidth * 0.20;
+//     const windowHeight = monitorHeight * 0.70;
 
-    // Define the size object with 'type' as 'Logical'
-    const size = {
-      type: 'Logical', // Specify the size type here
-      width: windowWidth,
-      height: windowHeight
-    };
+//     // Define the size object with 'type' as 'Logical'
+//     const size = {
+//       type: 'Logical', // Specify the size type here
+//       width: windowWidth,
+//       height: windowHeight
+//     };
 
-    await appWindow.setSize(size);
-  }
-}
-adjustWindowSize(); 
+//     await appWindow.setSize(size);
+//   }
+// }
+// adjustWindowSize(); 
 // document.querySelector('.titlebar').addEventListener('click', event => {
 // const target = event.target as Element;
 // if (target.closest('#titlebar-minimize')) {

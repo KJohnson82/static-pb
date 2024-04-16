@@ -15,7 +15,7 @@ fn main() {
         .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
 
       #[cfg(target_os = "windows")]
-      apply_blur(&window, Some((10, 10, 10, 10)))
+      apply_blur(&window, Some((0, 0, 0, 0)))
         .expect("Unsupported platform! 'apply_blur' is only supported on Windows");
       Ok(())
     })
