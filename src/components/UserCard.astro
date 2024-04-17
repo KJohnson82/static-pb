@@ -27,10 +27,10 @@ const userName = `${firstName} ${lastName}`;
 ---
 
 <section
-  class="mx-4 my-2 prose flex-auto resize-none no-scrollbar overflow-y-scroll overscroll-contain scroll-auto"
+  class="mx-3 my-2 prose flex-auto resize-none no-scrollbar overflow-y-scroll overscroll-contain scroll-auto"
 >
   <div data-pagefind-body
-  class="user-card card card-normal min-h-[31rem] max-h-[31rem] rounded-2xl bg-neutral border-4 border-secondary shadow-sm"
+  class="user-card card mx-1 min-h-[28.5rem] max-h-[29.5rem] w-[21.5rem] m-1 mt-1.5 rounded-2xl bg-neutral border-[6px] border-secondary shadow-sm"
   >
   <section class=" px-1 py-0 ">
     <div id="name-title" >
@@ -73,7 +73,7 @@ const userName = `${firstName} ${lastName}`;
                 Phone Number
               </p>
               <div class="divider divider-info m-0" />
-              <p class="text-lg uppercase tracking-wide text-base-content font-normal ps-0 pb-4 -mt-0.5">
+              <p class="text-base uppercase tracking-wide text-base-content font-normal ps-0 pb-2 -mt-0.5">
                 {phoneNumber} {extension !== "" ? `| Ext: ${extension}` : null}
               </p>
             </>
@@ -90,7 +90,7 @@ const userName = `${firstName} ${lastName}`;
                 Cell Number
               </p>
               <div class="divider divider-info m-0" />
-              <p class="text-lg text-base-content tracking-wide uppercase font-normal pb-4 -mt-0.5">
+              <p class="text-base text-base-content tracking-wide uppercase font-normal pb-2 -mt-0.5">
                 {cellNumber}
               </p>
             </>
@@ -105,7 +105,7 @@ const userName = `${firstName} ${lastName}`;
             <>
               <p class="cat-name uppercase tracking-wide font-semibold -mb-2">Email</p>
               <div class="divider divider-info m-0" />
-              <p class="text-lg text-base-content tracking-wider uppercase font-normal pb-4 -mt-1 ">
+              <p class="text-base sm:text-xs md:text-base lg:text-xl text-base-content tracking-wider lowercase font-normal pb-2 -mt-0.5 ">
                 {email}
               </p>
             </>
