@@ -132,10 +132,10 @@
 body {
     font-family: 'Rubik', sans-serif;
     border-radius: 8px;
-    background-color: transparent;
+    background-color: none;
     overflow: hidden;
-    margin: -1.5px;
-    box-shadow: none;
+    margin: 0;
+    padding-top: 0;
     height: calc(100vh - 2px);
     width: calc(100vw - 2px);
 }

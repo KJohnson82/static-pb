@@ -6,6 +6,7 @@ import Footer from "../../components/Footer.astro";
 import Data from "../../data/Data.json";
 import StoreHeadCard from "../../components/StoreHeadCard.astro";
 import NavBar from '../../components/NavBar.astro';
+import UserBackButton from "../../components/UserBackButton.astro";
 
 
 export async function getStaticPaths() {
@@ -62,7 +63,8 @@ if (!store) {
     class="flex-grow pb-0 pt-1 no-scrollbar  overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
     >
     <section class="shadow-sm drop-shadow-sm">
-      <NavBar />
+      <!-- <NavBar /> -->
+      <UserBackButton />
     </section>
       <!-- Render the store card with relevant information -->
       <StoreCard

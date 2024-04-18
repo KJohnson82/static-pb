@@ -4,11 +4,12 @@
 
 ---
 
-<div data-tauri-drag-region class="titlebar rounded-t-lg">
-  <div class="titlebar-button" id="titlebar-minimize">
+<div data-tauri-drag-region class="titlebar flex justify-end fixed h-9 rounded-t-sm box-decoration-clone bg-primary shadow-sm ">
+  <div class="titlebar-button " id="titlebar-minimize">
     <img
       src="https://api.iconify.design/mdi:window-minimize.svg"
       alt="minimize"
+      class=" "
     />
   </div>
   <!-- <div class="titlebar-button" id="titlebar-maximize">
@@ -32,7 +33,7 @@
     top: 0;
     left: 0;
     right: 0;
-    border-radius: 8px 8px 0 0;
+    border-radius: 0;
   }
   .titlebar-button {
     display: inline-flex;
@@ -40,9 +41,10 @@
     align-items: center;
     width: 30px;
     height: 30px;
+    
   }
   .titlebar-button:hover {
-    background: #5bbec3;
+    background: coral;
     border-radius: 6px;
   }
 </style>

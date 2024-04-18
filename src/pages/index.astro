@@ -17,41 +17,41 @@ import { moveWindow, Position } from "tauri-plugin-positioner-api";
   <!-- // Outermost container for the content -->
   <div class=" flex flex-col h-screen "> 
     <!-- card card-compact -->
-    <section class="  ">
+    <section class=" pb-0 ">
       <!-- {/* Render the corporate header card with relevant information */} -->
       <CorpHeadCard
         headCard={[
           {
             title: "Employee Directory",
             subtitle1: "Corp. Phone",
-            address: "555 Generic Road,",
-            city: "Central City,",
-            state: "WS",
-            zip: "77777",
+            address: "1500 Hamilton Rd,",
+            city: "Bossier City,",
+            state: "LA",
+            zip: "71111",
             subtitle2: "Corp. Email",
-            phone: "(888) 555-5555",
-            email: "info@info.com",
+            phone: "(888) 245-3696",
+            email: "info@mcelroymetal.com",
             subtitle3: "IT Help Desk",
-            phone2: "(866) 555-5555",
+            phone2: "(866) 634-5111",
           },
         ]}
       />
     </section>
 
     <!-- Visual divider between sections -->
-    <div class=" divide divide-none divide-y-2 py-0 "></div>
+    <div class=" divide divide-none divide-y-2 py-0  "></div>
 
     <!-- Section for the main page menu -->
     <section
-    class="flex-grow pb-0 pt-1 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
+    class="flex-grow pb-0 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
       
     >
-    <div class="shadow-sm drop-shadow-sm">
+    <div class="shadow-sm drop-shadow-sm bg-secondary">
       <SearchBar />
       <!-- <SearchWidget /> -->
     </div>
       <div
-        class=" ps-2 py-1 pe-4 pt-2 mt-2 border-4 border-transparent no-scrollbar flex-auto scroll-auto overscroll-contain overflow-visible"
+        class=" ps-2 py-1 pe-4 pt-2 mt-2 bg-background border-4 border-transparent no-scrollbar flex-auto scroll-auto overscroll-contain overflow-visible"
       >
         <!-- <div id="search" transition:persist></div> -->
         <!-- Render the MainPageMenu component with location options -->
@@ -89,7 +89,7 @@ import { moveWindow, Position } from "tauri-plugin-positioner-api";
 
     <!-- Section for the page footer -->
     <div class=" divide divide-none divide-y-2 py-0 "></div>
-    <section class="box-border  mt-0 pb-3">
+    <section class="box-border mt-0 pb-3">
       <!-- <SearchBar /> -->
       <!-- Render the Footer component with navigation links -->
       <Footer

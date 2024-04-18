@@ -30,7 +30,7 @@ const userName = `${firstName} ${lastName}`;
   class="mx-3 my-2 prose flex-auto resize-none no-scrollbar overflow-y-scroll overscroll-contain scroll-auto"
 >
   <div data-pagefind-body
-  class="user-card card mx-1 min-h-[28.5rem] max-h-[29.5rem] w-[21.5rem] m-1 mt-1.5 rounded-2xl bg-neutral border-[6px] border-secondary shadow-sm"
+  class="user-card card mx-1 min-h-[28.5rem] max-h-[29.5rem] w-[21.5rem] m-1 mt-1.5 rounded-2xl bg-[#252525] border-[6px] border-secondary-content shadow-md"
   >
   <section class=" px-1 py-0 ">
     <div id="name-title" >
@@ -60,7 +60,7 @@ const userName = `${firstName} ${lastName}`;
     <!-- {/* Conditionally render user name and job title */} -->
     
 
-    <div class="divider divider-info m-0 mt-0"></div>
+    <div class="divider divider-secondary box-decoration-slice m-0 mt-0"></div>
 
     
 
@@ -72,7 +72,7 @@ const userName = `${firstName} ${lastName}`;
               <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
                 Phone Number
               </p>
-              <div class="divider divider-info m-0" />
+              <div class="divider divider-secondary m-0" />
               <p class="text-base uppercase tracking-wide text-base-content font-normal ps-0 pb-2 -mt-0.5">
                 {phoneNumber} {extension !== "" ? `| Ext: ${extension}` : null}
               </p>
@@ -89,7 +89,7 @@ const userName = `${firstName} ${lastName}`;
               <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
                 Cell Number
               </p>
-              <div class="divider divider-info m-0" />
+              <div class="divider divider-secondary m-0" />
               <p class="text-base text-base-content tracking-wide uppercase font-normal pb-2 -mt-0.5">
                 {cellNumber}
               </p>
@@ -104,7 +104,7 @@ const userName = `${firstName} ${lastName}`;
           email !== "" ? (
             <>
               <p class="cat-name uppercase tracking-wide font-semibold -mb-2">Email</p>
-              <div class="divider divider-info m-0" />
+              <div class="divider divider-secondary m-0" />
               <p class="text-base sm:text-xs md:text-base lg:text-xl text-base-content tracking-wider lowercase font-normal pb-2 -mt-0.5 ">
                 {email}
               </p>

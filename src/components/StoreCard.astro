@@ -40,7 +40,7 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
 >
   <!-- // Render the store card -->
   <div data-pagefind-body
-    class="store-card card mx-1 min-h-[28.5rem] max-h-[29.5rem] w-[21.5rem] m-1 mt-1.5 rounded-xl bg-neutral border-[6px] border-secondary shadow-sm"
+    class="store-card card mx-1 min-h-[28.5rem] max-h-[29.5rem] w-[21.5rem] m-1 mt-1.5 rounded-xl bg-[#252525] border-[6px] border-secondary-content shadow-md"
   >
     <!-- {/* Conditionally render store information only if the corresponding values are not empty */} -->
     <section class="px-1 py-0  ">
@@ -50,15 +50,15 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
         ) : null
       }
     </section>
-    <div class="divider divider-info m-0 mt-0"></div>
+    <div class="divider divider-secondary m-0 mt-0"></div>
     <section>
     </section>
     <section class="pt-1 pb-0 mt-0">
-      <span class="grid grid-rows-1 grid-cols-2 divide-x-2  border-x-info divide-info ">
+      <span class="grid grid-rows-1 grid-cols-2 divide-x-2  divide-secondary ">
         <div class=" col-start-1 pe-4">
           {
             locNum !== null ? (
-              <p class="divider divider-end divider-info uppercase tracking-wide font-semibold ">
+              <p class="divider divider-end divider-secondary uppercase tracking-wide font-semibold ">
                 Store
                 </p>
     
@@ -73,7 +73,7 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
       <div class=" col-start-2 ps-4">
         {
           hours !== "" ? (
-          <p class="divider divider-start divider-info uppercase tracking-wide font-semibold ">
+          <p class="divider divider-start divider-secondary uppercase tracking-wide font-semibold ">
                 Hours
                 </p>
             <p class="text-lg text-inherit font-normal text-start pe-1 -mt-2">
@@ -95,7 +95,7 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
             <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
               Address
               </p>
-              <div class="divider divider-info m-0" />
+              <div class="divider divider-secondary m-0" />
               <p class="text-base capitalize tracking-wide text-base-content font-normal -mt-0.5">{address}, </p>
             <p class="text-base capitalize tracking-wide text-base-content font-normal -mt-0.5">
               {city}, {state} {zipcode}
@@ -108,12 +108,12 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
       
         {
           faxNumber !== "" ? (
-          <span class="grid grid-rows-1 grid-cols-2 divide-x-2 divide-info ">
+          <span class="grid grid-rows-1 grid-cols-2 divide-x-2 divide-secondary ">
           <div class=" col-start-1 pe-4">
           
           {
             locNum !== null ? (
-              <p class="divider divider-end divider-info  uppercase tracking-wide font-semibold ">
+              <p class="divider divider-end divider-secondary uppercase tracking-wide font-semibold ">
                 Phone
                 </p>
     
@@ -124,10 +124,10 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
           }
 
         </div>
-      <div class=" col-start-2 ps-4">
+      <div class=" col-start-2 ps-4 ">
         {
           hours !== "" ? (
-          <p class="divider divider-start divider-info uppercase tracking-wide font-semibold ">
+          <p class="divider divider-start divider-secondary uppercase tracking-wide font-semibold ">
                 Fax
                 </p>
             <p class="text-base text-inherit font-normal text-start pe-1 -mt-2">
@@ -142,7 +142,7 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
           <p class="cat-name uppercase text-end tracking-wide font-semibold -mb-2">
             Phone
             </p>
-            <div class="divider divider-info m-0" />
+            <div class="divider divider-secondary m-0" />
           <p class="text-base uppercase tracking-wide text-base-content text-end font-normal ps-0 pb-0 -mt-0.5">
             {phoneNumber}
           </p>
@@ -157,7 +157,7 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
         <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
             Email
             </p>
-            <div class="divider divider-info m-0 " />
+            <div class="divider divider-secondary m-0 " />
           <p class="text-base sm:text-xs lg:text-lg lowercase tracking-wide text-nowrap text-clip text-base-content font-normal ps-0 pb-0 -mt-0.5 ">
             {email}
           </p>
