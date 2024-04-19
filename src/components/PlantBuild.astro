@@ -6,11 +6,11 @@ const { PlantLocs } = Astro.props;
 <!-- Render a list of plant locations -->
 <ul class="mt-4 ms-0.5 rounded-sm">
   {PlantLocs.map((location) => (
-      <li class="relative rounded-md shadow-md border-2 my-2 py-0 mx-0 transition ease-in duration-200 transform  hover:-translate-y-1 hover:scale-100 ">
+      <li class={` relative bg-secondary box-decoration-clone rounded-md shadow-md border-2 border-secondary-content my-2 py-0 mx-0 transition ease-in duration-200 transform hover:-translate-y-1 hover:scale-100`}>
       <!-- Direct link to the plant location page -->
       <a href={`/plant/${location.id}`} class="block px-4 py-4 text-white focus-within:shadow-md focus-within:bg-info focus-within:rounded-s-none rounded-lg hover:bg-primary hover:bg-blend-darken hover:rounded-md hover:border-transparent hover:text-white transition">
         <div class="flex items-center justify-between">
-          <div class="text-lg uppercase font-semibold tracking-wide text-white">
+          <div class="text-xl uppercase font-medium tracking-wide text-white">
             {location.locNum} - {location.locName}
           </div>
         </div>

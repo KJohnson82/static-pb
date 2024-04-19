@@ -23,14 +23,14 @@ const { servicecenters } = Astro.props;
 ---
 
 <!-- Render a list of service centers -->
-<ul class="mt-4 ms-0.5 rounded-sm">
+<ul class="mt-4 ms-0.5 ">
   {servicecenters.map((servicecenter) => (
     <!-- List item for each service center -->
-    <li class="relative rounded-md shadow-md border-2 my-2 py-0 mx-0 transition ease-in duration-200 transform  hover:-translate-y-1 hover:scale-100 ">
+    <li class="relative bg-secondary rounded-md shadow-md border-2 my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 ">
       <!-- Direct link to the service center page -->
-      <a href={`/servicecenter/${servicecenter.id}`} class="block px-4 py-4 text-white focus-within:shadow-md focus-within:bg-info focus-within:rounded-s-none rounded-lg hover:bg-primary hover:bg-blend-darken hover:rounded-md hover:border-transparent hover:text-white transition">
+      <a href={`/servicecenter/${servicecenter.id}`} class="block px-4 py-4 text-white rounded-lg hover:bg-primary hover:rounded-md hover:border-transparent hover:text-white transition-colors">
         <div class="flex items-center justify-between">
-          <div class="text-lg uppercase font-semibold tracking-wide text-white">
+          <div class="text-xl uppercase font-medium tracking-wide text-white">
             {servicecenter.locName}
           </div>
           <span class="text-sm font-semibold text-gray-500">

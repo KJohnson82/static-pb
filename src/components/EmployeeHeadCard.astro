@@ -23,43 +23,11 @@ type Props = {
 // Extract the headCard data from props
 const { headCard } = Astro.props;
 
-// <!-- Address section -->
-//          <!--  <section class="address-section pb-1">
-//           <!--<p>{card.subtitle1}</p> -->
-//           <div class="w-full text-center align-middle">
-//             <!--  <p class="text-base/7">{card.address} {card.city} {card.state} {card.zip}</p> -->
-//           </div>
-//         </section>
-//         <!-- Contact section -->
-//         <section class="contact-section ">
-          
-//         <!-- Column 1 -->
-//         <div class=" text-center align-middle pe-6 ">
-//           <p class="font-semibold border-b-2 border-slate-100 border-opacity-20 pb-0.5">{card.subtitle1}</p>
-//           <p class="pt-1">{card.phone}</p>
-//         </div>
-        
-//         <!-- Column 2 -->
-//         <div class=" text-center align-middle ps-6 ">
-//           <p class="font-semibold border-b-2 border-slate-100 border-opacity-20 pb-0.5 ">{card.subtitle2}</p>
-//           <p class="pt-1" >{card.email}</p>
-//         </div>
-//       </div>
-//         </section>
-//         <!-- Help desk section -->
-//         <section class="help-desk-section border-t-2 border-slate-100 border-opacity-20 ">
-//           <div class="grid grid-cols-1 gap-1 divide-x-2 border-slate-100 border-opacity-20 ">
-//             <div class=" text-base/3 text-center align-middle pt-6 pb-0 pe-2 mb-0"><p class="font-semibold ">{card.subtitle3} | {card.phone2}</p></div>
-            
-        
-        
-//       </div>
-//         </section>
 ---
 
 <!-- // Render the head cards -->
 <!-- Render head cards based on provided data -->
-<div class=" bg-inherit w-dvw h-48 ">
+<div class=" bg-secondary  border-slate-100 border-opacity-20 box-decoration-clone w-dvw h-48">
   {headCard.map((card) => (
     <!-- Iterate over each card in headCard array and create a div for each card -->
     <div class=" grid grid-cols-1 border-x-[3px] border-y-[3px] border-transparent rounded-md  mb-2 ">

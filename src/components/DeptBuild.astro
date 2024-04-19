@@ -40,7 +40,7 @@ const { Deptartments } = Astro.props;
 <!-- Render a list of departments -->
 <!-- Render the details for a single department and list its employees -->
 <div class="department-details">
-  <h2 class="text-xl font-bold mb-4">{Deptartments.deptName}</h2>
+  <div class="text-xl font-medium mb-4 uppercase text-white tracking-wide">{Deptartments.deptName}</div>
   <ul class="employee-list space-y-2">
     {Deptartments.employees.map((employee) => (
       <h3><User employees={Deptartments.employees}  /></h3>

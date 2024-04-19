@@ -8,26 +8,6 @@ import SearchBar from '../../../components/SearchBar.astro';
 import { Icon } from 'astro-icon/components';
 import NavBar from '../../../components/NavBar.astro';
 
-// Access departments directly based on your JSON structure
-// const departments = CorpData.loctype.corporate.locations[0].departments;
-
-// const departments = locations.flatMap(location => location.departments);
-
-// export async function getStaticPaths() {
-  
-// const locations = Data.loctype.plant.locations;
-// const departments = locations.flatMap(location => location.departments);
-// console.log(`Departments: ${departments}`);
-// const paths = locations.map(location => location.departments.map(department => ({
-//   params: {
-//     locationID: location.id.toString(),
-//     departmentID: department.id.toString(),
-//   },
-// })));
-// return paths;
-  
-// }
-
 export async function getStaticPaths() {
     // Assuming 'Data' has a structure where each location has multiple departments
     const locations = Data.loctype.plant.locations;
@@ -61,14 +41,6 @@ const departments= Data.loctype.plant.locations.flatMap(locations => locations.d
 const department = departments.find(dept => dept.id.toString() === departmentID.toString());
 
 
-
-
-// const { locationID, departmentID, employeeID } = Astro.params;
-// const location = Data.loctype.plant.locations.find(loc => loc.id.toString() === locationID);
-// const department = location?.departments.find(dept => dept.id.toString() === departmentID);
-// const employee = department?.employees.find(emp => emp.id.toString() === employeeID);
-
-
 if (!department) {
   return Astro.redirect('/404');
 }
@@ -100,7 +72,7 @@ if (!department) {
     
 
     <section
-    class="flex-grow pb-0 pt-1 no-scrollbar  overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
+    class="flex-grow bg-gradient-to-tr from-slate-300 via-slate-100 to-slate-300 pb-0 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
       >
       <section class="shadow-sm drop-shadow-sm">
         <NavBar />
@@ -110,10 +82,10 @@ if (!department) {
     <div class=" ps-2 py-1 pe-2 border-4 border-transparent overflow-y-auto no-scrollbar">
       <ul class="mt-4 ms-0.5">
         {department.employees.map(employee => (
-          <li class="relative rounded-md shadow-md border-2 my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 " >
+          <li class="relative bg-secondary rounded-md shadow-md border-2 my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 ">
             <a href={`/plant/${locationID}/${departmentID}/${employee.id}`} class="block px-4 py-4 text-white rounded-lg hover:bg-primary hover:rounded-md hover:border-transparent hover:text-white transition-colors" >
               
-              <div class=" justify-around items-center place-items-center text-lg tracking-wider text-white mb-0.5 -px-4 p-0 capitalize truncate align-middle" >
+              <div class=" justify-around items-center place-items-center text-base font-medium tracking-wider text-white mb-0.5 -px-4 p-0 capitalize truncate align-middle" >
                   <!-- Places a star beside employees who are managers -->
               {employee.isManager === 1 ? <Icon name="star" class="inline-block pe-2 h-6 w-auto"/> : ""} 
               {employee.firstName + " " + employee.lastName + " - " + employee.jobTitle + " "} 

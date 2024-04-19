@@ -68,17 +68,13 @@ if (!employee) {
         </EmployeeHeadCard>
       </section>
       <div class="divide divide-none divide-y-2 py-0"></div>
-      
-
-      <section class="flex-grow pb-0 pt-1 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
+      <section class="flex-grow bg-gradient-to-tr from-slate-300 via-slate-100 to-slate-300 pb-0 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px " 
       >
       <section class="shadow-sm drop-shadow-sm">
         <!-- <NavBar /> -->
         <UserBackButton />
       </section>
-        
           <div class="user-card " >
-
             <UserCard 
             firstName={employee.firstName}
             lastName={employee.lastName}
@@ -92,7 +88,6 @@ if (!employee) {
            
           </div>
       </section>
-
 
     <div class="divide divide-none divide-y-2 py-0"></div>
     <section class="box-border mt-0 pb-3">
@@ -113,18 +108,3 @@ if (!employee) {
       </section>
   </div>
 </Main>
-
-
-<!-- <script>
-    window.onload = function () {
-        const p_elements = document.querySelectorAll("p");
-
-        p_elements.forEach((element) => {
-            if (element.textContent = "") {
-                element.style.display = "none";
-            }
-        })
-
-
-    }
-</script> -->

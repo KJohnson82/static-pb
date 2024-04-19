@@ -9,7 +9,6 @@ import NavBar from '../components/NavBar.astro';
 
 import { Icon } from 'astro-icon/components';
 
-
 const departments = Data.loctype.corporate.locations[0].departments;
 ---
 
@@ -45,7 +44,7 @@ const departments = Data.loctype.corporate.locations[0].departments;
   
       <!-- Section for displaying corporate departments and employees -->
       <section
-        class="flex-grow pb-0 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
+        class="flex-grow bg-gradient-to-tr from-slate-300 via-slate-100 to-slate-300 pb-0 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
       >
       <section class=" shadow-sm drop-shadow-sm">
         <NavBar />
@@ -85,8 +84,5 @@ const departments = Data.loctype.corporate.locations[0].departments;
   </Main>
 
   <style>
-    /* .card {
-      margin: 0 auto;
-       box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); 
-    } */
+
   </style>

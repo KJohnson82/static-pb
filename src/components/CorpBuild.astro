@@ -2,28 +2,20 @@
 import Departments from './DeptBuild.astro';
 import CorpData from '../pages/corporate.astro';
 
-// export type Props = {
-//   Department: {
-//     id: number;
-//     deptName: string;
-//     location: number;
-//     employees: []; // Assuming you might just pass the count or similar minimal data needed for listing
-//   }[];
-// };
-
-
 
 const { Department } = Astro.props;
+// const colors = ['sky-300', 'sky-400', 'sky-500', 'sky-600', 'sky-700', 'sky-800', 'cyan-800', 'cyan-700', 'cyan-600', 'cyan-500', 'cyan-400', 'cyan-300'];
+
 ---
 
 <!-- Rendering a list of corporate departments -->
 <ul class="mt-4 ms-0.5 rounded-sm">
-    {Department.map((department) => (
-      <li class="relative rounded-md shadow-md border-2 my-2 py-0 mx-0 transition ease-in duration-200 transform  hover:-translate-y-1 hover:scale-100 ">
+    {Department.map((department, index) => (
+      <li class={` relative bg-secondary box-decoration-clone rounded-md shadow-md border-2 border-secondary-content my-2 py-0 mx-0 transition ease-in duration-200 transform hover:-translate-y-1 hover:scale-100`} >
         <!-- Direct link to the department page -->
-        <a href={`/corporate/${department.id}`} class="block px-4 py-4 text-white focus-within:shadow-md focus-within:bg-info focus-within:rounded-s-none rounded-lg hover:bg-primary hover:bg-blend-darken hover:rounded-md hover:border-transparent hover:text-white transition">
+        <a href={`/corporate/${department.id}`} class="block px-4 py-4 text-white focus-within:shadow-md focus-within:bg-primary focus-within:rounded-s-none rounded-lg hover:bg-primary hover:bg-blend-darken hover:rounded-md hover:border-transparent hover:text-white transition">
           <div class="flex items-center justify-between">
-            <div class="text-lg uppercase font-semibold tracking-wide text-white">
+            <div class="text-xl uppercase font-medium tracking-wide text-white">
               {department.deptName}
             </div>
             
@@ -42,3 +34,17 @@ const { Department } = Astro.props;
     font-weight: bold;
   } */
 </style>
+
+<script>
+//   const colors = ['sky-300', 'sky-400', 'sky-500', 'sky-600', 'sky-700', 'sky-800', 'cyan-800', 'cyan-700', 'cyan-600', 'cyan-500', 'cyan-400', 'cyan-300'];
+
+// function applyColors() {
+//     const listItems = document.querySelectorAll('li'); // Select all <li> elements
+//     listItems.forEach((item, index) => {
+//         const colorClass = `text-${colors[index % colors.length]}`; // Cycle through colors
+//         item.classList.add(colorClass);
+//     });
+// }
+
+// applyColors();
+</script>

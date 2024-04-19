@@ -24,11 +24,11 @@ let { loctypes } = Astro.props as Props;
     loctypes.map(({ to, location, desc, icon }) => (
       <a
         href={to}
-        class="rounded-xl inline-table z-auto my-1 py-4 bg-secondary overflow-hidden border-4 border-secondary relative shadow-md hover:text-white hover:border-slate-200 transition ease-in duration-200 transform hover:-translate-y-1 hover:scale-105 active:translate-y-0 active:scale-95 opacity-90 hover:opacity-100"
+        class="rounded-xl inline-table z-auto my-1 py-4 bg-secondary overflow-hidden border-4 border-neutral relative shadow-sm hover:text-white hover:border-slate-200 hover:border-opacity-20 transition ease-in duration-200 transform hover:-translate-y-1 hover:scale-105 active:translate-y-0 active:scale-95 hover:bg-primary hover:opacity-90"
       >
         <button class={desc} type="button">
           <span class="grid grid-cols-2 w-full gap-3 items-center border-transparent text-left text-nowrap hover:border-hidden ">
-            <h2 class=" w-auto col-span-1 text-white justify-self-start text-xl uppercase font-semibold tracking-widest">
+            <h2 class=" w-auto col-span-1 text-white justify-self-start text-xl uppercase font-medium tracking-widest">
               {location}
             </h2>
             <Icon name={icon} class="w-auto col-span-1 h-10 justify-self-end " />
