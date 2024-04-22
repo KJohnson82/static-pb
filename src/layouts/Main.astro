@@ -1,9 +1,30 @@
 ---
  // Importing global CSS styles
-import { ViewTransitions } from "astro:transitions"; // Importing ViewTransitions for page transition effects
+import { ViewTransitions, fade } from "astro:transitions"; // Importing ViewTransitions for page transition effects
 import "../styles/global.css"; // Importing global CSS styles
 import TitleBar from "../components/TitleBar.astro";
 
+
+const anim = {
+  old: {
+    name: "fadeIn",
+    duration: '0.2s',
+    easing: 'linear',
+    fillMode: 'forwards',
+  },
+  new: {
+    name: "fadeOut",
+    duration: '0.3s',
+    easing: 'linear',
+    fillMode: 'backwards',
+  },
+
+};
+
+const custFade = {
+  forwards: anim,
+  backwards: anim,
+}
 
 
 type Props = {
@@ -52,7 +73,7 @@ const { title } = Astro.props;
     <div class="wrap " id="wrap">
       <!-- Main content area -->
       <main
-        class=" my-0 py-0 px-0 mx-0 box-border= w-lvw h-lvh text-primary-content  "
+        class=" my-0 py-0 px-0 mx-0 box-border= w-lvw h-lvh text-primary-content  " transition:animate={custFade}
       >
       <div class=" pb-6 box-decoration-clone rounded-t-md ">
         <TitleBar title={title} />
