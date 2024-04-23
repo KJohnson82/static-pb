@@ -73,9 +73,9 @@ const { title } = Astro.props;
     <div class="wrap " id="wrap">
       <!-- Main content area -->
       <main
-        class=" my-0 py-0 px-0 mx-0 box-border= w-lvw h-lvh text-primary-content  " transition:animate={custFade}
+        class=" my-0 py-0 px-0 mx-0 box-border= w-lvw h-lvh text-primary-content " transition:animate={custFade}
       >
-      <div class=" pb-6 box-decoration-clone rounded-t-md ">
+      <div class=" pb-6 box-decoration-clone  ">
         <TitleBar title={title} />
       </div>
         <slot />
@@ -85,7 +85,7 @@ const { title } = Astro.props;
     </div>
   </body>
   <style>
-    
+
     .material-symbols-outlined {
       font-variation-settings:
         "FILL" 0,
@@ -101,6 +101,7 @@ const { title } = Astro.props;
   import { currentMonitor } from '@tauri-apps/api/window';
   import { primaryMonitor } from '@tauri-apps/api/window';
 
+  // Titlebar menu IMPORTANT
   document.addEventListener('click', function(event) {
   // Ensure the event target is an Element before proceeding
   if (!(event.target instanceof Element)) return;
@@ -113,34 +114,15 @@ const { title } = Astro.props;
   // Handle other buttons as needed
 });
 
-// async function adjustWindowSize() {
-//   const monitor = await currentMonitor();
-//   if (monitor && monitor.size) {
-//     const monitorWidth = monitor.size.width;
-//     const monitorHeight = monitor.size.height;
 
-//     // Set the window size to 80% of the monitor size using LogicalSize
-//     const windowWidth = monitorWidth * 0.20;
-//     const windowHeight = monitorHeight * 0.70;
+// disable middle mouse button
+document.onauxclick = (e) => {
+  e.preventDefault();
+}
 
-//     // Define the size object with 'type' as 'Logical'
-//     const size = {
-//       type: 'Logical', // Specify the size type here
-//       width: windowWidth,
-//       height: windowHeight
-//     };
+// disable right click menu
+document.oncontextmenu = (e) => {
+  e.preventDefault();
+}
 
-//     await appWindow.setSize(size);
-//   }
-// }
-// adjustWindowSize(); 
-// document.querySelector('.titlebar').addEventListener('click', event => {
-// const target = event.target as Element;
-// if (target.closest('#titlebar-minimize')) {
-// appWindow.minimize();
-// } else if (target.closest('#titlebar-close')) {
-// appWindow.close();
-// }
-
-// });
 </script>

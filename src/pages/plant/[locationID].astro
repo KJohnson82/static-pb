@@ -6,6 +6,7 @@ import Footer from '../../components/Footer.astro';
 import SearchBar from '../../components/SearchBar.astro';
 import { Icon } from 'astro-icon/components';
 import NavBar from '../../components/NavBar.astro';
+import PlantHeadCard from '../../components/PlantHeadCard.astro';
 
 export async function getStaticPaths() {
     const location = Data.loctype.plant.locations;
@@ -44,19 +45,19 @@ if (!location) {
 <Main title={location.locName}>
     <div class="flex flex-col h-screen">
         <section class=" ">
-            <CorpHeadCard headCard={[
+            <PlantHeadCard headCard={[
                 {
             title: `${location.locName}`, // Title of the card
-            subtitle1: "Plant. Phone",
-            address: "555 Generic Road,", // Address line
-            city: "Central City", // City
-            state: "WS", // State
-            zip: "77777", // ZIP code
-            subtitle2: "Main Email",
-            phone: "(888) 555-5555", // Phone number
-            email: "info@info.com", // Email address
-            subtitle3: "IT Help Desk", // Third subtitle
-            phone2: "(866) 555-5555", // Second phone number
+            subtitle1: "Plant Phone",
+            address: `${location.address},`, // Address line
+            city: `${location.city}`, // City
+            state: `${location.state}`, // State
+            zip: `${location.zipcode}`, // ZIP code
+            subtitle2: "Plant Fax",
+            phone: `${location.phoneNumber}`, // Phone number
+            email: `${location.email}`, // Email address
+            subtitle3: "Plant Email: ", // Third subtitle
+            phone2: `${location.faxNumber}`, // Second phone number
           },
             ]} />
             
