@@ -36,11 +36,11 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
 ---
 
 <section
-  class="mx-2 my-2 prose flex-auto resize-none no-scrollbar overflow-y-hidden overscroll-contain scroll-0"
+  class="mx-2 my-2 prose flex-auto resize-none no-scrollbar overflow-y-hidden overscroll-contain scroll-auto"
 >
   <!-- // Render the store card -->
   <div data-pagefind-body
-    class="store-card card mx-1 min-h-[28.5rem] max-h-[29.5rem] w-[21.5rem] m-1 mt-1.5 rounded-xl bg-[#252525] border-base shadow-md"
+    class="store-card card mx-auto min-h-[28.5rem] max-h-[29.5rem] w-[21.5rem] m-1 mt-1.5 rounded-xl bg-[#252525] shadow-md"
   >
     <!-- {/* Conditionally render store information only if the corresponding values are not empty */} -->
     <section class="px-1 py-0  ">
@@ -91,7 +91,7 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
 
       {
         address !== "" || city !== "" || state !== "" || zipcode !== null ? (
-          <div class="ms-8 mt-0">
+          <div class="ms-8 mt-1 pt-1 pb-0">
             <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
               Address
               </p>

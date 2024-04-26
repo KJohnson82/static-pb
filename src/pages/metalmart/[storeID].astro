@@ -58,14 +58,14 @@ if (!store) {
     <div class="divide divide-none divide-y-2 py-0"></div>
     
     <section
-    class="flex-grow bg-gradient-to-t from-gray-300 to-slate-200  pb-0 pt-0 no-scrollbar  overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
+    class=" flex flex-col justify-center bg-gradient-to-t from-gray-300 to-slate-200  pb-1 pt-0 py-auto no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px "
     >
     <section class="shadow-sm drop-shadow-sm">
       <!-- <NavBar /> -->
       <UserBackButton />
     </section>
       <!-- Render the store card with relevant information -->
-      <div class="">
+      <div class="store-card ">
         <StoreCard
         locName={store.locName}
         locNum={store.locNum}
