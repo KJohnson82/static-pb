@@ -61,15 +61,12 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
               <p class="divider divider-end divider-secondary uppercase tracking-wide font-semibold ">
                 Store
                 </p>
-    
               <p class="text-lg text-inherit font-normal tracking-wider ps-1 text-end -mt-2 ">
                 {locNum}
               </p>
             ) : null
           }
-
-        </div>
-        
+        </div>        
       <div class=" col-start-2 ps-4">
         {
           hours !== "" ? (
@@ -81,14 +78,10 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
             </p>
           ) : null
         }
-
-      </div>
-      
+      </div>   
       </span>
     </section>
-
     <section class="not-prose">
-
       {
         address !== "" || city !== "" || state !== "" || zipcode !== null ? (
           <div class="ms-8 mt-1 pt-1 pb-0">
@@ -105,24 +98,20 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
       }
     </section>
     <section class="pt-4 not-prose ">
-      
         {
           faxNumber !== "" || null ? (
           <span class="grid grid-rows-1  grid-cols-2  divide-x-2 divide-secondary ">
           <div class=" col-start-1 pe-4">
-          
           {
             locNum !== null ? (
               <p class="divider divider-end  divider-secondary uppercase tracking-wide font-semibold ">
                 Phone
                 </p>
-    
               <p class="text-base text-inherit font-normal tracking-wider ps-1 text-end -mt-2 ">
                 {phoneNumber}
               </p>
             ) : null
           }
-
         </div>
       <div class=" col-start-2 ps-4 ">
         {
@@ -135,7 +124,6 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
             </p>
           ) : null
         }
-
       </div>
       </span>
           ) : <div class="mt-1  pt-2 pb-0 me-8">
@@ -148,8 +136,6 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
           </p>
           </div>
         }
-      
-      
     </section>
     <section class="mt-0  -pb-1 ms-8 pt-0 ">
       {
@@ -167,35 +153,25 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
     <div class=""></div>
   </div>
 </section>
-
 <style>
   #store-name {
-    /* font-size: clamp(20px, 26px, 28px); */
     overflow: visible;
     word-break: keep-all;
   }
 
   h2 {
-    
     overflow: visible;
     padding-top: 0;
     margin-top: 25px; 
     margin-bottom: 10px;
     font-size: 1.75rem;
-    
   }
-
-  /* p .prose {
-    margin: 0;
-  } */
-  
 </style>
 
 <script>
   // JavaScript function to bold the "Ext:" text in phone numbers
   window.onload = function () {
     const elements = document.querySelectorAll("p");
-
     elements.forEach((element) => {
       if (element.textContent && element.textContent.includes("Ext:")) {
         element.innerHTML = element.innerHTML.replace(

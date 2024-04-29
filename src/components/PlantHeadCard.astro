@@ -16,7 +16,6 @@ type Props = {
     // phone3: string;
   }[];
 };
-
 // Extract the headCard data from props
 const { headCard } = Astro.props;
 ---
@@ -48,7 +47,6 @@ const { headCard } = Astro.props;
           <p class="font-[500] border-b-2 uppercase tracking-wider border-slate-100 border-opacity-20 pb-0.5">{card.subtitle1}</p>
           <p class="pt-2 pb-0 text-base ">{card.phone}</p>
         </div>
-        
         <!-- Column 2 -->
         <div class=" text-center align-middle ps-2 ">
           <p class="font-[500] border-b-2 border-slate-100 border-opacity-20 uppercase tracking-wider pb-0.5 ">{card.subtitle2}</p>
@@ -60,7 +58,6 @@ const { headCard } = Astro.props;
         <section class=" text-nowrap border-t-2 border-slate-100 border-opacity-20 ">
           <div class="grid grid-cols-1 gap-1 divide-x-2 border-slate-100 border-opacity-20 ">
             <div class="text-base font-[500] text-center align-middle py-3 ps-2 pe-2 -mt-1 mb-1 uppercase tracking-wide">{card.subtitle3}<span class="font-normal lowercase text-[15px] truncate "> {card.email}</span></div>
-        
       </div>
         </section>
     </div>
@@ -69,34 +66,9 @@ const { headCard } = Astro.props;
 
 
 <style>
-  /* Styles for cards */
-  .card {
-    /* margin: 0 auto;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 1%;
-    margin-bottom: 10px; */
-    /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); */
-  }
-
-  /* Styles for card title */
-
-
   /* Styles for dividers */
   .divider {
     margin-top: 0;
     margin-bottom: 3%;
   }
-
-  
-
-  /* Styles for headings and paragraphs */
-  /* h3 {
-    font-weight: bold;
-    font-size: large;
-  } */
-
-  /* p {
-    font-weight: 600;
-  } */
 </style>

@@ -1,28 +1,22 @@
 ---
 
-
-
 ---
 
-<div data-tauri-drag-region class="titlebar flex justify-end fixed h-9 rounded-t-sm box-decoration-clone bg-primary shadow-sm ">
-  <div class="titlebar-button " id="titlebar-minimize">
+<div
+  data-tauri-drag-region
+  class="titlebar flex justify-end fixed h-9 rounded-t-sm box-decoration-clone bg-primary shadow-sm"
+>
+  <div class="titlebar-button" id="titlebar-minimize">
     <img
       src="https://api.iconify.design/mdi:window-minimize.svg"
       alt="minimize"
-      class=" "
+      class=""
     />
   </div>
-  <!-- <div class="titlebar-button" id="titlebar-maximize">
-      <img
-        src="https://api.iconify.design/mdi:window-maximize.svg"
-        alt="maximize"
-      />
-    </div> -->
   <div class="titlebar-button" id="titlebar-close">
     <img src="https://api.iconify.design/mdi:close.svg" alt="close" />
   </div>
 </div>
-
 <style>
   .titlebar {
     height: 30px;
@@ -41,25 +35,9 @@
     align-items: center;
     width: 30px;
     height: 30px;
-    
   }
   .titlebar-button:hover {
     background: coral;
     border-radius: 6px;
   }
 </style>
-
-
-
-<!-- <script>
-  import { appWindow } from "@tauri-apps/api/window";
-  document
-    .getElementById("titlebar-minimize")
-    .addEventListener("click", () => appWindow.minimize());
-  // document
-  //   .getElementById('titlebar-maximize')
-  //   .addEventListener('click', () => appWindow.toggleMaximize())
-  document
-    .getElementById("titlebar-close")
-    .addEventListener("click", () => appWindow.close());
-</script> -->

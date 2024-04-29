@@ -1,30 +1,27 @@
 ---
 import Search from "astro-pagefind/components/Search";
-
 ---
 
 <!-- Container for the search bar -->
 <div
-  class=" h-auto bg-primary focus-within:h-auto p-2 z-auto border-x-0 border-y-2 border-slate-100 border-opacity-20 no-scrollbar flex-auto scroll-auto overscroll-contain  box-decoration-clone"
+  class="h-auto bg-primary focus-within:h-auto p-2 z-auto border-x-0 border-y-2 border-slate-100 border-opacity-20 no-scrollbar flex-auto scroll-auto overscroll-contain box-decoration-clone"
 >
-    <div class="search-container box-content w-auto ms-2 text-grey-600 rounded-lg  " >
-      <!-- Input field for search -->
-      <Search id="search" className="pagefind-ui " uiOptions={{ showImages: false }} />
-      <!-- Submit button for the search bar -->
-    </div>
-    
-
+  <div
+    class="search-container box-content w-auto ms-2 text-grey-600 rounded-lg"
+  >
+    <!-- Input field for search -->
+    <Search
+      id="search"
+      className="pagefind-ui "
+      uiOptions={{ showImages: false }}
+    />
+  </div>
 </div>
-
 <style is:global>
-
-  .search-container{
+  .search-container {
     /* padding: 0.5rem; */
     background-color: var(--color-bg-primary);
-    
   }
-
-
   .pagefind-ui {
     /* --pagefind-ui-scale: 0.75; */
     --pagefind-ui-primary: navy;
@@ -35,24 +32,12 @@ import Search from "astro-pagefind/components/Search";
     /* --pagefind-ui-background: #ebf1f4; */
     --pagefind-ui-z-index: 5000;
     /* --pagefind-ui-font: sans-serif; */
-
-    width:100%;
-  }
-
-  /* .pagefind-ui.yellow {
-    --pagefind-ui-background: lightyellow;
-  }
-
-  .pagefind-ui.red {
-    --pagefind-ui-background: peachpuff;
     width: 100%;
-  } */
+  }
 
   .pagefind-ui .pagefind-ui__drawer:not(.pagefind-ui__hidden) {
-
     margin-left: 3%;
     margin-right: 3%;
-    /* top: 100%; */
     left: 0;
     right: 0;
     margin-top: 0px;
@@ -66,16 +51,4 @@ import Search from "astro-pagefind/components/Search";
     border-bottom-left-radius: var(--pagefind-ui-border-radius);
     background-color: var(--pagefind-ui-background);
   }
-
-  /* .pagefind-ui .pagefind-ui__result-link {
-    color: var(--pagefind-ui-primary);
-  }
-
-  .pagefind-ui .pagefind-ui__result-excerpt {
-    color: var(--pagefind-ui-text);
-  } */
-
-
 </style>
-
-

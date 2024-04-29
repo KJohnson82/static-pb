@@ -1,8 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
 
-// import { Icon } from "astro-icon";
-
 export type BottomNavItem = {
     icon: string, // Icon name for the nav item
     label: string, // Label text for the nav item
@@ -18,8 +16,6 @@ export type Props = {
 const {bottomNav} = Astro.props as Props;
 
 ---
-
-
 <!-- Bottom navigation bar container -->
 <div class="btm-nav static bg-primary shadow-sm ">
     <!-- Mapping over each navigation item to create buttons -->
@@ -36,11 +32,7 @@ const {bottomNav} = Astro.props as Props;
     ))}
 </div>
 
-
 <style>
-    .btm-nav-label {
-        /* font-size: small; */
-    }
     a button {
         display: flex;
         text-wrap: nowrap;
@@ -59,6 +51,5 @@ const {bottomNav} = Astro.props as Props;
   .disabled {
     pointer-events: none;
     display:none
-    /* opacity: 0.0; */
   }
 </style>

@@ -1,6 +1,4 @@
 ---
-
-
 // Define the type for the component's props
 type UserProps = {
   firstName: string;
@@ -11,7 +9,6 @@ type UserProps = {
   extension: string;
   cellNumber: string;
 };
-
 // Extract the props and cast them to the UserProps type
 const {
   firstName,
@@ -22,48 +19,41 @@ const {
   extension,
   cellNumber,
 } = Astro.props as UserProps;
-
 const userName = `${firstName} ${lastName}`;
 ---
 
 <section
   class="mx-auto my-2 prose flex-auto resize-none no-scrollbar overflow-y-scroll overscroll-contain scroll-auto"
 >
-  <div data-pagefind-body
-  class="user-card card mx-auto min-h-[28.5rem] max-h-[29.5rem] w-[21.5rem] m-1 mt-1.5 rounded-xl bg-[#252525] shadow-md"
+  <div
+    data-pagefind-body
+    class="user-card card mx-auto min-h-[28.5rem] max-h-[29.5rem] w-[21.5rem] m-1 mt-1.5 rounded-xl bg-[#252525] shadow-md"
   >
-  <section class=" px-1 py-0 ">
-    <div id="name-title" >
-      {
-        userName !== "" ? (
-          <h2
-            id="user-name"
-            class=" font-medium tracking-wide text-center uppercase  "
-          >
-            {userName}
-          </h2>
-        ) : null
-      }
-    </div>
-
-    <div class="mx-4 ">
-      {
-        jobTitle !== "" ? (
-          <h4 class=" tracking-widest text-center uppercase font-normal ps-1 sm:pb-4 md:pb-5 lg:pb-6 ">
-            {jobTitle}
-          </h4>
-        ) : null
-      }
-    </div>
-
-  </section>
+    <section class="px-1 py-0">
+      <div id="name-title">
+        {
+          userName !== "" ? (
+            <h2
+              id="user-name"
+              class=" font-medium tracking-wide text-center uppercase  "
+            >
+              {userName}
+            </h2>
+          ) : null
+        }
+      </div>
+      <div class="mx-4">
+        {
+          jobTitle !== "" ? (
+            <h4 class=" tracking-widest text-center uppercase font-normal ps-1 sm:pb-4 md:pb-5 lg:pb-6 ">
+              {jobTitle}
+            </h4>
+          ) : null
+        }
+      </div>
+    </section>
     <!-- {/* Conditionally render user name and job title */} -->
-    
-
     <div class="divider divider-secondary box-decoration-slice m-0 mt-0"></div>
-
-    
-
     <section class="mt-3">
       <div class="ms-8 mt-1 pt-1 pb-0">
         {
@@ -80,7 +70,6 @@ const userName = `${firstName} ${lastName}`;
           ) : null
         }
       </div>
-
       <div class="mt-1 pt-0 pb-0 me-8">
         <!-- {/* Conditionally render cell number */} -->
         {
@@ -97,13 +86,14 @@ const userName = `${firstName} ${lastName}`;
           ) : null
         }
       </div>
-
       <div class="ms-8 mt-1 pt-0 pb-0">
         <!-- {/* Conditionally render email */} -->
         {
           email !== "" ? (
             <>
-              <p class="cat-name uppercase tracking-wide font-semibold -mb-2">Email</p>
+              <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
+                Email
+              </p>
               <div class="divider divider-secondary m-0" />
               <p class="text-base sm:text-xs md:text-base lg:text-xl text-base-content tracking-wider lowercase font-normal pb-2 -mt-0.5 ">
                 {email}
@@ -113,63 +103,23 @@ const userName = `${firstName} ${lastName}`;
         }
       </div>
     </section>
-    
   </div>
-
 </section>
-
-<!-- // Render the user card -->
 
 <style>
   #user-name {
-    /* font-size: clamp(20px, 26px, 28px); */
     overflow: visible;
     word-break: keep-all;
   }
 
-
   h2 {
-    /* font-size: clamp(18px, 22px, 24px); */
     overflow: visible;
     padding-top: 0;
-    margin-top: 25px; 
+    margin-top: 25px;
     margin-bottom: 0;
-    
   }
-
   h4 {
     padding-top: 0;
     margin-top: 10px;
   }
-
-
-
-  /* #cat-name {
-    font-size: clamp(12px, 15px, 18px);
-    overflow: visible;
-    white-space: nowrap;
-  } */
 </style>
-
-<script>
-  // window.onload = function () {
-  //   const userNameElement = document.getElementById("user-name");
-  // const userNameWidth = userNameElement.offsetWidth;
-
-  // userNameElement.parentElement.style.width = `${userNameWidth}px`;
-  // }
-
-  // JavaScript function to bold the "Ext:" text in phone numbers
-  // window.onload = function () {
-  //   const elements = document.querySelectorAll("p");
-
-  //   elements.forEach((element) => {
-  //     if (element.textContent && element.textContent.includes("Ext:")) {
-  //       element.innerHTML = element.innerHTML.replace(
-  //         "Ext:",
-  //         "<strong>Ext:</strong>"
-  //       );
-  //     }
-  //   });
-  // };
-</script>

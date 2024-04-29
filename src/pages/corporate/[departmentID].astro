@@ -3,14 +3,10 @@ import Data from '../../data/Data.json';
 import Main from '../../layouts/Main.astro';
 import CorpHeadCard from '../../components/CorpHeadCard.astro';
 import Footer from '../../components/Footer.astro';
-import SearchBar from '../../components/SearchBar.astro';
 import { Icon } from 'astro-icon/components';
 import NavBar from '../../components/NavBar.astro';
 
 // Access departments directly based on your JSON structure
-// const departments = CorpData.loctype.corporate.locations[0].departments;
-
-
 export async function getStaticPaths() {
     const departments = Data.loctype.corporate.locations[0].departments;
     const paths = departments.map(department => ({
@@ -53,15 +49,12 @@ if (!department) {
       />
     </section>
     <div class="divide divide-none divide-y-2 py-0"></div>
-    
     <section
     class="flex-grow bg-gradient-to-t from-gray-300 to-slate-200  pb-0 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
       >
       <section class="shadow-sm drop-shadow-sm ">
         <NavBar />
       </section>
-
-      <!-- <h1>{department.deptName}</h1> -->
     <div class=" ps-2 py-1 pe-2 border-4 border-transparent overflow-y-auto no-scrollbar">
       <ul class="mt-4 ms-0.5">
         {department.employees.map(employee => (
@@ -78,12 +71,8 @@ if (!department) {
         ))}
       </ul>
     </div>  
-    
-
     </section>
-
     <div class="divide divide-none divide-y-2 py-0"></div>
-
     <section class="box-border mt-0 pb-3">
       <!-- {/* Render the footer with navigation links */} -->
       <Footer
@@ -104,10 +93,6 @@ if (!department) {
 </Main>
 
 <style>
-    /* input[type="radio"]:checked + .collapse-title {
-      background-color: #1c4e80;
-      border-bottom: 2px solid white;
-      font-weight: bold;} */
       li:nth-child(odd) {
     background-color: #1c658c;
     
@@ -136,9 +121,6 @@ if (!department) {
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
   }
-
-
-
   </style>
 
 <script>
@@ -151,7 +133,4 @@ if (!department) {
     }
   });
 });
-
-
-
 </script>

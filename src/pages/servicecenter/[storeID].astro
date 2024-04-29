@@ -1,13 +1,10 @@
 ---
-// Import necessary components and data
 import Main from "../../layouts/Main.astro";
 import StoreCard from "../../components/StoreCard.astro";
 import Footer from "../../components/Footer.astro";
 import Data from "../../data/Data.json";
 import StoreHeadCard from "../../components/StoreHeadCard.astro";
-import NavBar from '../../components/NavBar.astro';
 import UserBackButton from "../../components/UserBackButton.astro";
-
 
 export async function getStaticPaths() {
   // Access departments from the imported Data
@@ -17,15 +14,12 @@ export async function getStaticPaths() {
   }));
   return paths;
 }
-
 // Fetching the store ID from the URL parameters
 const { storeID } = Astro.params;
-
 // Assuming your stores data is located similarly to your employees
 const store = Data.loctype["service center"].locations.find(
   (store) => store.id.toString() === storeID
 );
-
 if (!store) {
   // Redirect to a 404 page if the store is not found
   return Astro.redirect("/404");
@@ -34,7 +28,7 @@ if (!store) {
 
 <Main title={`${store.locName} | Service Center`}>
   <div class="flex flex-col h-screen">
-    <section class=" ">
+    <section class="">
       <StoreHeadCard
         storeHeadCard={[
           {
@@ -58,12 +52,11 @@ if (!store) {
     </section>
     <div class="divide divide-none divide-y-2 py-0"></div>
     <section
-    class=" flex flex-col justify-center bg-gradient-to-t from-gray-300 to-slate-200  pb-1 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px "
+      class="flex flex-col justify-center bg-gradient-to-t from-gray-300 to-slate-200 pb-1 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px"
     >
-    <section class="shadow-sm drop-shadow-sm">
-      <!-- <NavBar /> -->
-      <UserBackButton />
-    </section>
+      <section class="shadow-sm drop-shadow-sm">
+        <UserBackButton />
+      </section>
       <!-- Render the store card with relevant information -->
       <StoreCard
         locName={store.locName}
@@ -79,11 +72,8 @@ if (!store) {
         data-pagefind-index="locName, locNum, phoneNumber, email, city"
       />
     </section>
-
     <div class="divide divide-none divide-y-2 py-0"></div>
-
     <!-- Additional content sections can be added here -->
-
     <!-- Render the footer with navigation links -->
     <section class="box-border pb-3 mt-0">
       <!-- {/* Render the footer with navigation links */} -->

@@ -1,6 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import UserCard from "./UserCard.astro"; // Importing UserCard component for displaying employee details
 
 // Properties of each employee
 type Props = {
@@ -18,7 +17,6 @@ type Props = {
     department: number;
   }[];
 };
-
 // Extract the employees data from props
 const { employees } = Astro.props;
 ---
@@ -43,14 +41,11 @@ const { employees } = Astro.props;
   ))}
 </ul>
 
-
 <style>
   li:nth-child(odd) {
     background-color: #1c658c;
-    
   }
   li:nth-child(even) {
     background-color: #398AB9;
-    
   }
 </style>

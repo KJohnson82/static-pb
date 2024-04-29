@@ -1,20 +1,13 @@
 ---
-import { Icon } from 'astro-icon/components'
 import Data from '../../../data/Data.json';
 import Main from '../../../layouts/Main.astro';
-import CorpHeadCard from '../../../components/CorpHeadCard.astro';
 import EmployeeHeadCard from '../../../components/EmployeeHeadCard.astro';
 import Footer from '../../../components/Footer.astro';
-import SearchBar from '../../../components/SearchBar.astro';
 import UserCard from '../../../components/UserCard.astro';
-import NavBar from '../../../components/NavBar.astro';
-import BackButton from '../../../components/BackButton.astro';
 import UserBackButton from '../../../components/UserBackButton.astro';
 
 // Access departments directly based on your JSON structure
 const departments = Data.loctype.corporate.locations[0].departments;
-// console.log(departments);
-
 export async function getStaticPaths() {
     // Access departments from the imported Data
     const departments = Data.loctype.corporate.locations[0].departments;
@@ -26,15 +19,11 @@ export async function getStaticPaths() {
             },
         }))
     );
-
     return paths;
 }
-
 const { departmentID, employeeID } = Astro.params;
 const department = departments.find(dept => dept.id.toString() === departmentID);
 const employee = department?.employees.find(emp => emp.id.toString() === employeeID);
-// console.log(employee);
-
 if (!employee) {
     return Astro.redirect('/404');
 }
@@ -45,7 +34,6 @@ if (!employee) {
   <div class="flex flex-col h-screen">
     <section class=" ">
         <!-- {/* Render the corporate header card with relevant information */} -->
-
         <EmployeeHeadCard
             headCard={[
             {
@@ -62,16 +50,13 @@ if (!employee) {
                 phone2: ``, // Second phone number
             },
             ]}
-        
         />
-
         </EmployeeHeadCard>
       </section>
       <div class="divide divide-none divide-y-2 py-0"></div>
       <section class=" flex flex-col justify-center bg-gradient-to-t from-gray-300 to-slate-200 py-auto pb-1 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px " 
       >
       <section class="shadow-sm drop-shadow-sm">
-        <!-- <NavBar /> -->
         <UserBackButton />
       </section>
           <div class="user-card " >
@@ -84,8 +69,7 @@ if (!employee) {
             extension={employee.extension}
             cellNumber={employee.cellNumber}
             data-pagefind-index="firstName, lastName, email, phoneNumber"
-            />
-           
+            />         
           </div>
       </section>
 

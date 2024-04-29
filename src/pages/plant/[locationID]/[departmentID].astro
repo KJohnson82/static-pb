@@ -1,10 +1,8 @@
 ---
-import type { GetStaticPaths } from "astro";
 import Data from '../../../data/Data.json';
 import Main from '../../../layouts/Main.astro';
 import CorpHeadCard from '../../../components/CorpHeadCard.astro';
 import Footer from '../../../components/Footer.astro';
-import SearchBar from '../../../components/SearchBar.astro';
 import { Icon } from 'astro-icon/components';
 import NavBar from '../../../components/NavBar.astro';
 
@@ -12,7 +10,6 @@ export async function getStaticPaths() {
     // Assuming 'Data' has a structure where each location has multiple departments
     const locations = Data.loctype.plant.locations;
     const departments = locations.flatMap(location => location.departments);
-
     // Flatten the nested structure and create an array of path objects
     const paths = locations.flatMap(location =>
         location.departments.map(department => ({
@@ -25,9 +22,6 @@ export async function getStaticPaths() {
             },
         }))
     );
-
-    // Since Astro expects an array of objects, each with a `params` key,
-    // this structure is now correctly formed to map each department to its path.
     return paths;
 }
 
@@ -35,12 +29,8 @@ export async function getStaticPaths() {
 
 const { departmentID, locationID, } = Astro.params;
 const { employees } = Astro.props;
-
-// const departmentID = Astro.params.departmentID;
 const departments= Data.loctype.plant.locations.flatMap(locations => locations.departments);
 const department = departments.find(dept => dept.id.toString() === departmentID.toString());
-
-
 if (!department) {
   return Astro.redirect('/404');
 }
@@ -69,39 +59,29 @@ if (!department) {
       />
     </section>
     <div class="divide divide-none divide-y-2 py-0"></div>
-    
-
     <section
     class="flex-grow bg-gradient-to-t from-gray-300 to-slate-200  pb-0 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
       >
       <section class="shadow-sm drop-shadow-sm">
         <NavBar />
       </section>
-
-      <!-- <h1>{department.deptName}</h1> -->
     <div class=" ps-2 py-1 pe-2 border-4 border-transparent overflow-y-auto no-scrollbar">
       <ul class="mt-4 ms-0.5">
         {department.employees.map(employee => (
           <li  class="relative bg-secondary rounded-md text-nowrap  shadow-md  my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 ">
             <a href={`/plant/${locationID}/${departmentID}/${employee.id}`} class="block px-4 truncate hover:bg-[#0d9488] py-4 text-white rounded-lg hover:rounded-md hover:border-transparent hover:text-white transition-colors"  >
-              
               <div class=" hover-trigger items-center place-items-center text-base font-medium tracking-wider text-white mb-0.5 -px-4 p-0 capitalize align-middle" >
                   <!-- Places a star beside employees who are managers -->
               {employee.isManager === 1 ? <Icon name="star" class="inline-block pe-2 h-6 w-auto"/> : ""} 
-              {employee.firstName + " " + employee.lastName + " - " + employee.jobTitle + " "} 
-                
+              {employee.firstName + " " + employee.lastName + " - " + employee.jobTitle + " "}
                 </div>
             </a>
           </li>
         ))}
       </ul>
     </div>  
-    
-
     </section>
-
     <div class=" divide divide-none divide-y-2 py-0 "></div>
-
     <section class="box-border pb-3 mt-0">
       <!-- {/* Render the footer with navigation links */} -->
       <Footer
@@ -122,22 +102,14 @@ if (!department) {
 </Main>
 
 <style>
-  /* input[type="radio"]:checked + .collapse-title {
-    background-color: #1c4e80;
-    border-bottom: 2px solid white;
-    font-weight: bold;} */
 
     li:nth-child(odd) {
     background-color: #1c658c;
-    
   }
   li:nth-child(even) {
     background-color: #398AB9;
-    
   }
-
     .hover-trigger:hover {
-      
       animation: scroll-text 3s linear 1s forwards ;
     }
 
@@ -156,8 +128,6 @@ if (!department) {
       scrollbar-width: none;  /* Firefox */
 }
 
-
-
 </style>
 
 <script>
@@ -170,7 +140,4 @@ elements.forEach(el => {
   }
 });
 });
-
-
-
 </script>

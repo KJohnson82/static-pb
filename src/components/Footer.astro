@@ -1,6 +1,5 @@
 ---
 import BottomNav from "./BottomNav.astro"; // Importing BottomNav component
-import SearchBar from "./SearchBar.astro"; // Importing SearchBar component
 
 // Define the type for the component's props
 type Props = {
@@ -19,31 +18,9 @@ const { bottomNav } = Astro.props;
 <div class="box-border bg-red-400 relative w-full mb-2 pb-2 h-16">
   <!-- Render the BottomNav component, passing bottomNav as prop -->
   <BottomNav bottomNav={bottomNav} />
-  <!-- Include the SearchBar component -->
-  <!-- <SearchBar /> -->
   <!-- Footer section -->
   <footer class="footer footer-center w-full h-fit pb-1">
     <!-- Copyright notice -->
     <!-- <p class="text-xs mb-2 pb-2">Copyright © 2024 - All right reserved by McElroy Metal Inc.</p> -->
   </footer>
-  <!-- Commented out alternative footer content -->
 </div>
-
-<style>
-  /* Styles for paragraph text, typically used in the footer */
-  /* p {
-    font-family: "Roboto", sans-serif;
-    font-size: 10px;
-    font-weight: 500;
-    line-height: 1.5;
-    color: bg-secondary;
-    text-align: center;
-    margin: 2%;
-    padding: 0;
-  } */
-
-  /* div {
-    border-radius: 8px;
-    background-color: transparent;
-  } */
-</style>

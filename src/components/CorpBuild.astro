@@ -1,10 +1,5 @@
 ---
-import Departments from './DeptBuild.astro';
-import CorpData from '../pages/corporate.astro';
-
-
 const { Department } = Astro.props;
-// const colors = ['sky-300', 'sky-400', 'sky-500', 'sky-600', 'sky-700', 'sky-800', 'cyan-800', 'cyan-700', 'cyan-600', 'cyan-500', 'cyan-400', 'cyan-300'];
 
 ---
 
@@ -23,38 +18,12 @@ const { Department } = Astro.props;
         </a>
       </li>
     ))}
-
-  
 </ul>
-
-<style>
-  /* input[type="radio"]:checked + .collapse-title {
-    background-color: #1c4e80;
-    border-bottom: 2px solid white;
-    font-weight: bold;
-  } */
-</style>
 <style>
   li:nth-child(odd) {
     background-color: #1c658c;
-    
   }
   li:nth-child(even) {
     background-color: #398AB9;
-    
   }
 </style>
-
-<script>
-//   const colors = ['sky-300', 'sky-400', 'sky-500', 'sky-600', 'sky-700', 'sky-800', 'cyan-800', 'cyan-700', 'cyan-600', 'cyan-500', 'cyan-400', 'cyan-300'];
-
-// function applyColors() {
-//     const listItems = document.querySelectorAll('li'); // Select all <li> elements
-//     listItems.forEach((item, index) => {
-//         const colorClass = `text-${colors[index % colors.length]}`; // Cycle through colors
-//         item.classList.add(colorClass);
-//     });
-// }
-
-// applyColors();
-</script>

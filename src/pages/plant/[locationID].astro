@@ -1,52 +1,40 @@
 ---
-import Data from '../../data/Data.json';
-import Main from '../../layouts/Main.astro';
-import CorpHeadCard from '../../components/CorpHeadCard.astro';
-import Footer from '../../components/Footer.astro';
-import SearchBar from '../../components/SearchBar.astro';
-import { Icon } from 'astro-icon/components';
-import NavBar from '../../components/NavBar.astro';
-import PlantHeadCard from '../../components/PlantHeadCard.astro';
+import Data from "../../data/Data.json";
+import Main from "../../layouts/Main.astro";
+import Footer from "../../components/Footer.astro";
+import NavBar from "../../components/NavBar.astro";
+import PlantHeadCard from "../../components/PlantHeadCard.astro";
 
 export async function getStaticPaths() {
-    const location = Data.loctype.plant.locations;
-    // const location = Data.loctype.plant[locations.id].map(plant => location.departments).flat();
-    const paths = location.map(location => ({
-        params: {
-            locationID: location.id.toString(),
-        },
-        props: { 
-            departments: location.departments,
-            
-        }
-    }));
-
-    return paths;
+  const location = Data.loctype.plant.locations;
+  const paths = location.map((location) => ({
+    params: {
+      locationID: location.id.toString(),
+    },
+    props: {
+      departments: location.departments,
+    },
+  }));
+  return paths;
 }
 
 const { locationID } = Astro.params;
 const { departments } = Astro.props;
-// const locationID = Astro.params.locationID;
 const locations = Data.loctype.plant.locations;
-const location = locations.find(loc => loc.id.toString() === locationID.toString());
-// const departments = location.departments;
-
-
-
+const location = locations.find(
+  (loc) => loc.id.toString() === locationID.toString()
+);
 if (!location) {
-  return Astro.redirect('/404');
+  return Astro.redirect("/404");
 }
-
-
-
-
 ---
 
 <Main title={location.locName}>
-    <div class="flex flex-col h-screen">
-        <section class=" ">
-            <PlantHeadCard headCard={[
-                {
+  <div class="flex flex-col h-screen">
+    <section class="">
+      <PlantHeadCard
+        headCard={[
+          {
             title: `${location.locName}`, // Title of the card
             subtitle1: "Plant Phone",
             address: `${location.address},`, // Address line
@@ -59,37 +47,38 @@ if (!location) {
             subtitle3: "Plant Email: ", // Third subtitle
             phone2: `${location.faxNumber}`, // Second phone number
           },
-            ]} />
-            
-            
-        </section >
-        <div class="divide divide-none divide-y-2 py-0"></div>
-        
-
-        <section class="flex-grow bg-gradient-to-t from-gray-300 to-slate-200  pb-0 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit" 
-        >
-        <section class="shadow-sm drop-shadow-sm">
-          <NavBar />
-        </section>
-
-          <div class=" ps-2 py-1 pe-2 border-4 border-transparent overflow-y-auto no-scrollbar">
-            <ul class="mt-4 ms-0.5">
-              {location.departments.map(department => (
-                <li class="relative bg-secondary rounded-md shadow-md my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 " >
-                  <a href={`/plant/${locationID}/${department.id}`} class="block px-4 py-4 text-white hover:bg-[#0d9488] rounded-lg hover:rounded-md hover:border-transparent hover:text-white transition-colors" >
-                    <div class=" text-xl uppercase font-medium tracking-wide text-white" > 
-                    {department.deptName} 
-                      </div>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div> 
-        </section>
-        
-
-        <div class=" divide divide-none divide-y-2 py-0 "></div>
-
+        ]}
+      />
+    </section>
+    <div class="divide divide-none divide-y-2 py-0"></div>
+    <section
+      class="flex-grow bg-gradient-to-t from-gray-300 to-slate-200 pb-0 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
+    >
+      <section class="shadow-sm drop-shadow-sm">
+        <NavBar />
+      </section>
+      <div
+        class="ps-2 py-1 pe-2 border-4 border-transparent overflow-y-auto no-scrollbar"
+      >
+        <ul class="mt-4 ms-0.5">
+          {
+            location.departments.map((department) => (
+              <li class="relative bg-secondary rounded-md shadow-md my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 ">
+                <a
+                  href={`/plant/${locationID}/${department.id}`}
+                  class="block px-4 py-4 text-white hover:bg-[#0d9488] rounded-lg hover:rounded-md hover:border-transparent hover:text-white transition-colors"
+                >
+                  <div class=" text-xl uppercase font-medium tracking-wide text-white">
+                    {department.deptName}
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+    <div class="divide divide-none divide-y-2 py-0"></div>
     <section class="box-border pb-3 mt-0">
       <!-- {/* Render the footer with navigation links */} -->
       <Footer
@@ -106,25 +95,14 @@ if (!location) {
         ]}
       />
     </section>
-
-
-    </div>
-
-
-
+  </div>
 </Main>
 
 <style>
   li:nth-child(odd) {
     background-color: #1c658c;
-    
   }
   li:nth-child(even) {
-    background-color: #398AB9;
-    
+    background-color: #398ab9;
   }
 </style>
-
-<script>
-  
-</script>

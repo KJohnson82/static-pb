@@ -5,7 +5,6 @@ import StoreCard from "../../components/StoreCard.astro";
 import Footer from "../../components/Footer.astro";
 import Data from "../../data/Data.json";
 import StoreHeadCard from "../../components/StoreHeadCard.astro";
-import NavBar from '../../components/NavBar.astro';
 import UserBackButton from "../../components/UserBackButton.astro";
 
 export async function getStaticPaths() {
@@ -53,42 +52,34 @@ if (!store) {
             areaManager: store.areaManager,
           },
         ]}
-      ></StoreHeadCard>
-    </section>
-    <div class="divide divide-none divide-y-2 py-0"></div>
-    
-    <section
-    class=" flex flex-col justify-center bg-gradient-to-t from-gray-300 to-slate-200  pb-1 pt-0 py-auto no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px "
-    >
-    <section class="shadow-sm drop-shadow-sm">
-      <!-- <NavBar /> -->
-      <UserBackButton />
-    </section>
-      <!-- Render the store card with relevant information -->
-      <div class="store-card ">
-        <StoreCard
-        locName={store.locName}
-        locNum={store.locNum}
-        hours={store.hours}
-        phoneNumber={store.phoneNumber}
-        faxNumber={store.faxNumber}
-        email={store.email}
-        address={store.address}
-        city={store.city}
-        state={store.state}
-        zipcode={store.zipcode}
-        data-pagefind-index="locName, locNum, phoneNumber, email, city"
       />
-
-      </div>
-      
-    
     </section>
-
     <div class="divide divide-none divide-y-2 py-0"></div>
-
+    <section
+      class="flex flex-col justify-center bg-gradient-to-t from-gray-300 to-slate-200 pb-1 pt-0 py-auto no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px"
+    >
+      <section class="shadow-sm drop-shadow-sm">
+        <UserBackButton />
+      </section>
+      <!-- Render the store card with relevant information -->
+      <div class="store-card">
+        <StoreCard
+          locName={store.locName}
+          locNum={store.locNum}
+          hours={store.hours}
+          phoneNumber={store.phoneNumber}
+          faxNumber={store.faxNumber}
+          email={store.email}
+          address={store.address}
+          city={store.city}
+          state={store.state}
+          zipcode={store.zipcode}
+          data-pagefind-index="locName, locNum, phoneNumber, email, city"
+        />
+      </div>
+    </section>
+    <div class="divide divide-none divide-y-2 py-0"></div>
     <!-- Additional content sections can be added here -->
-
     <!-- Render the footer with navigation links -->
     <section class="box-border mt-0 pb-3">
       <!-- {/* Render the footer with navigation links */} -->
@@ -108,6 +99,3 @@ if (!store) {
     </section>
   </div>
 </Main>
-
-<script>
-</script>

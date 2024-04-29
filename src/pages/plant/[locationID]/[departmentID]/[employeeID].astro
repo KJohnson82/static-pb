@@ -1,16 +1,10 @@
 ---
-import { Icon } from 'astro-icon/components'
 import Data from '../../../../data/Data.json';
 import Main from '../../../../layouts/Main.astro';
-import CorpHeadCard from '../../../../components/CorpHeadCard.astro';
 import EmployeeHeadCard from '../../../../components/EmployeeHeadCard.astro';
 import Footer from '../../../../components/Footer.astro';
-import SearchBar from '../../../../components/SearchBar.astro';
 import UserCard from '../../../../components/UserCard.astro';
-import NavBar from '../../../../components/NavBar.astro';
 import UserBackButton from '../../../../components/UserBackButton.astro';
-
-
 
 const locations = Data.loctype.plant.locations;
 const departments = locations.flatMap(location => location.departments);
@@ -20,7 +14,6 @@ export async function getStaticPaths() {
   const locations = Data.loctype.plant.locations;
   const departments = locations.flatMap(location => location.departments);
   const employees = departments.flatMap(department => department.employees);
-  
   const paths = locations.flatMap(location =>
         location.departments.flatMap(department => 
           department.employees.map(employee => ({
@@ -34,24 +27,15 @@ export async function getStaticPaths() {
                 department: department,
                 employee: employee,
             },
-            
-        }))
-        
+        }))       
     ));
-    // console.log(employees);
-    // console.log(paths); 
     return paths;
 }
 
-
-
 const { departmentID, employeeID, locationID } = Astro.params;
 const location = Data.loctype.plant.locations.find(loc => loc.id.toString() === locationID);
-// console.log(location);
 const department = location?.departments.find(dept => dept.id.toString() === departmentID);
-// console.log(department);
 const employee = department?.employees.find(emp => emp.id.toString() === employeeID);
-// console.log(employee);
 
 if (!employee) {
     return Astro.redirect('/404');
@@ -63,7 +47,6 @@ if (!employee) {
   <div class="flex flex-col h-screen">
     <section class=" align-text-bottom ">
         <!-- {/* Render the corporate header card with relevant information */} -->
-
         <EmployeeHeadCard
             headCard={[
             {
@@ -80,26 +63,16 @@ if (!employee) {
                 phone2: ``, // Second phone number
             },
             ]}
-            
-         
         />
         </EmployeeHeadCard>
-        
       </section>
       <div class="divide divide-none divide-y-2 py-0"></div>
-
-      
-
       <section <section class="flex flex-col justify-center bg-gradient-to-t from-gray-300 to-slate-200  pb-1 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px " 
       >
-
       <section class="shadow-sm drop-shadow-sm">
-        <!-- <NavBar /> -->
         <UserBackButton />
       </section>
-        
           <div class="user-card ">
-
             <UserCard 
             firstName={employee.firstName}
             lastName={employee.lastName}
@@ -109,12 +82,9 @@ if (!employee) {
             extension={employee.extension}
             cellNumber={employee.cellNumber}
             data-pagefind-index="firstName, lastName, email, phoneNumber"
-            />
-           
+            />        
           </div>
       </section>
-
-    
       <div class="divide divide-none divide-y-2 py-0"></div>
       <section class="box-border pb-3 mt-0">
         <!-- {/* Render the footer with navigation links */} -->
@@ -134,22 +104,3 @@ if (!employee) {
       </section>
   </div>
 </Main>
-
-<script>
-  
-</script>
-
-
-<!-- <script>
-    window.onload = function () {
-        const p_elements = document.querySelectorAll("p");
-
-        p_elements.forEach((element) => {
-            if (element.textContent = "") {
-                element.style.display = "none";
-            }
-        })
-
-
-    }
-</script> -->

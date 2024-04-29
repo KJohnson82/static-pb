@@ -1,7 +1,4 @@
 ---
-import BackButton from '../components/BackButton.astro';
-import NavBar from '../components/NavBar.astro';
-
 // Define properties for each head card
 type Props = {
   headCard: {
@@ -34,47 +31,8 @@ const { headCard } = Astro.props;
       <h2 class=" text-center pt-10 font-normal uppercase text-3xl line-clamp-2 divide-y-[1px] px-2 tracking-wide">
         {card.title} <!-- Display the card title -->
       </h2>
-      <!-- Divider line -->
-      
-      <!-- Sections for address, contact, and help desk information -->
-     
     </div>
-    
   ))}
-  <!-- <NavBar /> -->
 </div>
 
 
-<style>
-  /* Styles for cards */
-  /* .card {
-    margin: 0 auto;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 1%;
-    margin-bottom: 10px;
-
-  } */
-
-  /* Styles for card title */
-  /* .card-title {
-    text-shadow: 3px 3px 34px #443f3f ;
-  } */
-
-  /* Styles for dividers */
-  /* .divider {
-    margin-top: 0;
-    margin-bottom: 3%;
-  } */
-
-  /* Styles for headings and paragraphs */
-  /* h3 {
-    font-weight: bold;
-    font-size: large;
-  } */
-
-  /* p {
-    font-weight: 600;
-  } */
-
-</style>

@@ -40,12 +40,12 @@ const { storeHeadCard } = Astro.props;
             <div class="contact-section_1 me-28 mt-0 text-nowrap text-right ">
             <div class="uppercase tracking-wide font-medium ps-[1px] -mb-2 pb-1.5">{card.subtitle1}</div>
             <div class="border-b-2 border-slate-200 border-opacity-45 m-0 border-x-0" />  
-            <div><p class="-mt-[6px] uppercase tracking-normal font-normal pt-1.5 ps-[1px]" >{card.storeManager}</p></div>
+            <div><p class="-mt-[6px] uppercase tracking-normal font-normal pt-1.5 ps-[1px]" data-pagefind-body >{card.storeManager} </p></div>
             </div>
             <div class="contact-section_2 ms-28 mt-3 text-nowrap text-left ">
               <div class="uppercase tracking-wide font-medium ps-[1px] -mb-2 pb-1.5">{card.subtitle2}</div>
               <div class="border-b-2 border-slate-200 border-opacity-45 m-0 border-x-0" /> 
-              <div class="-mt-[6px] uppercase tracking-normal font-normal pt-1.5 ps-[1px]">{card.areaManager}</div>
+              <div class="-mt-[6px] uppercase tracking-normal font-normal pt-1.5 ps-[1px]" data-pagefind-body>{card.areaManager} </div>
             </div>
             <div class="contact-section_3 grid grid-cols-3 pt-2 gap-2 flex-nowrap ">
               <div><p class=" grid col-span-1 uppercase shrink grow text-right ">{card.subtitle3}</p></div>

@@ -1,7 +1,6 @@
 ---
 import Search from "astro-pagefind/components/Search";
 import BackButton from "../components/BackButton.astro";
-import SearchBar from "../components/SearchBar.astro";
 ---
 
 <div
@@ -14,9 +13,7 @@ import SearchBar from "../components/SearchBar.astro";
     uiOptions={{ showImages: false }}
   />
 </div>
-
 <style is:global>
-
   .pagefind-ui {
     /* --pagefind-ui-scale: 0.75; */
     --pagefind-ui-primary: navy;
@@ -25,9 +22,6 @@ import SearchBar from "../components/SearchBar.astro";
     /* --pagefind-ui-border-width: 1px;
     --pagefind-ui-border-radius: 0.25rem; */
     --pagefind-ui-background: white;
-
-    /* --pagefind-ui-font: sans-serif; */
-
     width: 70%;
   }
 

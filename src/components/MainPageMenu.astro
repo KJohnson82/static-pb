@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 
 // Define the type for individual location items
 type LocType = {
@@ -18,7 +18,7 @@ let { loctypes } = Astro.props as Props;
 ---
 
 <!-- Grid container for location types -->
-<div class="grid grid-cols-1 gap-5 grid-rows-4 w-full my-2 mx-1  ">
+<div class="grid grid-cols-1 gap-5 grid-rows-4 w-full my-2 mx-1">
   <!-- Map over each location type to create a link and button -->
   {
     loctypes.map(({ to, location, desc, icon }) => (
@@ -31,24 +31,13 @@ let { loctypes } = Astro.props as Props;
             <h2 class=" w-auto col-span-1 text-white justify-self-start text-xl uppercase font-medium tracking-widest">
               {location}
             </h2>
-            <Icon name={icon} class="w-auto col-span-1 h-10 justify-self-end " />
+            <Icon
+              name={icon}
+              class="w-auto col-span-1 h-10 justify-self-end "
+            />
           </span>
         </button>
       </a>
     ))
   }
 </div>
-
-<style>
-  /* a button {
-    position: relative;
-    display: inline-table;
-    margin-top: auto;
-    margin-bottom: auto;
-    padding-top: auto;
-    padding-bottom: auto;
-    background-color: transparent;
-  } */
-  
-  
-</style>
