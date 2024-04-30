@@ -8,6 +8,7 @@
     "build": "astro check && astro build",
     "postbuild": "pagefind --source dist/",
     "tauri": "tauri",
+    "tauri:build": "tauri build --target i686-pc-windows-msvc",
     "preview": "astro preview",
     "astro": "astro"
   },

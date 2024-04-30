@@ -5,6 +5,7 @@ import CorpHeadCard from '../../../components/CorpHeadCard.astro';
 import Footer from '../../../components/Footer.astro';
 import { Icon } from 'astro-icon/components';
 import NavBar from '../../../components/NavBar.astro';
+import DeptHeadCard from '../../../components/DeptHeadCard.astro';
 
 export async function getStaticPaths() {
     // Assuming 'Data' has a structure where each location has multiple departments
@@ -38,9 +39,9 @@ if (!department) {
 
 <Main title={department.deptName}>
   <div class="flex flex-col h-screen">
-    <section class=" ">
+    <section class="  ">
       <!-- {/* Render the corporate header card with relevant information */} -->
-      <CorpHeadCard 
+      <DeptHeadCard 
         headCard={[
           {
             title: `${department.deptName}`, // Title of the card
