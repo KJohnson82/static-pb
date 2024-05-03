@@ -7,7 +7,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "McElroy Directory",
+    "productName": "Employee Directory",
     "version": "0.1.0"
   },
   "tauri": {
@@ -55,9 +55,9 @@
       "iconAsTemplate": true
     },
     "bundle": {
-      "active": false,
-      "category": "DeveloperTool",
-      "copyright": "",
+      "active": true,
+      "category": "Utility",
+      "copyright": "McElroy Metal",
       "deb": {
         "depends": []
       },
@@ -74,16 +74,15 @@
         "providerShortName": null,
         "signingIdentity": null
       },
-      "shortDescription": "",
+      "shortDescription": "The McElroy Metal Employee Directory",
       "targets": "nsis",
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
         "timestampUrl": "",
         "webviewInstallMode": {
-          
-          "silent": true,
-          "type": "downloadBootstrapper"
+          "type": "embedBootstrapper",
+          "silent": true
         }
       }
     },
@@ -96,12 +95,12 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 900,
-        "width": 400,
+        "height": 850,
+        "width": 375,
         "maxHeight": 900,
         "maxWidth": 400,
-        "minHeight": 900,
-        "minWidth": 400,
+        "minHeight": 800,
+        "minWidth": 350,
         "visible": false,
         "transparent": true,
         "decorations": false,

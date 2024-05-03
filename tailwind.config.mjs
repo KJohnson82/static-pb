@@ -13,7 +13,6 @@ export default {
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
     themes: [
-      "business",
       {
         mcapp: {
           primary: "#1C658C",
