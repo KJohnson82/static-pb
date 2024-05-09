@@ -6,9 +6,7 @@ import Footer from "../components/Footer.astro"; // Importing Footer component
 import CorpHeadCard from "../components/CorpHeadCard.astro"; // Importing CorpHeadCard component
 import SearchBar from "../components/SearchBar.astro";
 import { Icon } from 'astro-icon/components';
-import { moveWindow, Position } from "tauri-plugin-positioner-api";
-
-
+import { moveWindow, Position } from "@tauri-apps/plugin-positioner";
 
 ---
 
@@ -105,7 +103,7 @@ import { moveWindow, Position } from "tauri-plugin-positioner-api";
     </section>
   </div>
   <script >
-    import { moveWindow, Position } from "tauri-plugin-positioner-api";
+    import { moveWindow, Position } from "@tauri-apps/plugin-positioner";
     import { getCurrent } from '@tauri-apps/api/window';
 
     async function windowPosition() {

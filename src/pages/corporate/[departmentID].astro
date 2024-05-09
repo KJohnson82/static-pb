@@ -56,15 +56,30 @@ if (!department) {
         <NavBar />
       </section>
     <div class=" ps-2 py-1 pe-2 border-4 border-transparent overflow-y-auto no-scrollbar">
-      <ul class="mt-4 ms-0.5">
+      <ul class="mt-2 ms-0.5">
         {department.employees.map(employee => (
-          <li class="relative bg-secondary rounded-md text-nowrap shadow-md my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 " >
-            <a href={`/corporate/${departmentID}/${employee.id}`} class="block px-4 hover:bg-[#0d9488] truncate py-4 text-white rounded-lg hover:rounded-md hover:border-transparent hover:text-white transition-colors" >
-              <div class=" hover-trigger items-center place-items-center text-base font-medium tracking-wider text-white mb-0.5 -px-4 p-0 capitalize align-middle" >
-                  <!-- Places a star beside employees who are managers -->
-              {employee.isManager === 1 ? <Icon name="star" class="inline-block pe-2 h-6 w-auto"/> : ""} 
-              {employee.firstName + " " + employee.lastName + " - " + employee.jobTitle + " "} 
+          // <li class="relative bg-secondary rounded-md text-nowrap shadow-md my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 " >
+          //   <a href={`/corporate/${departmentID}/${employee.id}`} class="block px-4 hover:bg-[#0d9488] truncate py-4 text-white rounded-lg hover:rounded-md hover:border-transparent hover:text-white transition-colors" >
+          //     <div class=" hover-trigger items-center place-items-center text-base font-medium tracking-wider text-white mb-0.5 -px-4 p-0 capitalize align-middle" >
+          //         <!-- Places a star beside employees who are managers -->
+          //     {employee.isManager === 1 ? <Icon name="star" class="inline-block pe-2 h-6 w-auto"/> : ""} 
+          //     {employee.firstName + " " + employee.lastName + " - " + employee.jobTitle + " "} 
                 
+          //       </div>
+          //   </a>
+          // </li>
+          <li class="relative bg-secondary rounded-md shadow-md my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 " >
+            <a href={`/corporate/${departmentID}/${employee.id}`} class="block px-4 leading-tight hover:bg-[#0d9488] py-2 text-white rounded-lg hover:rounded-md hover:border-transparent hover:text-white transition-colors" >
+              <div class=" hover-trigger line-clamp-1 items-center place-items-center text-lg font-medium tracking-wider text-white mb-0 -px-4 p-0 capitalize " >
+                  <!-- Places a star beside employees who are managers -->
+              
+              {employee.firstName + " " + employee.lastName } 
+              {employee.isManager === 1 ? <Icon name="star" class="inline-block pe-2 h-6 w-auto"/> : ""} 
+              
+                
+                </div>
+                <div class=" hover-trigger text-clip overflow-hidden tracking-wider line-clamp-1">
+                  {employee.jobTitle}
                 </div>
             </a>
           </li>

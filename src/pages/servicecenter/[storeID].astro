@@ -58,7 +58,8 @@ if (!store) {
         <UserBackButton />
       </section>
       <!-- Render the store card with relevant information -->
-      <StoreCard
+      <div class="store-card bg-[#252525]">
+        <StoreCard
         locName={store.locName}
         locNum={store.locNum}
         phoneNumber={store.phoneNumber}
@@ -71,6 +72,7 @@ if (!store) {
         hours={store.hours}
         data-pagefind-index="locName, locNum, phoneNumber, email, city"
       />
+      </div>
     </section>
     <div class="divide divide-none divide-y-2 py-0"></div>
     <!-- Additional content sections can be added here -->

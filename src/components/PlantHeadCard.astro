@@ -26,16 +26,16 @@ const { headCard } = Astro.props;
   {headCard.map((card) => (
     <!-- Iterate over each card in headCard array and create a div for each card -->
     <div class="grid grid-cols-1 border-x-[3px] border-y-[3px] border-transparent rounded-md pt-0 pb-0 mb-0 ">
-      <h2 class=" text-center text-nowrap font-normal uppercase text-3xl line-clamp-2 divide-y-[1px] pt-2 px-2 tracking-wide">
+      <h2 class="card-title text-center font-normal uppercase text-3xl sm:text-2xl md:text-3xl line-clamp-2 divide-y-[1px] pt-2 px-2 tracking-wide overflow-hidden text-ellipsis">
         {card.title} <!-- Display the card title -->
       </h2>
       <!-- Divider line -->
-      <div class="w-lvw p-0 m-0 border-b-2 border-slate-100 border-opacity-20 "></div>
+      {/* <div class="w-lvw p-0 m-0 border-b-2 border-slate-100 border-opacity-20 "></div> */}
       <!-- Sections for address, contact, and help desk information -->
       <!-- Address section -->
           <section class="address-section pb-1">
           <!--<p>{card.subtitle1}</p> -->
-          <div class="w-svw text-center tracking-wide align-middle pt-2 py-2 border-b-2 border-slate-100 border-opacity-20">
+          <div class="w-svw text-center tracking-wide align-middle pt-0 py-0 border-b-2 border-slate-100 border-opacity-20">
             <p class="text-base/5 ">{card.address} {card.city} {card.state} {card.zip}</p>
           </div>
         </section>
@@ -72,3 +72,36 @@ const { headCard } = Astro.props;
     margin-bottom: 3%;
   }
 </style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const titles = document.querySelectorAll('.card-title') as NodeListOf<HTMLElement>; // Explicitly typecast to NodeListOf<HTMLElement>
+
+    const checkAndApplyStyles = () => {
+        titles.forEach(title => {
+            // Assert type as HTMLElement to access style and offsetHeight
+            const titleElement = title as HTMLElement;
+
+            // Temporarily force single-line to measure
+            titleElement.style.whiteSpace = 'nowrap';
+            const singleLineHeight = titleElement.offsetHeight;
+
+            // Allow wrapping and measure again
+            titleElement.style.whiteSpace = 'normal';
+            const multiLineHeight = titleElement.offsetHeight;
+
+            // Compare heights to determine if text has wrapped
+            if (multiLineHeight > singleLineHeight) {
+                titleElement.classList.add('wrapped-style'); // Add a class if it wraps
+            } else {
+                titleElement.classList.remove('wrapped-style'); // Remove the class if it doesn't wrap
+            }
+        });
+    };
+
+    // Run initially and on window resize
+    checkAndApplyStyles();
+    window.addEventListener('resize', checkAndApplyStyles);
+});
+
+
+</script>
