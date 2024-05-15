@@ -8,7 +8,7 @@
     "build": "astro check && astro build",
     "postbuild": "pagefind --source dist/",
     "tauri": "tauri",
-    "tauri:build": "tauri build --target i686-pc-windows-msvc",
+    "tauri:build": "tauri build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -17,7 +17,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "@playform/compress": "^0.0.3",
     "@sideway/address": "^5.0.0",
-    "@tauri-apps/api": "^1.5.4",
+    "@tauri-apps/api": "^1.5.5",
     "@tauri-apps/plugin-positioner": "^2.0.0-beta.3",
     "astro-icon": "^1.1.0",
     "astro-pagefind": "^1.5.0",
@@ -25,6 +25,8 @@
     "npm": "^10.6.0",
     "shelljs": "^0.8.5",
     "tailwindcss": "^3.4.3",
+    "tauri": "^0.15.0",
+    "tauri-plugin-positioner-api": "^0.2.7",
     "typescript": "^5.4.5",
     "update": "^0.7.4",
     "vue-cli-plugin-tauri": "^1.0.0"

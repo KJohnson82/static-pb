@@ -22,26 +22,28 @@ const { headCard } = Astro.props;
 
 <!-- // Render the head cards -->
 <!-- Render head cards based on provided data -->
-<div class=" bg-gradient-to-tl from-cyan-600 to-sky-800 text-primary-content border-slate-100 border-opacity-20 box-decoration-clone w-dvw h-48 ">
+<div class=" bg-gradient-to-tl from-cyan-600 to-sky-800 text-primary-content border-slate-100 border-opacity-20 box-content box-decoration-clone grid grid-cols-1 grid-rows-1 w-lvw h-48 ">
   {headCard.map((card) => (
     <!-- Iterate over each card in headCard array and create a div for each card -->
-    <div class="grid grid-cols-1 border-x-[3px] border-y-[3px] border-transparent rounded-md pt-0 pb-0 mb-0 ">
-      <h2 class=" text-center text-nowrap font-normal uppercase text-3xl line-clamp-2 divide-y-[1px] pt-2 px-2 tracking-wide">
+    <div class=" border-x-[0px] border-y-[0px] border-transparent rounded-md  ">
+        <section class="  h-2/5 flex items-center justify-center text-center text-wrap font-normal uppercase text-3xl line-clamp-2 divide-y-[1px] tracking-wide">
+        <h2 class="  px-0.5 pb-[5px] pt-[10px]  " >
         {card.title} <!-- Display the card title -->
-      </h2>
+        </h2>
+        </section>
       <!-- Divider line -->
       <div class="w-lvw p-0 m-0 border-b-2 border-slate-100 border-opacity-20 "></div>
       <!-- Sections for address, contact, and help desk information -->
       <!-- Address section -->
-          <section class="address-section pb-1">
+          {/* <section class="address-section pb-1">
           <!--<p>{card.subtitle1}</p> -->
           <div class="w-svw text-center tracking-wide align-middle pt-2 py-2 border-b-2 border-slate-100 border-opacity-20">
             <p class="text-base/5 ">{card.address} {card.city} {card.state} {card.zip}</p>
           </div>
-        </section>
+        </section> */}
         <!-- Contact section -->
-        <section class="contact-section ">
-          <div class="grid grid-cols-2  divide-x-2 divide-slate-100 divide-opacity-20 gap-y-10  pb-2 ">
+        <section class="contact-section h-2/5  ">
+          <div class="grid grid-cols-2 divide-x-2 divide-slate-100 divide-opacity-20 gap-y-10 py-3 ">
         <!-- Column 1 -->
         <div class=" text-center align-middle pe-2 ">
           <p class="font-[500] border-b-2 uppercase tracking-wider border-slate-100 border-opacity-20 pb-0.5">{card.subtitle1}</p>
@@ -55,9 +57,9 @@ const { headCard } = Astro.props;
       </div>
         </section>
         <!-- Help desk section -->
-        <section class=" text-nowrap border-t-2 border-slate-100 border-opacity-20 ">
+        <section class=" flex items-center justify-center text-center text-nowrap h-1/5 border-t-2 border-slate-100 border-opacity-20  ">
           <div class="grid grid-cols-1 gap-1 divide-x-2 border-slate-100 border-opacity-20 ">
-            <div class="text-base font-[500] text-center align-middle py-3 ps-2 pe-2 -mt-1 mb-1 uppercase tracking-wide">{card.subtitle3}<span class="font-normal lowercase text-[15px] truncate "> {card.email}</span></div>
+            <div class="text-base font-[500] text-center align-middle py-1 ps-2 pe-2 -mt-0 mb-0 uppercase tracking-wide">{card.subtitle3}<span class="font-normal lowercase text-[15px] truncate "> {card.email}</span></div>
       </div>
         </section>
     </div>

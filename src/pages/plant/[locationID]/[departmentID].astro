@@ -42,7 +42,7 @@ if (!department) {
   <div class="flex flex-col h-screen">
     <section class="  ">
       <!-- {/* Render the corporate header card with relevant information */} -->
-      <PlantHeadCard 
+      <DeptHeadCard 
         headCard={[
           {
             title: `${department.deptName}`, // Title of the card
@@ -51,7 +51,7 @@ if (!department) {
             city: "", // City
             state: "", // State
             zip: "", // ZIP code
-            subtitle2: "Dept. Email",
+            subtitle2: "Dept. Fax",
             phone: "(888) 555-5555", // Phone number
             email: "info@info.com", // Email address
             subtitle3: "", // Third subtitle
@@ -80,16 +80,15 @@ if (!department) {
           //   </a>
           // </li>
           <li class="relative bg-secondary rounded-md shadow-md my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 " >
-            <a href={`/plant/${locationID}/${departmentID}/${employee.id}`} class="block px-4 leading-tight hover:bg-[#0d9488] py-2 text-white rounded-lg hover:rounded-md hover:border-transparent hover:text-white transition-colors" >
-              <div class=" hover-trigger line-clamp-1 items-center place-items-center text-lg font-medium tracking-wider text-white mb-0 -px-4 p-0 capitalize " >
+            <a href={`/plant/${locationID}/${departmentID}/${employee.id}`} class="block px-4 leading-tight overflow-hidden hover:bg-[#0d9488] py-2 text-white rounded-lg hover:rounded-md hover:border-transparent hover:text-white transition-colors" >
+              <div class=" hover-trigger line-clamp-1 items-center place-items-center text-lg text-nowrap overflow-visible font-medium tracking-wider text-white mb-0 -px-4 p-0 capitalize  " >
                   <!-- Places a star beside employees who are managers -->
               
               {employee.firstName + " " + employee.lastName } 
               {employee.isManager === 1 ? <Icon name="star" class="inline-block pe-2 h-6 w-auto"/> : ""} 
-              
-                
+
                 </div>
-                <div class=" hover-trigger text-clip overflow-hidden tracking-wider line-clamp-1">
+                <div class=" hover-trigger items-center place-items-center text-nowrap overflow-visible tracking-wider line-clamp-1">
                   {employee.jobTitle}
                 </div>
             </a>
