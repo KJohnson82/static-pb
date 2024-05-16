@@ -23,11 +23,11 @@ const { headCard } = Astro.props;
 
 <!-- // Render the head cards -->
 <!-- Render head cards based on provided data -->
-<div class=" bg-gradient-to-tl from-cyan-600 to-sky-800 text-primary-content border-slate-100 border-opacity-20 box-decoration-clone w-dvw h-48 ">
+<div class=" bg-gradient-to-tl from-cyan-600 to-sky-800 text-accent-content border-slate-100 border-opacity-20 box-decoration-clone w-dvw h-48 ">
   {headCard.map((card) => (
     <!-- Iterate over each card in headCard array and create a div for each card -->
     <div class="grid grid-cols-1 border-x-[3px] border-y-[3px] border-transparent rounded-md pt-0 pb-0 mb-0 ">
-      <h2 class=" text-center text-nowrap font-normal uppercase text-3xl line-clamp-2 divide-y-[1px] pt-2 px-2 tracking-wide">
+      <h2 class=" text-center text-nowrap font-light uppercase text-3xl line-clamp-2 divide-y-[1px] pt-2 px-2 tracking-wide">
         {card.title} <!-- Display the card title -->
       </h2>
       <!-- Divider line -->
@@ -45,12 +45,12 @@ const { headCard } = Astro.props;
           <div class="grid grid-cols-2  divide-x-2 divide-slate-100 divide-opacity-20 gap-y-10  pb-2 ">
         <!-- Column 1 -->
         <div class=" text-center align-middle pe-2 ">
-          <p class="font-[500] border-b-2 uppercase border-slate-100 border-opacity-20 pb-0.5">{card.subtitle1}</p>
+          <p class="font-normal border-b-2 capitalize border-slate-100 border-opacity-20 pb-0.5">{card.subtitle1}</p>
           <p class="pt-2 pb-0 text-sm ">{card.phone}</p>
         </div>       
         <!-- Column 2 -->
         <div class=" text-center align-middle ps-2 text-balance ">
-          <p class="font-[500] border-b-2 border-slate-100 border-opacity-20 uppercase pb-0.5 ">{card.subtitle2}</p>
+          <p class="font-normal border-b-2 border-slate-100 border-opacity-20 capitalize pb-0.5 ">{card.subtitle2}</p>
           <p class="pt-2 text-sm pb-0 ps-0 lowercase " >{card.email}</p>
         </div>
       </div>
@@ -58,7 +58,7 @@ const { headCard } = Astro.props;
         <!-- Help desk section -->
         <section class="help-desk-section border-t-2 border-slate-100 border-opacity-20 ">
           <div class="grid grid-cols-1 gap-1 divide-x-2 border-slate-100 border-opacity-20 ">
-            <div class=" text-base/3 text-center font-[500] align-middle py-3  pe-2 mb-0">{card.subtitle3}<span class=" font-normal lowercase text-[15px] truncate ">{card.phone2}</span></div>       
+            <div class=" text-base/3 text-center font-normal align-middle py-3  pe-2 mb-0">{card.subtitle3}<span class=" font-normal lowercase text-[15px] truncate ">{card.phone2}</span></div>       
       </div>
         </section>
     </div>

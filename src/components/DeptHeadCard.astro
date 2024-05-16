@@ -22,17 +22,17 @@ const { headCard } = Astro.props;
 
 <!-- // Render the head cards -->
 <!-- Render head cards based on provided data -->
-<div class=" bg-gradient-to-tl from-cyan-600 to-sky-800 text-primary-content border-slate-100 border-opacity-20 box-content box-decoration-clone grid grid-cols-1 grid-rows-1 w-lvw h-48 ">
+<div class=" bg-gradient-to-tl from-cyan-600 to-sky-800 text-accent-content box-content box-decoration-clone grid grid-cols-1 grid-rows-1 w-lvw h-48 ">
   {headCard.map((card) => (
     <!-- Iterate over each card in headCard array and create a div for each card -->
     <div class=" border-x-[0px] border-y-[0px] border-transparent rounded-md  ">
-        <section class="  h-2/5 flex items-center justify-center text-center text-wrap font-normal uppercase text-3xl line-clamp-2 divide-y-[1px] tracking-wide">
-        <h2 class="  px-0.5 pb-[5px] pt-[10px]  " >
+        <section class=" h-2/5 flex items-center justify-center text-center text-wrap font-light uppercase text-3xl line-clamp-2 divide-y-[1px] tracking-wide">
+        <h2 class=" px-0.5 pb-[5px] pt-[10px]  " >
         {card.title} <!-- Display the card title -->
         </h2>
         </section>
       <!-- Divider line -->
-      <div class="w-lvw p-0 m-0 border-b-2 border-slate-100 border-opacity-20 "></div>
+      <div class="w-lvw p-0 pb-0 m-0 border-b-2 border-slate-100 border-opacity-20  "></div>
       <!-- Sections for address, contact, and help desk information -->
       <!-- Address section -->
           {/* <section class="address-section pb-1">
@@ -42,24 +42,25 @@ const { headCard } = Astro.props;
           </div>
         </section> */}
         <!-- Contact section -->
-        <section class="contact-section h-2/5  ">
-          <div class="grid grid-cols-2 divide-x-2 divide-slate-100 divide-opacity-20 gap-y-10 py-3 ">
+        <section class="contact-section h-2/5 ">
+          <div class="grid grid-cols-2 divide-x-2 divide-slate-100 divide-opacity-20 gap-y-10 py-1.5 ">
         <!-- Column 1 -->
         <div class=" text-center align-middle pe-2 ">
-          <p class="font-[500] border-b-2 uppercase tracking-wider border-slate-100 border-opacity-20 pb-0.5">{card.subtitle1}</p>
+          <p class="font-normal border-b-2 uppercase tracking-wider border-slate-100 border-opacity-20 pb-0">{card.subtitle1}</p>
           <p class="pt-2 pb-0 text-base ">{card.phone}</p>
         </div>
         <!-- Column 2 -->
         <div class=" text-center align-middle ps-2 ">
-          <p class="font-[500] border-b-2 border-slate-100 border-opacity-20 uppercase tracking-wider pb-0.5 ">{card.subtitle2}</p>
-          <p class="pt-2  pb-0 ps-0 text-base " >{card.phone2}</p>
+          <p class="font-normal border-b-2 border-slate-100 border-opacity-20 uppercase tracking-wider pb-0 ">{card.subtitle2}</p>
+          <p class="pt-2 pb-0 ps-0 text-base " >{card.phone2}</p>
         </div>
       </div>
         </section>
+        <div class="w-lvw p-0 pb-0 -mt-1 border-t-2 border-slate-100 border-opacity-20  "></div>
         <!-- Help desk section -->
-        <section class=" flex items-center justify-center text-center text-nowrap h-1/5 border-t-2 border-slate-100 border-opacity-20  ">
-          <div class="grid grid-cols-1 gap-1 divide-x-2 border-slate-100 border-opacity-20 ">
-            <div class="text-base font-[500] text-center align-middle py-1 ps-2 pe-2 -mt-0 mb-0 uppercase tracking-wide">{card.subtitle3}<span class="font-normal lowercase text-[15px] truncate "> {card.email}</span></div>
+        <section class=" flex items-center justify-center text-center text-nowrap h-1/5  ">
+          <div class="  ">
+            <div class="text-base font-medium text-center align-middle py-1 ps-2 pe-2 -mt-0 mb-0 uppercase tracking-wide">{card.subtitle3}<span class="font-normal lowercase text-[15px] truncate "> {card.email}</span></div>
       </div>
         </section>
     </div>

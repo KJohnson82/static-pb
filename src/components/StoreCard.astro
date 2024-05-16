@@ -40,13 +40,13 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
 >
   <!-- // Render the store card -->
   <div data-pagefind-body
-    class="store-card card mx-auto min-h-[28.5rem] max-h-[29.5rem] w-[21.5rem] m-0 mt-0 rounded-none bg-[#252525] shadow-md"
+    class="store-card card mx-auto min-h-[28.5rem] max-h-[29.5rem] w-[21.5rem] m-0 mt-0 rounded-none bg-background shadow-md"
   >
     <!-- {/* Conditionally render store information only if the corresponding values are not empty */} -->
     <section class="px-1 py-0  ">
       {
         locName !== "" ? (
-          <h2 id="store-name" class="font-medium tracking-wide text-center uppercase">{locName}</h2>
+          <h2 id="store-name" class="font-medium text-primary-content tracking-wide text-center uppercase">{locName}</h2>
         ) : null
       }
     </section>
@@ -58,7 +58,7 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
         <div class=" col-start-1 pe-4">
           {
             locNum !== null ? (
-              <p class="divider divider-end divider-secondary uppercase tracking-wide font-semibold ">
+              <p class="divider text-accent divider-end divider-secondary uppercase tracking-wide font-semibold ">
                 Store
                 </p>
               <p class="text-lg text-inherit font-normal tracking-wider ps-1 text-end -mt-2 ">
@@ -70,7 +70,7 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
       <div class=" col-start-2 ps-4">
         {
           hours !== "" ? (
-          <p class="divider divider-start divider-secondary uppercase tracking-wide font-semibold ">
+          <p class="divider divider-start text-accent divider-secondary uppercase tracking-wide font-semibold ">
                 Hours
                 </p>
             <p class="text-lg text-inherit font-normal text-start pe-1 -mt-2">
@@ -85,7 +85,7 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
       {
         address !== "" || city !== "" || state !== "" || zipcode !== null ? (
           <div class="ms-8 mt-1 pt-1 pb-0">
-            <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
+            <p class="cat-name uppercase text-accent tracking-wide font-semibold -mb-2">
               Address
               </p>
               <div class="divider divider-secondary m-0" />
@@ -104,7 +104,7 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
           <div class=" col-start-1 pe-4">
           {
             locNum !== null ? (
-              <p class="divider divider-end  divider-secondary uppercase tracking-wide font-semibold ">
+              <p class="divider divider-end text-accent divider-secondary uppercase tracking-wide font-semibold ">
                 Phone
                 </p>
               <p class="text-base text-inherit font-normal tracking-wider ps-1 text-end -mt-2 ">
@@ -116,7 +116,7 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
       <div class=" col-start-2 ps-4 ">
         {
           faxNumber !== "" || null ? (
-          <p class="divider divider-start  divider-secondary uppercase tracking-wide font-semibold ">
+          <p class="divider divider-start text-accent divider-secondary uppercase tracking-wide font-semibold ">
                 Fax
                 </p>
             <p class="text-base text-inherit font-normal text-start pe-1 -mt-2">
@@ -127,7 +127,7 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
       </div>
       </span>
           ) : <div class="mt-1  pt-2 pb-0 me-8">
-          <p class="cat-name uppercase text-end  tracking-wide font-semibold -mb-2">
+          <p class="cat-name uppercase text-accent text-end  tracking-wide font-semibold -mb-2">
             Phone
             </p>
             <div class="divider divider-secondary m-0" />
@@ -140,7 +140,7 @@ const storeAddress = `${address}, ${city}, ${state} ${zipCode}`;
     <section class="mt-0  -pb-1 ms-8 pt-0 ">
       {
         email !== "" ? (
-        <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
+        <p class="cat-name text-accent uppercase tracking-wide font-semibold -mb-2">
             Email
             </p>
             <div class="divider divider-secondary m-0 " />

@@ -27,7 +27,7 @@ const userName = `${firstName} ${lastName}`;
 >
   <div
     data-pagefind-body
-    class="user-card card mx-auto min-h-[28.5rem] max-h-[29.5rem] w-[21.5rem] m-0 mt-0 rounded-none bg-[#252525] shadow-md"
+    class="user-card card mx-auto min-h-[28.5rem] max-h-[29.5rem] w-[21.5rem] m-0 mt-0 rounded-none bg-background shadow-md"
   >
     <section class="px-1 py-0">
       <div id="name-title">
@@ -35,7 +35,7 @@ const userName = `${firstName} ${lastName}`;
           userName !== "" ? (
             <h2
               id="user-name"
-              class=" font-medium tracking-wide text-center uppercase  "
+              class=" font-medium text-primary-content tracking-wide text-center uppercase "
             >
               {userName}
             </h2>
@@ -45,7 +45,7 @@ const userName = `${firstName} ${lastName}`;
       <div class="mx-4">
         {
           jobTitle !== "" ? (
-            <h4 class=" tracking-widest text-center uppercase font-normal ps-1 sm:pb-4 md:pb-5 lg:pb-6 ">
+            <h4 class=" tracking-widest text-accent text-center uppercase font-normal ps-1 sm:pb-4 md:pb-5 lg:pb-6 ">
               {jobTitle}
             </h4>
           ) : null
@@ -62,12 +62,12 @@ const userName = `${firstName} ${lastName}`;
         {
           phoneNumber !== "" ? (
             <>
-              <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
+              <p class="cat-name text-accent uppercase tracking-wide font-semibold -mb-2">
                 Phone
               </p>
               <div class="divider divider-secondary m-0" />
               <p class="text-base uppercase tracking-wide text-base-content font-normal ps-0 pb-2 -mt-0.5">
-                {phoneNumber} {extension !== "" ? `| Ext: ${extension}` : null}
+                {phoneNumber} {extension !== "" ? `Ext: ${extension}` : null}
               </p>
             </>
           ) : null
@@ -78,7 +78,7 @@ const userName = `${firstName} ${lastName}`;
         {
           cellNumber !== "" ? (
             <>
-              <p class="uppercase text-end tracking-wide font-semibold -mb-2">
+              <p class="uppercase text-accent text-end tracking-wide font-semibold -mb-2">
                 Mobile
               </p>
               <div class="divider divider-secondary m-0" />
@@ -94,7 +94,7 @@ const userName = `${firstName} ${lastName}`;
         {
           email !== "" ? (
             <>
-              <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
+              <p class="cat-name text-accent uppercase tracking-wide font-semibold -mb-2">
                 Email
               </p>
               <div class="divider divider-secondary m-0" />
@@ -110,11 +110,11 @@ const userName = `${firstName} ${lastName}`;
         {
           phoneNumber !== "" ? (
             <>
-              <p class="cat-name uppercase tracking-wide font-semibold -mb-2">
+              <p class="cat-name text-accent uppercase tracking-wide font-semibold -mb-2">
                 Phone
               </p>
               <div class="divider divider-secondary m-0" />
-              <p class="text-base uppercase tracking-wide text-base-content font-normal ps-0 pb-2 -mt-0.5">
+              <p class="text-base uppercase tracking-wide text-primary-content font-normal ps-0 pb-2 -mt-0.5">
                 {phoneNumber} {extension !== "" ? `| Ext: ${extension}` : null}
               </p>
             </>
@@ -126,7 +126,7 @@ const userName = `${firstName} ${lastName}`;
         {
           email !== "" ? (
             <>
-              <p class="cat-name uppercase tracking-wide text-end font-semibold -mb-2">
+              <p class="cat-name text-accent uppercase tracking-wide text-end font-semibold -mb-2">
                 Email
               </p>
               <div class="divider divider-secondary m-0" />

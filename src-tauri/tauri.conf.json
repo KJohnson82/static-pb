@@ -55,7 +55,7 @@
       "iconAsTemplate": true
     },
     "bundle": {
-      "active": true,
+      "active": false,
       "category": "Utility",
       "copyright": "McElroy Metal",
       "deb": {
@@ -68,14 +68,13 @@
       "identifier": "com.mcelroy.empdir",
       "longDescription": "",
       "shortDescription": "The McElroy Metal Employee Directory",
-      "targets": "nsis",
+      "targets": "msi",
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
         "timestampUrl": "",
         "webviewInstallMode": {
-          "type": "downloadBootstrapper",
-          "silent": true
+          "type": "embedBootstrapper"
         }
       }
     },
