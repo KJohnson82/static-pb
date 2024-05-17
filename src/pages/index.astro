@@ -39,10 +39,10 @@ import SearchBar from "../components/SearchBar.astro";
 
     <!-- Section for the main page menu -->
     <section
-    class="flex-grow bg-neutral pb-0 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px bg-inherit"
+    class="flex-grow bg-neutral pb-0 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px"
       
     >
-    <div class="shadow-sm drop-shadow-sm box-decoration-clone bg-secondary">
+    <div class="shadow-sm drop-shadow-sm box-decoration-clone bg-accent ">
       <SearchBar />
       <!-- <SearchWidget /> -->
     </div>
@@ -56,7 +56,7 @@ import SearchBar from "../components/SearchBar.astro";
             {
               location: "CORPORATE",
               to: "/corporate",
-              desc: "corp-btn btn btn-block bg-transparent box-decoration-clone hover:bg-transparent  border-none shadow-transparent text-primary-content opacity-90 ",
+              desc: "corp-btn btn btn-block bg-transparent box-decoration-clone hover:bg-transparent border-none shadow-transparent text-primary-content opacity-90 ",
               icon: "corporate",
             },
             {
@@ -108,7 +108,7 @@ import SearchBar from "../components/SearchBar.astro";
       await moveWindow(Position.RightCenter);
     }
     async function showWindow() {
-      const window = await getCurrent();
+      const window = getCurrent();
       window.show();
     }
     windowPosition();

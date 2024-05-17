@@ -70,15 +70,15 @@ if (!department) {
           //   </a>
           // </li>
           <li class="relative bg-secondary rounded-md shadow-md my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 " >
-            <a href={`/corporate/${departmentID}/${employee.id}`} class="block px-4 leading-tight overflow-hidden hover:bg-[#0d9488] py-2 text-primary-content rounded-lg hover:rounded-md hover:border-transparent hover:text-primary-content transition-colors" >
-              <div class=" hover-trigger line-clamp-1 items-center place-items-center text-lg text-nowrap overflow-visible font-medium tracking-wider text-primary-content mb-0 -px-4 p-0 capitalize " >
+            <a href={`/corporate/${departmentID}/${employee.id}`} class="block px-4 leading-tight overflow-hidden hover:bg-neutral-content py-2 text-primary-content rounded-lg hover:rounded-md hover:border-transparent hover:text-primary-content transition-colors" >
+              <div class=" hover-trigger line-clamp-1 items-center place-items-center text-lg text-nowrap drop-shadow-sm overflow-visible font-medium tracking-wider text-primary-content mb-0 -px-4 p-0 capitalize " >
                   <!-- Places a star beside employees who are managers -->
               
               {employee.firstName + " " + employee.lastName } 
-              {employee.isManager === 1 ? <Icon name="star" class="inline-block text-[#222222] pe-2 h-6 w-auto"/> : ""} 
+              {employee.isManager === 1 ? <Icon name="star" class="inline-block text-accent pe-2 h-6 w-auto"/> : ""} 
   
                 </div>
-                <div class=" hover-trigger text-warning font-normal items-center place-items-center text-nowrap overflow-visible tracking-wider line-clamp-1">
+                <div class=" hover-trigger text-accent font-normal items-center place-items-center drop-shadow text-nowrap overflow-visible tracking-wider line-clamp-1">
                   {employee.jobTitle}
                 </div>
             </a>
@@ -109,7 +109,7 @@ if (!department) {
 
 <style>
       li:nth-child(odd) {
-    background-color: #1c658c;
+    background-color: #075985;
     
   }
   li:nth-child(even) {

@@ -6,11 +6,11 @@ const { Department } = Astro.props;
 <!-- Rendering a list of corporate departments -->
 <ul class="mt-4 ms-0.5 rounded-sm">
     {Department.map((department, index) => (
-      <li class={` relative bg-secondary box-decoration-clone rounded-md shadow-md my-2 py-0 mx-0 transition ease-in duration-200 transform hover:-translate-y-1 hover:scale-100`} >
+      <li class={` relative box-decoration-clone rounded-md shadow-md my-2 py-0 mx-0 transition ease-in duration-200 transform hover:-translate-y-1 hover:scale-100`} >
         <!-- Direct link to the department page -->
-        <a href={`/corporate/${department.id}`} class="block px-4 py-4 hover:bg-[#0d9488] text-primary-content focus-within:shadow-md focus-within:bg-primary focus-within:rounded-s-none rounded-lg  hover:bg-blend-darken hover:rounded-md hover:border-transparent hover:text-primary-content transition">
+        <a href={`/corporate/${department.id}`} class="block px-4 py-4 hover:bg-neutral-content focus-within:shadow-md focus-within:bg-primary focus-within:rounded-s-none rounded-lg  hover:bg-blend-darken hover:rounded-md hover:border-transparent hover:text-primary-content transition">
           <div class="flex items-center justify-between">
-            <div class="text-xl uppercase font-medium tracking-wide text-primary-content">
+            <div class="text-xl uppercase font-medium tracking-wide text-secondary-content">
               {department.deptName}
             </div>
             
@@ -20,10 +20,12 @@ const { Department } = Astro.props;
     ))}
 </ul>
 <style>
-  li:nth-child(odd) {
-    background-color: #1c658c;
+   li:nth-child(odd) {
+    background-color: #075985;
+    
   }
   li:nth-child(even) {
     background-color: #398AB9;
+    
   }
 </style>
