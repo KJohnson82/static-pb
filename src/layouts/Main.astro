@@ -6,7 +6,7 @@ import TitleBar from "../components/TitleBar.astro";
 const anim = {
   old: {
     name: "fadeIn",
-    duration: "0.2s",
+    duration: "0.3s",
     easing: "linear",
     fillMode: "forwards",
   },
@@ -79,30 +79,69 @@ const { title } = Astro.props;
           "opsz" 24;
       }
     </style>
-  </body><script>
-    import { appWindow } from "@tauri-apps/api/window";
+  </body>
+  <script>
+    import { appWindow, getCurrent, currentMonitor, LogicalSize } from "@tauri-apps/api/window";
+
+    async function adjustWindowSize() {
+        try {
+            const monitor = await currentMonitor();
+            if (!monitor) {
+                console.error("No monitor found");
+                return;
+            }
+
+            const physicalSize = await getCurrent().innerSize();
+            const scaleFactor = monitor.scaleFactor;
+            const logicalSize = physicalSize.toLogical(scaleFactor);
+
+            // Set the minimum and maximum dimensions
+            const minWidth = 350;
+            const minHeight = 800;
+            const maxWidth = 400;
+            const maxHeight = 900;
+
+            // Ensure the window is resizable before changing its size
+            appWindow.setResizable(true);
+
+            // Apply constraints to logical size
+            const constrainedWidth = Math.min(Math.max(logicalSize.width, minWidth), maxWidth);
+            const constrainedHeight = Math.min(Math.max(logicalSize.height, minHeight), maxHeight);
+
+            // Set the window size within the constraints
+            appWindow.setSize(new LogicalSize(constrainedWidth, constrainedHeight));
+
+            // Set the window back to non-resizable if needed
+            appWindow.setResizable(false);
+        } catch (error) {
+            console.error("Error adjusting window size:", error);
+        }
+    }
+
+    appWindow.listen("tauri://window/move", adjustWindowSize);
 
     // Titlebar menu IMPORTANT
     document.addEventListener("click", function (event) {
-      // Ensure the event target is an Element before proceeding
-      if (!(event.target instanceof Element)) return;
+        if (!(event.target instanceof Element)) return;
 
-      if (event.target.closest("#titlebar-minimize")) {
-        appWindow.minimize();
-      } else if (event.target.closest("#titlebar-close")) {
-        appWindow.close();
-      }
-      // Handle other buttons as needed
+        if (event.target.closest("#titlebar-minimize")) {
+            appWindow.minimize();
+        } else if (event.target.closest("#titlebar-close")) {
+            appWindow.close();
+        }
+        // Handle other buttons as needed
     });
 
-    // disable middle mouse button
+    // Disable middle mouse button
     document.onauxclick = (e) => {
-      e.preventDefault();
+        e.preventDefault();
     };
 
-    // disable right click menu
+    // Disable right click menu
     document.oncontextmenu = (e) => {
-      e.preventDefault();
+        e.preventDefault();
     };
-  </script>
+</script>
+
+
 </html>

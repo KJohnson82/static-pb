@@ -4,6 +4,7 @@
     "beforeBuildCommand": "npm run astro build",
     "beforeDevCommand": "npm run dev",
     "devPath": "http://localhost:4321/",
+    "withGlobalTauri": true,
     "distDir": "../dist"
   },
   "package": {
