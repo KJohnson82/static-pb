@@ -73,7 +73,6 @@ if (!department) {
             <a href={`/corporate/${departmentID}/${employee.id}`} class="block px-4 leading-tight overflow-hidden hover:bg-neutral-content py-2 text-primary-content rounded-lg hover:rounded-md hover:border-transparent hover:text-primary-content transition-colors" >
               <div class=" hover-trigger line-clamp-1 items-center place-items-center text-lg text-nowrap drop-shadow-sm overflow-visible font-medium tracking-wider text-primary-content mb-0 -px-4 p-0 capitalize " >
                   <!-- Places a star beside employees who are managers -->
-              
               {employee.firstName + " " + employee.lastName } 
               {employee.isManager === 1 ? <Icon name="star" class="inline-block text-accent pe-2 h-6 w-auto"/> : ""} 
   
