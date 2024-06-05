@@ -29,29 +29,42 @@ const { storeHeadCard } = Astro.props;
   {
     storeHeadCard.map((card) => (
         <div class=" grid grid-cols-1 border-x-[3px] border-y-[3px] border-transparent rounded-md pt-0 pb-0 mb-0">
-          <h2 class=" text-center font-normal uppercase text-3xl line-clamp-2 divide-y-[1px] pt-2 px-2 tracking-wide">{card.title}</h2>
+          <h2 class=" text-center font-light uppercase text-3xl line-clamp-2 divide-y-[1px] pt-2 px-2 tracking-wide ">{card.title}</h2>
           <!-- Divider line -->
           <div class="w-lvw p-0 m-0 border-b-2 border-slate-100 border-opacity-20 "></div>
           <!-- Sections for displaying contact information -->
-          <div class="info-section py-2 px-4 ">
-            <div class="contact-section_1 grid grid-cols-3 pt-1 flex-col gap-2 flex-nowrap text-nowrap ">
-            <div><p class="grid col-span-1 uppercase shrink grow text-right">{card.subtitle1} </p></div>  
-            <div><p class=" grid col-span-2 " >{card.phone}</p></div>
-            </div>
-            <div class="contact-section_2 grid grid-cols-3 pt-1 flex-col gap-2 flex-nowrap text-nowrap ">
-              <div><p class="grid col-span-1 uppercase shrink grow text-right">{card.subtitle2}</p></div>
-              <div><p class=" grid col-span-2">{card.phone2}</p></div>
-            </div>
-            <div class="contact-section_3 grid grid-cols-3 pt-1 gap-2 flex-nowrap text-nowrap">
-              <div><p class=" grid col-span-1 uppercase shrink grow text-right ">{card.subtitle3}</p></div>
-              <div><p class=" grid col-span-2 ">{card.phone3}</p></div>
-            </div>
-            <div class="contact-section_3 grid grid-cols-3 pt-1 gap-2 flex-nowrap text-nowrap">
-              <div><p class=" grid col-span-1 uppercase shrink grow text-right ">{card.email}</p></div>
-              <div><p class=" grid col-span-2 ">{card.address}</p></div>
-            </div>
-          </div>
+          <table class=" table-fixed border-collapse ">
+            <thead class="  ">
+              <tr class=" border border-b-2 border-t-0 border-l-0 border-r-0 border-slate-100  ">
+                <th class="border border-slate-100 border-b-2 border-opacity-50 border-t-0 border-x-0 w-lvw p-0 pe-4 pt-1 m-0 border-r-2 text-sm tracking-wider uppercase text-right bg-primary ">Territory</th>
+                <th class="border border-slate-100 border-b-2 border-opacity-50 border-t-0 border-x-0 w-lvw p-0 pt-1 m-0 border-l-2 text-sm tracking-wider  uppercase text-left ps-4 bg-primary  ">MANAGER</th>
+              </tr>
+            </thead>
+            <tbody class=" mt-10 " >
+              <tr class="text-sm  ">
+                <td class="pe-4 text-right border border-slate-100 border-opacity-20 border-l-0  ">{card.subtitle1}</td>
+                <td class="ps-4 border border-slate-100 border-opacity-20 border-r-0 ">{card.phone}</td>
+              </tr>
+              <tr class="text-sm">
+                <td class="pe-4 text-right border border-slate-100 border-opacity-20 border-l-0 ">{card.subtitle2}</td>
+                <td class="ps-4 border border-slate-100 border-opacity-20 border-r-0 ">{card.phone2}</td>
+              </tr>
+              <tr class="text-sm">
+                <td class="pe-4 text-right pt-0.5 pb-0.25 border border-slate-100 border-opacity-20 border-l-0 ">{card.subtitle3}</td>
+                <td class="ps-4 pt-0.5 pb-0.25 border border-slate-100 border-opacity-20 border-r-0 ">{card.phone3}</td>
+              </tr>
+              <tr class="text-sm">
+                <td class="pe-4 text-right pt-0.5 pb-0.25 border border-slate-100 border-opacity-20 border-l-0 ">{card.email}</td>
+                <td class="ps-4 pt-0.5 pb-0.25 border border-slate-100 border-opacity-20 border-r-0 ">{card.address}</td>
+              </tr>
+              <tr class="text-sm">
+                <td class="pe-4 text-right pt-0.5 pb-0.25 border border-slate-100 border-opacity-20 border-l-0 border-b-0 ">{card.city}</td>
+                <td class="ps-4 pt-0.5 pb-0.25 border border-slate-100 border-opacity-20 border-r-0 border-b-0 ">{card.state}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
     ))
   }
 </div>
+

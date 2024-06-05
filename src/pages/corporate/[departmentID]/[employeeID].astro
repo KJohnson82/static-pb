@@ -1,10 +1,11 @@
 ---
-import Data from "../../../data/Data.json";
+
 import Main from "../../../layouts/Main.astro";
 import EmployeeHeadCard from "../../../components/EmployeeHeadCard.astro";
 import Footer from "../../../components/Footer.astro";
 import UserCard from "../../../components/UserCard.astro";
 import UserBackButton from "../../../components/UserBackButton.astro";
+import Data from "../../../data/Data.json";
 
 // Access departments directly based on your JSON structure
 const departments = Data.loctype.corporate.locations[0].departments;

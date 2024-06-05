@@ -27,7 +27,7 @@ import SearchBar from "../components/SearchBar.astro";
             subtitle2: "Corp. Email",
             phone: "(888) 245-3696",
             email: "info@mcelroymetal.com",
-            subtitle3: "IT Help Desk - ",
+            subtitle3: "IT Help Desk",
             phone2: "(866) 634-5111",
           },
         ]}
@@ -101,11 +101,12 @@ import SearchBar from "../components/SearchBar.astro";
     </section>
   </div>
   <script >
-    import { moveWindow, Position } from "@tauri-apps/plugin-positioner";
+    
+    import { move_window, Position } from "tauri-plugin-positioner-api";
     import { getCurrent } from '@tauri-apps/api/window';
 
     async function windowPosition() {
-      await moveWindow(Position.RightCenter);
+      await move_window(Position.RightCenter);
     }
     async function showWindow() {
       const window = getCurrent();

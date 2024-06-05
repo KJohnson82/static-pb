@@ -69,7 +69,7 @@
       "identifier": "com.mcelroy.empdir",
       "longDescription": "",
       "shortDescription": "The McElroy Metal Employee Directory",
-      "targets": "msi",
+      "targets": "nsis",
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
