@@ -25,14 +25,14 @@ const { storeHeadCard } = Astro.props;
 ---
 
 <!-- Container for store head cards -->
-<div class=" bg-gradient-to-tl from-cyan-600 to-sky-800 text-primary-content border-slate-100 border-opacity-20 box-decoration-clone w-dvw h-48 ">
+<div class=" bg-gradient-to-tl from-cyan-600 to-sky-800 text-primary-content text-opacity-90 border-slate-100 border-opacity-20 box-decoration-clone w-dvw h-48 ">
    <!-- Mapping through each card in storeHeadCard array -->
   {
     storeHeadCard.map((card) => (
       // <div class="card w-96 card-normal bg-primary text-primary-content">
         // <div class="card card-normal bg-primary text-primary-content">
         <div class=" grid grid-cols-1 rounded-md pt-0 pb-0 mb-0">
-          <h2 class=" text-center font-normal border-s-[3px] border-e-[3px] border-y-[3px] border-transparent uppercase text-3xl line-clamp-2 divide-y-[1px] pt-2 px-2 tracking-wide">{card.title}</h2>
+          <h2 class=" text-center text-nowrap font-light uppercase text-3xl line-clamp-2 divide-y-[1px] pt-3 px-2 py-1 tracking-wide">{card.title}</h2>
           <!-- Divider line -->
           <div class="p-0 m-0 border-b-2 border-slate-100 border-opacity-20 "></div>
           <!-- Sections for displaying contact information -->

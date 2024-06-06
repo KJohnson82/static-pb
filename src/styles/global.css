@@ -23,7 +23,7 @@ body {
   width: calc(100vw - 2px);
   --pagefind-ui-primary: #222222;
   --pagefind-ui-text: #222222;
-  --pagefind-ui-background: #cecece;
+  --pagefind-ui-background: #dadada;
   --pagefind-ui-border: #075985;
   --pagefind-ui-tag: #c5ad53;
   --pagefind-ui-border-width: 2px;

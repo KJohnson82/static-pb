@@ -23,7 +23,7 @@ const { headCard } = Astro.props;
 
 <!-- // Render the head cards -->
 <!-- Render head cards based on provided data -->
-<div class=" bg-gradient-to-tl from-cyan-600 to-sky-800 text-accent-content border-slate-100 border-opacity-20 box-decoration-clone w-dvw h-48 ">
+<div class=" bg-gradient-to-tl from-cyan-600 to-sky-800 text-primary-content text-opacity-90 border-slate-100 border-opacity-20 box-decoration-clone w-dvw h-48 ">
   {headCard.map((card) => (
     <!-- Iterate over each card in headCard array and create a div for each card -->
     <div class="grid grid-cols-1 border-x-[3px] border-y-[3px] border-transparent rounded-md pt-0 pb-0 mb-0 ">
@@ -48,8 +48,9 @@ const { headCard } = Astro.props;
             <td class="ps-2 py-1 text-left text-[13px] border border-b-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide lowercase border-slate-100 border-opacity-20 border-l-0 " >{card.email}</td>
           </tr>
           <tr class=" text-base ">
-            <td class=" pe-0 ps-10 py-1 border border-b-0 border-r-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide uppercase  border-slate-100 border-opacity-20 border-l-0" >{card.subtitle3}</td>
-            <td class=" ps-2 py-1 text-left text-sm border border-b-0 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide lowercase border-slate-100 border-opacity-20 border-l-0">{card.phone2}</td>
+            <td class=" pe-1 ps-4 py-1 text-center border border-b-0 border-r-0 border-t-0 border-x-0 p-0 m-0 tracking-wide uppercase  border-slate-100 border-opacity-20 border-l-0" colspan="2" >{card.subtitle3} - {card.phone2}</td>
+            {/* <td class=" pe-0 ps-10 py-1 border border-b-0 border-r-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide uppercase  border-slate-100 border-opacity-20 border-l-0" >{card.subtitle3}</td>
+            <td class=" ps-2 py-1 text-left text-sm border border-b-0 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide lowercase border-slate-100 border-opacity-20 border-l-0">{card.phone2}</td> */}
           </tr>
         </tbody>
       </table>
