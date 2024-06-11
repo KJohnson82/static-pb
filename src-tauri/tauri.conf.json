@@ -68,13 +68,14 @@
       ],
       "identifier": "com.mcelroy.empdir",
       "longDescription": "",
-      "shortDescription": "The McElroy Metal Employee Directory",
+      "shortDescription": "McElroy Metal Employee Directory",
       "targets": "nsis",
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
         "timestampUrl": "",
         "webviewInstallMode": {
+          "silent": true,
           "type": "embedBootstrapper"
         }
       }

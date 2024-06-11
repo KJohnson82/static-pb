@@ -14,30 +14,6 @@ export default {
   daisyui: {
     logs: false,
     themes: [
-      // {
-      //   mcappold: {
-      //     primary: "#075985",
-      //     "primary-content": "#F9F6EE",
-      //     secondary: "#0891b2",
-      //     "secondary-content": "#C7C8CC",
-      //     accent: "#c5ad53",
-      //     "accent-content": "#cecece",
-      //     neutral: "#cecece",
-      //     "neutral-content": "#222222",
-      //     base: "#BDCDD6",
-      //     "base-content": "#cecece",
-      //     black: "#222222",
-      //     white: "#f8f8f8",
-      //     info: "#8b5cf6",
-      //     "info-content": "#cecece",
-      //     success: "#22c55e",
-      //     "success-content": "#cecece",
-      //     warning: "#eab308",
-      //     "warning-content": "#cecece",
-      //     error: "#ef4444",
-      //     "error-content": "#cecece",
-      //   },
-      // },
       {
         mcapp: {
           primary: "#075985",
