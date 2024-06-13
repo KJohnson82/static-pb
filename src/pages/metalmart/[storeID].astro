@@ -30,7 +30,7 @@ if (!store) {
 }
 ---
 
-<Main title={`${store.locName} | Metal Marts`}>
+<Main title={`${store.locName} | Metal Marts`} transition:animate="none">
   <div class="flex flex-col h-screen">
     <section class="">
       <StoreHeadCard
@@ -56,13 +56,13 @@ if (!store) {
     </section>
     <div class="divide divide-none divide-y-2 py-0"></div>
     <section
-      class="flex-grow flex-col justify-center bg-gradient-to-t from-gray-300 to-slate-200 pb-0 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px"
+      class="flex-grow flex-col bg-background justify-center pb-0 pt-0 no-scrollbar overflow-y-scroll overscroll-contain scroll-auto scroll-mx-px"
     >
       <section class="shadow-sm drop-shadow-sm">
         <UserBackButton />
       </section>
       <!-- Render the store card with relevant information -->
-      <div class="store-card bg-[#252525]">
+      <div class="store-card ">
         <StoreCard
           locName={store.locName}
           locNum={store.locNum}

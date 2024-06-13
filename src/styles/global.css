@@ -14,6 +14,33 @@
   }
 }
 
+:root {
+  /* Theme Colors */
+  
+  .textlite {
+    color: #f9f6ee;
+  }
+  .textaccent {
+    color: #dd9f5a;
+  }
+  .gray {
+    color: #cecece;
+  }
+  .background {
+    color: #222222;
+  }
+  .secondary {
+    color: #0891b2;
+  }
+  .accent {
+    color: #dd9f5a;
+  }
+  .primary {
+    color: #075985;
+  }
+
+}
+
 body {
   font-family: "Rubik", sans-serif;
   overflow: hidden;

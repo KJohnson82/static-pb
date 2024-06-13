@@ -20,6 +20,7 @@
     "astro-icon": "^1.1.0",
     "astro-pagefind": "^1.5.0",
     "help": "^3.0.2",
+    "normalize.css": "^8.0.1",
     "tailwindcss": "^3.4.3",
     "tauri": "^0.9.1",
     "tauri-plugin-positioner-api": "^0.2.7",

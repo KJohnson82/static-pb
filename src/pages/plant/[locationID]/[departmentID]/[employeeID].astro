@@ -43,7 +43,7 @@ if (!employee) {
 
 ---
 
-<Main title={employee.firstName + employee.lastName}>
+<Main title={employee.firstName + employee.lastName} transition:animate="none">
   <div class="flex flex-col h-screen">
     <section class=" align-text-bottom ">
         <!-- {/* Render the corporate header card with relevant information */} -->
@@ -67,12 +67,12 @@ if (!employee) {
         </EmployeeHeadCard>
       </section>
       <div class="divide divide-none divide-y-2 py-0"></div>
-      <section class="flex-grow flex-col justify-center bg-neutral pb-0 pt-0 no-scrollbar overflow-y-hidden overscroll-none scroll-auto scroll-mx-px" 
+      <section class="flex-grow flex-col bg-background justify-center pb-0 pt-0 no-scrollbar overflow-y-hidden overscroll-none scroll-auto scroll-mx-px" 
       >
       <section class="shadow-sm drop-shadow-sm">
         <UserBackButton />
       </section>
-          <div class="user-card bg-[#252525] no-scrollbar overflow-y-clip ">
+          <div class="user-card no-scrollbar overflow-y-clip ">
             <UserCard 
             firstName={employee.firstName}
             lastName={employee.lastName}
