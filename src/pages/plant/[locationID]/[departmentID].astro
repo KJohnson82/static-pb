@@ -52,10 +52,10 @@ if (!department) {
             state: "", // State
             zip: "", // ZIP code
             subtitle2: "Dept. Fax",
-            phone: "(888) 555-5555", // Phone number
-            email: "info@info.com", // Email address
-            subtitle3: "", // Third subtitle
-            phone2: "", // Second phone number
+            phone: `${department.deptPhone}`, // Phone number
+            email: `${department.deptEmail}`, // Email address
+            subtitle3: "Dept. Manager", // Third subtitle
+            phone2: `${department.deptManager}`, // Second phone number
           },
         ]}
       />

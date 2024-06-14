@@ -22,12 +22,12 @@ const { headCard } = Astro.props;
 
 <!-- // Render the head cards -->
 <!-- Render head cards based on provided data -->
-<div class=" bg-gradient-to-tl from-cyan-600 to-sky-800 text-primary-content text-opacity-90 box-content box-decoration-clone grid grid-cols-1 grid-rows-1 w-lvw h-48 ">
+<div class=" bg-gradient-to-tl from-cyan-600 to-sky-800 text-primary-content text-opacity-90 box-decoration-clone grid grid-cols-1 grid-rows-1 w-dvw h-48 ">
   {headCard.map((card) => (
     <!-- Iterate over each card in headCard array and create a div for each card -->
-    <div class=" border-x-[0px] border-y-[0px] border-transparent rounded-md  ">
-        <section class=" h-2/5 flex items-center justify-center text-center text-wrap font-light uppercase text-3xl line-clamp-2 divide-y-[1px] tracking-wide">
-        <h2 class=" px-0.5 pb-[5px] pt-[10px]  " >
+    <div class=" grid grid-cols-1 border-x-[3px] border-y-[3px] border-transparent rounded-md pt-0 pb-0 mb-0   ">
+        <section class=" flex items-center justify-center text-center text-wrap font-light uppercase text-3xl divide-y-[1px] tracking-wide">
+        <h2 class=" my-0  text-center text-wrap font-light uppercase text-3xl divide-y-[1px] pt-4 px-2 py-0 tracking-wide  " >
         {card.title} <!-- Display the card title -->
         </h2>
         </section>
@@ -41,7 +41,27 @@ const { headCard } = Astro.props;
             <p class="text-base/5 ">{card.address} {card.city} {card.state} {card.zip}</p>
           </div>
         </section> */}
-        <!-- Contact section -->
+        <table class=" table-fixed border-collapse">
+        <tbody class=" mt-10">
+          {/* <tr class=" text-base border border-b-2 border-t-0 border-l-0 border-r-0 text-center align-middle py-1.5 border-slate-100 border-opacity-20">
+              <td class=" pt-2 py-1.5 text-center align-middle w-auto " colspan="2" >{card.address} {card.city} {card.state} {card.zip}</td>
+          </tr> */}
+          <tr class=" text-sm border border-b-2 border-t-0 border-l-0 border-r-0 align-middle py-1.5 border-slate-100 border-opacity-20 ">
+            <td class="pe-0 ps-10 py-1.5 border border-b-2 border-r-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide uppercase  border-slate-100 border-opacity-20 border-l-0  ">{card.subtitle3}</td>
+            <td class="ps-2 py-1 text-sm text-left border border-b-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide capitalize  border-slate-100 border-opacity-20 border-l-0   ">{card.phone2}</td>
+          </tr>
+          <tr class=" text-sm">
+            <td class="pe-0 ps-10 py-1 border border-b-2 border-r-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide uppercase  border-slate-100 border-opacity-20 border-l-0 ">{card.subtitle1}</td>
+            <td class="ps-2 py-1 text-left  text-wrap border border-b-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide lowercase border-slate-100 border-opacity-20 border-l-0 " >{card.phone}</td>
+          </tr>
+          <tr class=" text-sm ">
+            <td class=" pe-1 ps-4 py-1 text-center border border-b-0 border-r-0 border-t-0 border-x-0 p-0 m-0 tracking-wide lowercase  border-slate-100 border-opacity-20 border-l-0" colspan="2" >{card.email}</td>
+            {/* <td class=" pe-0 ps-10 py-1 border border-b-0 border-r-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide uppercase  border-slate-100 border-opacity-20 border-l-0" >{card.subtitle3}</td>
+            <td class=" ps-2 py-1 text-left text-sm border border-b-0 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide lowercase border-slate-100 border-opacity-20 border-l-0">{card.phone2}</td> */}
+          </tr>
+        </tbody>
+      </table>
+        {/* <!-- Contact section -->
         <section class="contact-section h-2/5 ">
           <div class="grid grid-cols-2 divide-x-2 divide-slate-100 divide-opacity-20 gap-y-10 py-1.5 ">
         <!-- Column 1 -->
@@ -62,7 +82,7 @@ const { headCard } = Astro.props;
           <div class="  ">
             <div class="text-base font-medium text-center align-middle py-1 ps-2 pe-2 -mt-0 mb-0 uppercase tracking-wide">{card.subtitle3}<span class="font-normal lowercase text-[15px] truncate "> {card.email}</span></div>
       </div>
-        </section>
+        </section> */}
     </div>
   ))}
 </div>

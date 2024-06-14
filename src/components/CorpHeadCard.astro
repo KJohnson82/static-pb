@@ -36,19 +36,19 @@ const { headCard } = Astro.props;
       <!-- Address section -->
       <table class=" table-fixed border-collapse">
         <tbody class=" mt-10">
-          <tr class=" text-base border border-b-2 border-t-0 border-l-0 border-r-0 text-center align-middle py-1.5 border-slate-100 border-opacity-20">
+          <tr class=" text-sm border border-b-2 border-t-0 border-l-0 border-r-0 text-center align-middle py-1.5 border-slate-100 border-opacity-20">
               <td class=" pt-2 py-1.5 text-center align-middle w-auto " colspan="2" >{card.address} {card.city} {card.state} {card.zip}</td>
           </tr>
-          <tr class=" text-base ">
-            <td class="pe-0 ps-10 py-1 border border-b-2 border-r-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide uppercase  border-slate-100 border-opacity-20 border-l-0  ">{card.subtitle1}</td>
-            <td class="ps-2 py-1 text-sm text-left border border-b-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide lowercase  border-slate-100 border-opacity-20 border-l-0   ">{card.phone}</td>
+          <tr class=" text-sm ">
+            <td class="pe-0 ps-10 py-1.5 border align-middle border-b-2 border-r-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide uppercase  border-slate-100 border-opacity-20 border-l-0  ">{card.subtitle1}</td>
+            <td class="ps-2 py-1.5 align-middle text-sm text-left border border-b-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide lowercase  border-slate-100 border-opacity-20 border-l-0   ">{card.phone}</td>
           </tr>
-          <tr class=" text-base">
-            <td class="pe-0 ps-10 py-1 border border-b-2 border-r-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide uppercase  border-slate-100 border-opacity-20 border-l-0 ">{card.subtitle2}</td>
-            <td class="ps-2 py-1 text-left text-[13px] border border-b-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide lowercase border-slate-100 border-opacity-20 border-l-0 " >{card.email}</td>
+          <tr class=" text-sm">
+            <td class="pe-0 ps-10 py-1.5 align-middle border border-b-2 border-r-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide uppercase  border-slate-100 border-opacity-20 border-l-0 ">{card.subtitle2}</td>
+            <td class="ps-2 py-1.5 text-left align-middle text-[13px] border border-b-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide lowercase border-slate-100 border-opacity-20 border-l-0 " >{card.email}</td>
           </tr>
-          <tr class=" text-base ">
-            <td class=" pe-1 ps-4 py-1 text-center border border-b-0 border-r-0 border-t-0 border-x-0 p-0 m-0 tracking-wide uppercase  border-slate-100 border-opacity-20 border-l-0" colspan="2" >{card.subtitle3} - {card.phone2}</td>
+          <tr class=" text-sm ">
+            <td class=" pe-1 ps-4 py-2.5 text-center align-middle border border-b-0 border-r-0 border-t-0 border-x-0 p-0 m-0 tracking-wide uppercase  border-slate-100 border-opacity-20 border-l-0" colspan="2" >{card.subtitle3} - {card.phone2}</td>
             {/* <td class=" pe-0 ps-10 py-1 border border-b-0 border-r-2 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide uppercase  border-slate-100 border-opacity-20 border-l-0" >{card.subtitle3}</td>
             <td class=" ps-2 py-1 text-left text-sm border border-b-0 border-t-0 border-x-0 w-1/2 p-0 m-0 tracking-wide lowercase border-slate-100 border-opacity-20 border-l-0">{card.phone2}</td> */}
           </tr>

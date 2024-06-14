@@ -11,20 +11,17 @@
           "state": "LA",
           "zipcode": 71111,
           "phoneNumber": "318-747-8000",
-          "faxNumber": "",
+          "faxNumber": null,
           "email": "info@mcelroymetal.com",
           "hours": "M-F 8-5",
           "locType": 1,
-          "areaManager": " ",
-          "storeManager": "",
+          "areaManager": null,
+          "storeManager": null,
           "departments": [
             {
               "id": 3,
               "deptName": "Accounts Payable",
               "location": 1,
-              "deptManager": "Amy Malone",
-              "deptPhone": "",
-              "deptEmail": "corporateap@mcelroymetal.com",
               "employees": [
                 {
                   "id": 2,
@@ -45,54 +42,26 @@
               "id": 5,
               "deptName": "Accounts Receivable",
               "location": 1,
-              "deptManager": "",
-              "deptPhone": "",
-              "deptEmail": "",
               "employees": []
             },
-            {
-              "id": 1,
-              "deptName": "Admin",
-              "location": 1,
-              "deptManager": "",
-              "deptPhone": "",
-              "deptEmail": "",
-              "employees": []
-            },
+            { "id": 1, "deptName": "Admin", "location": 1, "employees": [] },
             {
               "id": 12,
               "deptName": "Area Managers - MM ",
               "location": 1,
-              "deptManager": "",
-              "deptPhone": "",
-              "deptEmail": "",
               "employees": []
             },
             {
               "id": 13,
               "deptName": "Area Managers - SC",
               "location": 1,
-              "deptManager": "",
-              "deptPhone": "",
-              "deptEmail": "",
               "employees": []
             },
-            {
-              "id": 8,
-              "deptName": "Credit",
-              "location": 1,
-              "deptManager": "",
-              "deptPhone": "",
-              "deptEmail": "",
-              "employees": []
-            },
+            { "id": 8, "deptName": "Credit", "location": 1, "employees": [] },
             {
               "id": 2,
               "deptName": "IT Dept",
               "location": 1,
-              "deptManager": "Howell Hicks",
-              "deptPhone": "866-634-5111",
-              "deptEmail": "i.t.dept@mcelroymetal.com",
               "employees": [
                 {
                   "id": 10,
@@ -192,7 +161,7 @@
                   "jobTitle": "IT Support Tech",
                   "isManager": 0,
                   "phoneNumber": "318-747-8005",
-                  "cellNumber": "",
+                  "cellNumber": "5",
                   "extension": "8005",
                   "email": "kmjohnson@mcelroymetal.com",
                   "location": 1,
@@ -1507,25 +1476,19 @@
           "email": "customerservicebossier@mcelroymetal.com",
           "hours": "M-F 8-5",
           "locType": 4,
-          "areaManager": "",
-          "storeManager": "",
+          "areaManager": null,
+          "storeManager": null,
           "departments": [
             {
               "id": 4,
               "deptName": "Accounts Payable",
               "location": 2,
-              "deptManager": "",
-              "deptPhone": "",
-              "deptEmail": "",
               "employees": []
             },
             {
               "id": 15,
               "deptName": "Customer Service",
               "location": 2,
-              "deptManager": "",
-              "deptPhone": "",
-              "deptEmail": "",
               "employees": [
                 {
                   "id": 17,
@@ -1546,18 +1509,12 @@
               "id": 7,
               "deptName": "Purchasing",
               "location": 2,
-              "deptManager": "",
-              "deptPhone": "",
-              "deptEmail": "",
               "employees": []
             },
             {
               "id": 6,
               "deptName": "Retail Customer Service",
               "location": 2,
-              "deptManager": "LaShonda Hamilton",
-              "deptPhone": "318-747-8000",
-              "deptEmail": "retailcs@mcelroymetal.com",
               "employees": [
                 {
                   "id": 4,
@@ -1602,16 +1559,13 @@
           "email": "clintondiv@mcelroymetal.com",
           "hours": "M-F 8-5",
           "locType": 4,
-          "areaManager": "",
-          "storeManager": "",
+          "areaManager": null,
+          "storeManager": null,
           "departments": [
             {
               "id": 9,
               "deptName": "Admin",
               "location": 3,
-              "deptManager": "",
-              "deptPhone": "",
-              "deptEmail": "",
               "employees": [
                 {
                   "id": 3,
@@ -1632,18 +1586,12 @@
               "id": 10,
               "deptName": "Retail Customer Service",
               "location": 3,
-              "deptManager": "",
-              "deptPhone": "",
-              "deptEmail": "",
               "employees": []
             },
             {
               "id": 11,
               "deptName": "Traffic",
               "location": 3,
-              "deptManager": "",
-              "deptPhone": "",
-              "deptEmail": "",
               "employees": [
                 {
                   "id": 6,
@@ -1675,8 +1623,8 @@
           "email": "peachtreediv@mcelroymetal.com",
           "hours": "M-F 8-5",
           "locType": 4,
-          "areaManager": "",
-          "storeManager": "",
+          "areaManager": null,
+          "storeManager": null,
           "departments": []
         },
         {
@@ -1692,8 +1640,8 @@
           "email": "marshalldiv@mcelroymetal.com",
           "hours": "M-F 8-5 ",
           "locType": 4,
-          "areaManager": "",
-          "storeManager": "",
+          "areaManager": null,
+          "storeManager": null,
           "departments": []
         },
         {
@@ -1709,8 +1657,8 @@
           "email": "winchesterdiv@mcelroymetal.com",
           "hours": "M-F 8-5",
           "locType": 4,
-          "areaManager": "",
-          "storeManager": "",
+          "areaManager": null,
+          "storeManager": null,
           "departments": []
         },
         {
@@ -1726,15 +1674,15 @@
           "email": "adelantodiv@mcelroymetal.com",
           "hours": "M-F 8-5",
           "locType": 4,
-          "areaManager": "",
-          "storeManager": "",
+          "areaManager": null,
+          "storeManager": null,
           "departments": []
         },
         {
           "id": 8,
           "locName": "Lewisport Plant",
           "locNum": 107,
-          "address": "9435 US Highway 60 West",
+          "address": "9435 US Highway 60 W",
           "city": "Lewisport",
           "state": "KY",
           "zipcode": 42351,
@@ -1743,8 +1691,8 @@
           "email": "lewisportdiv@mcelroymetal.com",
           "hours": "M-F 8-5",
           "locType": 4,
-          "areaManager": "",
-          "storeManager": "",
+          "areaManager": null,
+          "storeManager": null,
           "departments": []
         },
         {
@@ -1760,8 +1708,8 @@
           "email": "merkel@mcelroymetal.com",
           "hours": "M-F 8-5",
           "locType": 4,
-          "areaManager": "",
-          "storeManager": "",
+          "areaManager": null,
+          "storeManager": null,
           "departments": []
         },
         {
@@ -1777,8 +1725,8 @@
           "email": "maustondiv@mcelroymetal.com",
           "hours": "M-F 8-5",
           "locType": 4,
-          "areaManager": "",
-          "storeManager": "",
+          "areaManager": null,
+          "storeManager": null,
           "departments": []
         },
         {
@@ -1794,8 +1742,8 @@
           "email": "ashburndivision@mcelroymetal.com",
           "hours": "M-F 8-5",
           "locType": 4,
-          "areaManager": "",
-          "storeManager": "",
+          "areaManager": null,
+          "storeManager": null,
           "departments": []
         },
         {
@@ -1811,8 +1759,8 @@
           "email": "sunnyvaledivision@mcelroymetal.com",
           "hours": "M-F 8-5",
           "locType": 4,
-          "areaManager": "",
-          "storeManager": "",
+          "areaManager": null,
+          "storeManager": null,
           "departments": []
         },
         {
@@ -1828,8 +1776,8 @@
           "email": "houstondivision@mcelroymetal.com",
           "hours": "M-F 8-5",
           "locType": 4,
-          "areaManager": "",
-          "storeManager": "",
+          "areaManager": null,
+          "storeManager": null,
           "departments": []
         },
         {
@@ -1845,8 +1793,8 @@
           "email": "diamonddivision@mcelroymetal.com",
           "hours": "M-F 8-5",
           "locType": 4,
-          "areaManager": "",
-          "storeManager": "",
+          "areaManager": null,
+          "storeManager": null,
           "departments": []
         },
         {
@@ -1862,8 +1810,8 @@
           "email": "lockhartdivision@mcelroymetal.com",
           "hours": "M-F 8-5",
           "locType": 4,
-          "areaManager": "",
-          "storeManager": "",
+          "areaManager": null,
+          "storeManager": null,
           "departments": []
         }
       ]

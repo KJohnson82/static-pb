@@ -36,15 +36,15 @@ if (!department) {
           {
             title: `${department.deptName}`, // Title of the card
             subtitle1: "Dept. Phone",
-            address: "555 Generic Road,", // Address line
-            city: "Central City", // City
-            state: "WS", // State
-            zip: "77777", // ZIP code
-            subtitle2: "Dept. Fax",
-            phone: "(888) 555-5555", // Phone number
-            email: "info@info.com", // Email address
-            subtitle3: " ", // Third subtitle
-            phone2: "(866) 634-5111", // Second phone number
+            address: "", // Address line
+            city: "", // City
+            state: "", // State
+            zip: "", // ZIP code
+            subtitle2: "Dept. Email",
+            phone: `${department.deptPhone}`, // Phone number
+            email: `${department.deptEmail}`, // Email address
+            subtitle3: "Dept. Manager ", // Third subtitle
+            phone2: `${department.deptManager}`, // Second phone number
           },
         ]}
       />
