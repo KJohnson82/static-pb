@@ -1,4 +1,6 @@
 ---
+
+
 // Define the type for the component's props
 type UserProps = {
   firstName: string;
@@ -27,9 +29,9 @@ const userName = `${firstName} ${lastName}`;
 >
   <div
     data-pagefind-body
-    class="user-card mx-auto min-h-[28.5rem] max-h-[29.5rem] w-[21.5rem] m-0 mt-0 rounded-none shadow-md"
+    class="user-card mx-auto m-0 mt-0 rounded-none   "
   >
-    <section class="px-1 py-0">
+    <section class="px-1 pt-1 ">
       <div id="name-title">
         {
           userName !== "" ? (
@@ -53,7 +55,7 @@ const userName = `${firstName} ${lastName}`;
       </div>
     </section>
     <!-- {/* Conditionally render user name and job title */} -->
-    <div class="divider divider-secondary box-decoration-slice m-0 mt-0"></div>
+    <div class="divider w-auto divider-secondary box-decoration-slice m-0 mt-0"></div>
     <section class="mt-3">
       {
         cellNumber !== "" || null ? (

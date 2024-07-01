@@ -56,13 +56,13 @@ body {
   --pagefind-ui-border-width: 2px;
 }
 
-.white {
+/* .white {
   color: #f9f6ee;
 }
 .gray {
   color: #cecece;
 }
-.black {
+.background {
   color: #222222;
 }
 .secondary {
@@ -73,7 +73,7 @@ body {
 }
 .primary {
   color: #075985;
-}
+} */
 
 
 @font-face {
