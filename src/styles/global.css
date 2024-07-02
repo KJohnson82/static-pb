@@ -15,8 +15,10 @@
 }
 
 :root {
+  border-radius: 12px;
+
   /* Theme Colors */
-  
+
   .textlite {
     color: #f9f6ee;
   }
@@ -38,7 +40,6 @@
   .primary {
     color: #075985;
   }
-
 }
 
 body {
@@ -74,7 +75,6 @@ body {
 .primary {
   color: #075985;
 } */
-
 
 @font-face {
   font-family: Rubik;
@@ -187,3 +187,11 @@ body {
   font-style: italic;
   font-display: auto;
 }
+
+/* I'm putting this in here toe increase my file size so that it is over 4kb so that astro links my css file
+and does not leave it out. This is rediculous but I have no other choice. Next is some random text to increase the file size 
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel pretium lectus quam id leo in vitae. Mi quis hendrerit dolor magna eget est lorem ipsum dolor. Ipsum suspendisse ultrices gravida dictum fusce ut placerat orci. Faucibus in ornare quam viverra orci. Diam sollicitudin tempor id eu nisl nunc mi. Tempus imperdiet nulla malesuada pellentesque elit eget gravida cum. Bibendum arcu vitae elementum curabitur vitae nunc sed velit dignissim. Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor. Enim facilisis gravida neque convallis a cras semper auctor. At erat pellentesque adipiscing commodo elit. Enim diam vulputate ut pharetra sit amet aliquam id. Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet consectetur. Morbi tristique senectus et netus et malesuada. Egestas tellus rutrum tellus pellentesque eu.
+
+
+*/
