@@ -9,7 +9,8 @@ import NavBar from "../components/NavBar.astro";
 
 import { Icon } from "astro-icon/components";
 
-const departments = Data.loctype.corporate.locations[0].departments;
+// const departments = Data.loctype.corporate.locations[0].departments;
+const departments = Data.loctype.corporate?.locations[0]?.Departments;
 ---
 
 <!-- // Render the main layout, setting the title for the page -->

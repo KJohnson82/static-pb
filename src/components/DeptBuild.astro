@@ -3,40 +3,40 @@ import User from "./UserBuild.astro";
 
 // Define the type for the component's props
 export type Props = {
-  Deptartments: {
-    id: number;
-    deptName: string;
-    location: number;
-    employees: {
-      id: number;
-      firstName: string;
-      lastName: string;
-      jobTitle: string;
-      isManager: number;
-      phoneNumber: string;
-      cellNumber?: string;
-      extension?: string;
-      email: string;
-      location: number;
-      department: number;
+  Departments: {
+    DeptId: number;
+    DeptName: string;
+    Location: number;
+    Employees: {
+      EmpId: number;
+      FirstName: string;
+      LastName: string;
+      JobTitle: string;
+      IsManager: number;
+      PhoneNumber: string;
+      CellNumber?: string;
+      Extension?: string;
+      Email: string;
+      LocationId: number;
+      DepartmentId: number;
     }[];
   };
 };
 
 // Extract the DeptEmps data from props
-const { Deptartments } = Astro.props;
+const { Departments } = Astro.props;
 ---
 
 <!-- Render a list of departments --><!-- Render the details for a single department and list its employees -->
 <div class="department-details">
   <div class="text-xl font-medium mb-4 uppercase text-primary-content tracking-wide">
-    {Deptartments.deptName}
+    {Departments.DeptName}
   </div>
   <ul class="employee-list space-y-2">
     {
-      Deptartments.employees.map((employee) => (
+      Departments.Employees.map((employee) => (
         <h3>
-          <User employees={Deptartments.employees} />
+          <User employees={Departments.Employees} />
         </h3>
       ))
     }

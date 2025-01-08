@@ -2,19 +2,19 @@
 // Properties of each service center
 export type Props = {
   servicecenters: {
-    id: number;
-    locName: string;
-    locNum: number;
-    address: string;
-    city: string;
-    state: string;
-    zipcode?: number;
-    phoneNumber: string;
-    faxNumber: string;
-    email: string;
-    hours: string;
-    storeManager: string;
-    areaManager: string;
+    LocId: number;
+    LocName: string;
+    LocNum: number;
+    Address: string;
+    City: string;
+    State: string;
+    Zipcode?: string;
+    PhoneNumber: string;
+    FaxNumber: string;
+    LocEmail: string;
+    Hours: string;
+    StoreManager: string;
+    AreaManager: string;
   }[];
 };
 
@@ -27,10 +27,10 @@ const { servicecenters } = Astro.props;
     <!-- List item for each service center -->
     <li class="relative rounded-md shadow-md my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 ">
       <!-- Direct link to the service center page -->
-      <a href={`/servicecenter/${servicecenter.id}`} class="block px-4 py-4 text-primary-content rounded-lg hover:bg-neutral-content hover:rounded-md hover:border-transparent hover:text-primary-content transition-colors">
+      <a href={`/servicecenter/${servicecenter.LocId}`} class="block px-4 py-4 text-primary-content rounded-lg hover:bg-neutral-content hover:rounded-md hover:border-transparent hover:text-primary-content transition-colors">
         <div class="flex items-center justify-between">
           <div class="text-xl uppercase font-medium tracking-wide text-secondary-content">
-            {servicecenter.locName}
+            {servicecenter.LocName}
           </div>
           <span class="text-sm font-semibold text-gray-500">
            <!-- Store Card Possibly Goes Here -->

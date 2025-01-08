@@ -12,7 +12,7 @@ export async function getStaticPaths() {
   // Access departments from the imported Data
   const stores = Data.loctype["metal mart"].locations;
   const paths = stores.flatMap((store) => ({
-    params: { storeID: store.id.toString() },
+    params: { storeID: store.LocId.toString() },
   }));
   return paths;
 }
@@ -22,7 +22,7 @@ const { storeID } = Astro.params;
 
 // Assuming your stores data is located similarly to your employees
 const store = Data.loctype["metal mart"].locations.find(
-  (store) => store.id.toString() === storeID
+  (store) => store.LocId.toString() === storeID
 );
 
 if (!store) {
@@ -31,26 +31,26 @@ if (!store) {
 }
 ---
 
-<Main title={`${store.locName} | Metal Marts`} transition:animate="none">
+<Main title={`${store.LocName} | Metal Marts`} transition:animate="none">
   <div class="flex flex-col h-screen">
     <section class="">
       <StoreHeadCard
         storeHeadCard={[
           {
-            title: store.locName,
+            title: store.LocName,
             subtitle1: `Store Manager`,
             subtitle2: "Area Manager",
             subtitle3: "",
-            address: store.address,
-            city: store.city,
-            state: store.state,
-            zip: store.zipcode.toString(),
+            address: store.Address,
+            city: store.City,
+            state: store.State,
+            zip: store.Zipcode.toString(),
             phone: "",
-            email: store.email,
+            email: store.LocEmail,
             phone2: "",
             phone3: "",
-            storeManager: store.storeManager,
-            areaManager: store.areaManager,
+            storeManager: store.StoreManager,
+            areaManager: store.AreaManager,
           },
         ]}
       />
@@ -65,16 +65,16 @@ if (!store) {
       <!-- Render the store card with relevant information -->
       <div class="store-card ">
         <StoreCard
-          locName={store.locName}
-          locNum={store.locNum}
-          hours={store.hours}
-          phoneNumber={store.phoneNumber}
-          faxNumber={store.faxNumber}
-          email={store.email}
-          address={store.address}
-          city={store.city}
-          state={store.state}
-          zipcode={store.zipcode}
+          locName={store.LocName}
+          locNum={store.LocNum}
+          hours={store.Hours}
+          phoneNumber={store.PhoneNumber}
+          faxNumber={store.FaxNumber}
+          email={store.LocEmail}
+          address={store.Address}
+          city={store.City}
+          state={store.State}
+          zipcode={store.Zipcode}
           data-pagefind-index="locName, locNum, phoneNumber, email, city"
         />
       </div>

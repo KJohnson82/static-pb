@@ -8,40 +8,49 @@ import UserBackButton from "../../../components/UserBackButton.astro";
 import Data from "../../../data/Data.json";
 
 // Access departments directly based on your JSON structure
-const departments = Data.loctype.corporate.locations[0].departments;
+const departments = Data.loctype.corporate.locations.flatMap(
+  (location) => location.Departments
+);
+const employees = Data.loctype.corporate.locations.flatMap(
+  (location) => location.Departments
+).flatMap((department) => department.Employees);
+
 export async function getStaticPaths() {
   // Access departments from the imported Data
-  const departments = Data.loctype.corporate.locations[0].departments;
-  const paths = departments.flatMap((department) =>
-    department.employees.map((employee) => ({
-      params: {
-        departmentID: department.id.toString(),
-        employeeID: employee.id.toString(),
-      },
-    }))
+  const departments = Data.loctype.corporate.locations.flatMap(
+    (location) => location.Departments
   );
+
+  const employees = departments.flatMap((department) => department.Employees);
+  const paths = employees.map((employee) => ({
+    params: {
+      departmentID: employee.DepartmentId.toString(),
+      employeeID: employee.EmpId.toString(),
+    },
+  }));
+
   return paths;
 }
 const { departmentID, employeeID } = Astro.params;
 const department = departments.find(
-  (dept) => dept.id.toString() === departmentID
+  (dept) => dept.DeptId.toString() === departmentID
 );
-const employee = department?.employees.find(
-  (emp) => emp.id.toString() === employeeID
+const employee = department?.Employees.find(
+  (emp) => emp.EmpId.toString() === employeeID
 );
 if (!employee) {
   return Astro.redirect("/404");
 }
 ---
 
-<Main title={employee.firstName + employee.lastName} transition:animate="none">
+<Main title={employee.FirstName + employee.LastName} transition:animate="none">
   <div class="flex flex-col h-screen">
     <section class="">
       <!-- {/* Render the corporate header card with relevant information */} -->
       <EmployeeHeadCard
         headCard={[
           {
-            title: `${department.deptName}`, // Title of the card
+            title: `${department.DeptName}`, // Title of the card
             subtitle1: "",
             address: "", // Address line
             city: "", // City
@@ -65,14 +74,14 @@ if (!employee) {
     </section>
     <div class="user-card ">
       <UserCard
-        firstName={employee.firstName}
-        lastName={employee.lastName}
-        jobTitle={employee.jobTitle}
-        email={employee.email}
-        phoneNumber={employee.phoneNumber}
-        extension={employee.extension}
-        cellNumber={employee.cellNumber}
-        data-pagefind-index="firstName, lastName, email, phoneNumber"
+        FirstName={employee.FirstName}
+        LastName={employee.LastName}
+        JobTitle={employee.JobTitle}
+        Email={employee.Email}
+        PhoneNumber={employee.PhoneNumber}
+        Extension={employee.Extension}
+        CellNumber={employee.CellNumber}
+        data-pagefind-index="FirstName, LastName, Email, PhoneNumber"
       />
     </div>
   </section>

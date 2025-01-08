@@ -1,0 +1,148 @@
+---
+import { ViewTransitions, fade } from "astro:transitions"; // Importing ViewTransitions for page transition effects
+import "../styles/global.css"; // Importing global CSS styles
+import TitleBar from "../components/TitleBar.astro";
+
+const anim = {
+  old: {
+    name: "fadeIn",
+    duration: "0.2s",
+    easing: "",
+    fillMode: "forwards",
+  },
+  new: {
+    name: "fadeOut",
+    duration: "0.2s",
+    easing: "linear",
+    fillMode: "backwards",
+  },
+};
+
+const custFade = {
+  forwards: anim,
+  backwards: anim,
+};
+
+type Props = {
+  title: string; // Prop for the page title
+};
+
+// Extracting the title from Astro's props
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-theme="mcapp">
+  <head>
+    <!-- Links to stylesheets, fonts, and other head elements -->
+    <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+    <link rel="stylesheet" href="src/styles/global.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA:Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="McElroy Employee Directory" />
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+    <script src="/pagefind/pagefind-ui.js" type="text/javascript"></script>
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <div class="wrap" id="wrap">
+      <!-- Main content area -->
+      <main
+        class="my-0 py-0 px-0 mx-0 box-border= w-lvw h-lvh text-primary-content"
+        transition:animate={custFade}
+      >
+        <div class="pb-6 box-decoration-clone">
+          <TitleBar title={title} />
+        </div>
+        <slot />
+        <!-- Slot for inserting child content -->
+      </main>
+    </div>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+    </style>
+  </body>
+  <script>
+    import { appWindow, getCurrent, currentMonitor, LogicalSize } from "@tauri-apps/api/window";
+
+    async function adjustWindowSize() {
+        try {
+            const monitor = await currentMonitor();
+            if (!monitor) {
+                console.error("No monitor found");
+                return;
+            }
+
+            const physicalSize = await getCurrent().innerSize();
+            const scaleFactor = monitor.scaleFactor;
+            const logicalSize = physicalSize.toLogical(scaleFactor);
+
+            // Set the minimum and maximum dimensions
+            const minWidth = 350;
+            const minHeight = 800;
+            const maxWidth = 400;
+            const maxHeight = 900;
+
+            // Ensure the window is resizable before changing its size
+            appWindow.setResizable(true);
+
+            // Apply constraints to logical size
+            const constrainedWidth = Math.min(Math.max(logicalSize.width, minWidth), maxWidth);
+            const constrainedHeight = Math.min(Math.max(logicalSize.height, minHeight), maxHeight);
+
+            // Set the window size within the constraints
+            appWindow.setSize(new LogicalSize(constrainedWidth, constrainedHeight));
+
+            // Set the window back to non-resizable if needed
+            appWindow.setResizable(false);
+        } catch (error) {
+            console.error("Error adjusting window size:", error);
+        }
+    }
+
+    appWindow.listen("tauri://window/move", adjustWindowSize);
+
+    // Titlebar menu IMPORTANT
+    document.addEventListener("click", function (event) {
+        if (!(event.target instanceof Element)) return;
+
+        if (event.target.closest("#titlebar-minimize")) {
+            appWindow.minimize();
+        } else if (event.target.closest("#titlebar-close")) {
+            appWindow.close();
+        }
+        // Handle other buttons as needed
+    });
+
+    // Disable middle mouse button
+    document.onauxclick = (e) => {
+        e.preventDefault();
+    };
+
+    // Disable right click menu
+    document.oncontextmenu = (e) => {
+        e.preventDefault();
+    };
+</script>
+
+
+</html>

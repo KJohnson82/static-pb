@@ -9,10 +9,10 @@ export async function getStaticPaths() {
   const location = Data.loctype.plant.locations;
   const paths = location.map((location) => ({
     params: {
-      locationID: location.id.toString(),
+      locationID: location.LocId.toString(),
     },
     props: {
-      departments: location.departments,
+      departments: location.Departments,
     },
   }));
   return paths;
@@ -22,30 +22,30 @@ const { locationID } = Astro.params;
 const { departments } = Astro.props;
 const locations = Data.loctype.plant.locations;
 const location = locations.find(
-  (loc) => loc.id.toString() === locationID.toString()
+  (loc) => loc.LocId.toString() === locationID.toString()
 );
 if (!location) {
   return Astro.redirect("/404");
 }
 ---
 
-<Main title={location.locName}>
+<Main title={location.LocName}>
   <div class="flex flex-col h-screen">
     <section class="">
       <PlantHeadCard
         headCard={[
           {
-            title: `${location.locName}`, // Title of the card
+            title: `${location.LocName}`, // Title of the card
             subtitle1: "Plant Phone",
-            address: `${location.address},`, // Address line
-            city: `${location.city}`, // City
-            state: `${location.state}`, // State
-            zip: `${location.zipcode}`, // ZIP code
+            address: `${location.Address},`, // Address line
+            city: `${location.City}`, // City
+            state: `${location.State}`, // State
+            zip: `${location.Zipcode}`, // ZIP code
             subtitle2: "Plant Fax",
-            phone: `${location.phoneNumber}`, // Phone number
-            email: `${location.email}`, // Email address
+            phone: `${location.PhoneNumber}`, // Phone number
+            email: `${location.LocEmail}`, // Email address
             subtitle3: "", // Third subtitle
-            phone2: `${location.faxNumber}`, // Second phone number
+            phone2: `${location.FaxNumber}`, // Second phone number
           },
         ]}
       />
@@ -62,14 +62,14 @@ if (!location) {
       >
         <ul class="mt-4 ms-0.5">
           {
-            location.departments.map((department) => (
+            location.Departments.map((department) => (
               <li class="relative bg-secondary rounded-md shadow-md my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 ">
                 <a
-                  href={`/plant/${locationID}/${department.id}`}
+                  href={`/plant/${locationID}/${department.DeptId}`}
                   class="block px-4 py-4 text-primary-content hover:bg-neutral-content rounded-lg hover:rounded-md hover:border-transparent hover:text-primary-content transition-colors"
                 >
                   <div class=" text-xl uppercase font-medium tracking-wide text-primary-content">
-                    {department.deptName}
+                    {department.DeptName}
                   </div>
                 </a>
               </li>

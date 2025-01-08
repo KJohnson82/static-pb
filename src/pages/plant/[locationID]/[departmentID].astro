@@ -11,16 +11,16 @@ import PlantHeadCard from '../../../components/PlantHeadCard.astro';
 export async function getStaticPaths() {
     // Assuming 'Data' has a structure where each location has multiple departments
     const locations = Data.loctype.plant.locations;
-    const departments = locations.flatMap(location => location.departments);
+    const departments = locations.flatMap(location => location.Departments);
     // Flatten the nested structure and create an array of path objects
     const paths = locations.flatMap(location =>
-        location.departments.map(department => ({
+        location.Departments.map(department => ({
             params: {
-                locationID: location.id.toString(),
-                departmentID: department.id.toString(),
+                locationID: location.LocId.toString(),
+                departmentID: department.DeptId.toString(),
             },
             props: {
-                employees: department.employees,
+                employees: department.Employees,
             },
         }))
     );
@@ -31,31 +31,31 @@ export async function getStaticPaths() {
 
 const { departmentID, locationID, } = Astro.params;
 const { employees } = Astro.props;
-const departments= Data.loctype.plant.locations.flatMap(locations => locations.departments);
-const department = departments.find(dept => dept.id.toString() === departmentID.toString());
+const departments= Data.loctype.plant.locations.flatMap(locations => locations.Departments);
+const department = departments.find(dept => dept.DeptId.toString() === departmentID.toString());
 if (!department) {
   return Astro.redirect('/404');
 }
 ---
 
-<Main title={department.deptName}>
+<Main title={department.DeptName}>
   <div class="flex flex-col h-screen">
     <section class="  ">
       <!-- {/* Render the corporate header card with relevant information */} -->
       <DeptHeadCard 
         headCard={[
           {
-            title: `${department.deptName}`, // Title of the card
+            title: `${department.DeptName}`, // Title of the card
             subtitle1: "Dept. Phone",
             address: "", // Address line
             city: "", // City
             state: "", // State
             zip: "", // ZIP code
             subtitle2: "Dept. Fax",
-            phone: `${department.deptPhone}`, // Phone number
-            email: `${department.deptEmail}`, // Email address
+            phone: `${department.DeptPhone}`, // Phone number
+            email: `${department.DeptEmail}`, // Email address
             subtitle3: "Dept. Manager", // Third subtitle
-            phone2: `${department.deptManager}`, // Second phone number
+            phone2: `${department.DeptManager}`, // Second phone number
           },
         ]}
       />
@@ -69,7 +69,7 @@ if (!department) {
       </section>
     <div class=" ps-2 py-1 pe-2 border-4 border-transparent overflow-y-auto no-scrollbar">
       <ul class="mt-4 ms-0.5">
-        {department.employees.map(employee => (
+        {department.Employees.map((employee) => (
           // <li  class="relative bg-secondary rounded-md text-nowrap  shadow-md  my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 ">
           //   <a href={`/plant/${locationID}/${departmentID}/${employee.id}`} class="block px-4 truncate hover:bg-[#0d9488] py-4 text-primary-content rounded-lg hover:rounded-md hover:border-transparent hover:text-primary-content transition-colors"  >
           //     <div class=" hover-trigger items-center place-items-center text-base font-medium tracking-wider text-primary-content mb-0.5 -px-4 p-0 capitalize align-middle" >
@@ -80,16 +80,16 @@ if (!department) {
           //   </a>
           // </li>
           <li class="relative bg-secondary rounded-md shadow-md my-2 py-0 mx-0 transition ease-in duration-150 transform hover:-translate-y-1 hover:scale-100 " >
-            <a href={`/plant/${locationID}/${departmentID}/${employee.id}`} class="block px-4 leading-tight overflow-hidden hover:bg-neutral-content py-2 text-primary-content rounded-lg hover:rounded-md hover:border-transparent hover:text-primary-content transition-colors" >
+            <a href={`/plant/${locationID}/${departmentID}/${employee.EmpId}`} class="block px-4 leading-tight overflow-hidden hover:bg-neutral-content py-2 text-primary-content rounded-lg hover:rounded-md hover:border-transparent hover:text-primary-content transition-colors" >
               <div class=" hover-trigger line-clamp-1 items-center place-items-center text-lg text-nowrap overflow-visible font-medium tracking-wider text-primary-content mb-0 -px-4 p-0 capitalize  " >
                   <!-- Places a star beside employees who are managers -->
               
-              {employee.firstName + " " + employee.lastName } 
-              {employee.isManager === 1 ? <Icon name="star" class="inline-block text-accent pe-2 h-6 w-auto"/> : ""} 
+              {employee.FirstName + " " + employee.LastName } 
+              {employee.IsManager === true ? <Icon name="star" class="inline-block text-accent pe-2 h-6 w-auto"/> : ""} 
 
                 </div>
                 <div class=" hover-trigger text-accent font-normal items-center place-items-center text-nowrap overflow-visible tracking-wider line-clamp-1">
-                  {employee.jobTitle}
+                  {employee.JobTitle}
                 </div>
             </a>
           </li>
